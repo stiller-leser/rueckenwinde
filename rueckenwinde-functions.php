@@ -40,7 +40,9 @@ function rueckenwinde_style() {
             #primary-menu a,
             .site-description, 
             span.footer-info-right a, 
-            .footer-menu li a {
+            .footer-menu li a,
+            .footer-widgets-container h4,
+            .footer-widgets-container a {
                 color: <?php echo esc_attr(get_theme_mod( 'navigation_link_color' )); ?>;
             }
 
@@ -106,22 +108,22 @@ function rueckenwinde_add_sections( $wp_customize ) {
         'settings'          => 'rueckenwinde_paragliding_header_image_setting',    
     )));
 
-    // Traveling section
-    $wp_customize->add_section( 'rueckenwinde_traveling_section' , array(
-        'title'      => __( 'Traveling' , 'rueckenwinde' ),
+    // Reisen section
+    $wp_customize->add_section( 'rueckenwinde_reisen_section' , array(
+        'title'      => __( 'Reisen' , 'rueckenwinde' ),
         'priority'   => 30
     ) );
 
-    // Traveling Header Image
-    $wp_customize->add_setting('rueckenwinde_traveling_header_image_setting', array(
+    // Reisen Header Image
+    $wp_customize->add_setting('rueckenwinde_reisen_header_image_setting', array(
         'transport'         => 'refresh',
         'height'         => 325,
     ));
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_traveling_header_image_control', array(
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_reisen_header_image_control', array(
         'label'             => __('Header Image', 'rueckenwinde'),
-        'section'           => 'rueckenwinde_traveling_section',
-        'settings'          => 'rueckenwinde_traveling_header_image_setting',    
+        'section'           => 'rueckenwinde_reisen_section',
+        'settings'          => 'rueckenwinde_reisen_header_image_setting',    
     )));
 }
 
@@ -264,7 +266,7 @@ add_filter( 'template_include', 'rueckenwinde_template_include', 11 );
 function namespace_add_custom_types( $query ) {
     if( (is_category() || is_tag()) && $query->is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
         $query->set( 'post_type', array(
-            'post', 'paragliding', 'traveling'
+            'post', 'paragliding', 'reisen'
         ));
     }
 }
@@ -272,4 +274,4 @@ add_action( 'pre_get_posts', 'namespace_add_custom_types' );
   
 register_nav_menu( 'frontpage', __( 'Frontpage Navigation', 'rueckenwinde' ) );
 register_nav_menu( 'paragliding', __( 'Paragliding Navigation', 'rueckenwinde' ) );
-register_nav_menu( 'traveling', __( 'Traveling Navigation', 'rueckenwinde' ) );
+register_nav_menu( 'reisen', __( 'Reisen Navigation', 'rueckenwinde' ) );

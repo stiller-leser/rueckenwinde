@@ -34,7 +34,8 @@ endif;
 </head>
 
 <body <?php body_class(); ?>>
-	<section class="navigation-wrapper">		
+	<section class="navigation-wrapper">	
+		<div class="glass"></div>	
 		<div class="site grid-container">
 			<header id="masthead" class="site-header grid-x grid-padding-x">
 				<div class="site-branding large-4 medium-10 small-9 cell">
@@ -62,6 +63,6 @@ endif;
 		endif;
     ?>
 
-	<div id="page" class="site grid-container start-container-head">
+	<section id="page" class="site grid-container start-container-head">
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'writers-blogily' ); ?></a>
 		<div id="content" class="site-content grid-x grid-padding-x">

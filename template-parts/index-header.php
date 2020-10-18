@@ -28,12 +28,12 @@
 			</div>
 		</section>
 		<section class="master-box">
-			<a href="/traveling" class="master">
+			<a href="/reisen" class="master">
 				<div class="icon">
 					<i class="fas fa-passport"></i>
 				</div>
 				<div class="content">	
-					<h4>Traveling</h4>
+					<h4>Reisen</h4>
 					<p>Always on the road</p>
 				</div>
 			</a>

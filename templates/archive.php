@@ -10,7 +10,9 @@
 $object = get_queried_object();
 $slug = 'homepage';
 if( is_null($object->slug) ):
-    $slug = $object->rewrite['slug'];
+    if( !is_null($object->rewrite['slug']) ):
+        $slug = $object->rewrite['slug'];
+    endif;
 else:
     $slug = $object->slug;
 endif;
@@ -39,7 +41,9 @@ get_rueckenwinde_header($slug);
             ?>
         </main><!-- #main -->
     </div><!-- #primary -->
-
 <?php
 get_sidebar();
+?>
+</section>
+<?php
 get_footer();

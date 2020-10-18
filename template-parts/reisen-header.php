@@ -11,7 +11,7 @@
 
 ?>
 
-<section class="content-wrap paragliding" style="background-image:url(<?php echo esc_url( get_theme_mod( 'rueckenwinde_traveling_header_image_setting' ) ); ?>)">	
+<section class="content-wrap paragliding" style="background-image:url(<?php echo esc_url( get_theme_mod( 'rueckenwinde_reisen_header_image_setting' ) ); ?>)">	
     <div class="glass"></div>			
     <div class="bottom-header-wrapper"></div>
 </section>
