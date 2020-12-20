@@ -17,9 +17,10 @@ get_rueckenwinde_header('frontpage');
 		<main id="main" class="site-main">
 			<?php
 				$query = new WP_Query( array ( 
-					'category_name' => 'featured',
+					'category_name' => 'Featured',
+					'post_type' => array('post','reisen','paragliding'),
 					'nopaging' => true,
-					'posts_per_page' => 5
+					'posts_per_page' => 50
 				) );
 				if ( $query->have_posts() ) :
 					/* Start the Loop */
@@ -36,6 +37,7 @@ get_rueckenwinde_header('frontpage');
 				//else :
 				//	get_template_part( 'template-parts/content', 'none' );
 				endif;
+				wp_reset_postdata();
 			?>
 		</main><!-- #main -->
 	</div><!-- #primary -->

@@ -55,7 +55,7 @@ body {
 	color: black;
 }
 
-#secondary span.rpwwt-post-title {
+#secondary span.srpw-post-title {
 	color: whitesmoke !important;
 }
 
@@ -147,7 +147,7 @@ body.error404 .navigation-wrapper {
 }
 
 .site-title:hover div {
-	margin-left: 30%;
+	margin-left: 20%;
 }
 
 .site-branding:hover i {
@@ -390,7 +390,7 @@ body.error404 .navigation-wrapper {
 }
 
 #secondary .widget *,
-#secondary .rpwwt-post-title {
+#secondary .srpw-title {
 	font-size: 16px !important;
 }
 
@@ -402,8 +402,13 @@ body.error404 .navigation-wrapper {
 
 /* Recent post widget */
 
-#secondary .rpwwt-widget ul li img {
+#secondary .srpw-img img {
 	border-radius: 100%;
+}
+
+#secondary .srpw-summary p,
+#secondary .srpw-summary a {
+	display: inline;
 }
 
 .blog.related-posts main {

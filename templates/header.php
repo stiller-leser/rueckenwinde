@@ -11,7 +11,7 @@
 
 $theme_location = 'fallback';
 $menus = get_registered_nav_menus();
-if( !is_null( $menus[$args['menu']] ) ):
+if( isset( $menus[$args['menu']] ) ):
 	$theme_location = $args['menu'];
 endif;
 if( is_null( $args['template'] ) ):

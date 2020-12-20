@@ -62,7 +62,7 @@ function rueckenwinde_style() {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_link_color' )); ?> !important;
             }
 
-            #secondary .rpwwt-post-excerpt,
+            #secondary .srpw-summary p,
             .entry-title a,
             .entry-content a p,
             .entry-content p,
@@ -76,7 +76,7 @@ function rueckenwinde_style() {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_sidebar_color' )); ?> !important;
             }
 
-            #secondary .rpwwt-post-date,
+            #secondary .srpw-post-date,
             main article .entry-meta,
             .entry-meta *,
             .comments-area .comment-metadata time,
@@ -245,7 +245,7 @@ function get_rueckenwinde_footer() {
 function get_rueckenwinde_part($part) {
     $template_part = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/template-parts/' . basename( $part.'.php' );
     if ( file_exists( $template_part ) ):
-        load_template($template_part);
+        load_template($template_part, false);
     endif; 
 }
 
