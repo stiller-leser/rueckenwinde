@@ -394,12 +394,6 @@ body.error404 .navigation-wrapper {
 	max-width: 100%;
 }
 
-.blog main article:not(:first-child),
-.search-results main article:not(:first-child),
-.archive main article:not(:first-child) {
-	float: left;
-}
-
 .blog main article:not(:first-child):nth-child(2n+1),
 .search-results main article:not(:first-child):nth-child(2n+1),
 .archive main article:not(:first-child):nth-child(2n+1) {
@@ -563,6 +557,12 @@ nf-field .submit-container input[type="button"] {
 	.home #page {
 		margin-top: 20px;
 	}
+
+	.blog main article:not(:first-child):nth-child(2n+1),
+	.search-results main article:not(:first-child):nth-child(2n+1),
+	.archive main article:not(:first-child):nth-child(2n+1) {
+		margin-left: 0;
+	}
 }
 
 @media screen and ( max-width: 767px ) and ( orientation: landscape ) {
@@ -614,4 +614,5 @@ nf-field .submit-container input[type="button"] {
 		width: 100%;
 		float: none;
 	}
+
 }
