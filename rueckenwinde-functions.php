@@ -29,6 +29,11 @@ function rueckenwinde_style() {
             .master:not(:first-child) {
                 border-color: #<?php echo esc_attr(get_theme_mod( 'background_color' )); ?> !important;
             }
+
+            .master, 
+            .category-description {
+                background-color: white;
+            }
             
             .site-branding h1 i,
             .site-branding h1 div,
@@ -76,7 +81,7 @@ function rueckenwinde_style() {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_sidebar_color' )); ?> !important;
             }
 
-            #secondary .srpw-post-date,
+            #secondary .srpw-time,
             main article .entry-meta,
             .entry-meta *,
             .comments-area .comment-metadata time,
@@ -275,3 +280,5 @@ add_action( 'pre_get_posts', 'namespace_add_custom_types' );
 register_nav_menu( 'frontpage', __( 'Frontpage Navigation', 'rueckenwinde' ) );
 register_nav_menu( 'paragliding', __( 'Paragliding Navigation', 'rueckenwinde' ) );
 register_nav_menu( 'reisen', __( 'Reisen Navigation', 'rueckenwinde' ) );
+register_nav_menu( 'reisen-archive', __( 'Reisen Archive Navigation', 'rueckenwinde' ) );
+register_nav_menu( 'paragliding-archive', __( 'Paragliding Archive Navigation', 'rueckenwinde' ) );

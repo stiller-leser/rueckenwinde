@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package writers_blogily
+ * @package rueckenwin.de
  */
 
 get_rueckenwinde_header('homepage');
@@ -20,7 +20,7 @@ get_rueckenwinde_header('homepage');
 			<h1 class="page-title">
 				<?php
 				/* translators: %s: search query. */
-				printf( esc_html__( 'Search Results for: %s', 'writers-blogily' ), '<span>' . get_search_query() . '</span>' );
+				printf( esc_html__( 'Suchergebnisse für: %s', 'rueckenwinde' ), '<span>' . get_search_query() . '</span>' );
 				?>
 			</h1>
 		</header><!-- .page-header -->

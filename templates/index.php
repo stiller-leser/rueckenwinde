@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package rueckenwinde
+ * @package rueckenwin.de
  */
 get_rueckenwinde_header('frontpage');
 ?>

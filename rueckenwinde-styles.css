@@ -251,7 +251,6 @@ body.error404 .navigation-wrapper {
 	width: 35%;
 	height: 100%;
 	display: inline-block;
-	background: white;
 	box-shadow: 0 0 70px -15px rgba(0,0,0,.65);
 }
 
@@ -279,6 +278,26 @@ body.error404 .navigation-wrapper {
 	width: 60%;
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+.category-description {
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 31px;
+	text-align: center;
+}
+
+.random-posts {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.no-results {
+	width: 100%;
+}
+
+.no-results .is-search-form {
+	margin-bottom: 31px;
 }
 
 .social-icons a:last-child {
@@ -373,6 +392,18 @@ body.error404 .navigation-wrapper {
 	width: 100%;
 	flex: 0 0 100%;
 	max-width: 100%;
+}
+
+.blog main article:not(:first-child),
+.search-results main article:not(:first-child),
+.archive main article:not(:first-child) {
+	float: left;
+}
+
+.blog main article:not(:first-child):nth-child(2n+1),
+.search-results main article:not(:first-child):nth-child(2n+1),
+.archive main article:not(:first-child):nth-child(2n+1) {
+	margin-left: 4%;
 }
 
 .blog main article img,

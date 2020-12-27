@@ -15,14 +15,10 @@ get_rueckenwinde_header('homepage');
 
 		<section class="error-404 not-found">
 			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! Diese Reise endete im Nirvana.', 'writers-blogily' ); ?></h1>
+				<h1 class="page-title"><?php esc_html_e( 'Oops! Diese Reise endete im Nirvana.', 'rueckenwinde' ); ?></h1>
 			</header><!-- .page-header -->
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'Aber keine Sorge - wer suchet der findet!', 'writers-blogily' ); ?></p>
-				<?php get_search_form(); ?>
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+			<?php get_rueckenwinde_part('content-rand') ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
