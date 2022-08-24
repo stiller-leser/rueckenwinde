@@ -18,6 +18,11 @@ function remove_my_action(){
 }
 add_action( 'wp', 'remove_my_action' );
 
+function remove_meow_apps(){
+    remove_menu_page( 'admin.php?page=meowapps-main-menu' );
+}
+add_action( 'admin_menu', 'remove_meow_apps', 999 );
+
 function rueckenwinde_style() {
     ?>
         <style>
