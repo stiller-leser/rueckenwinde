@@ -325,18 +325,9 @@ body.error404 .navigation-wrapper {
 #secondary ul {
 	word-break: break-all;
 }
-#secondary .wp-my-instagram .wpmi-layout-2 {
-	text-align: center;
-}
-#secondary .wp-my-instagram .wpmi-layout-2 .wpmi-item {
-	width: 50%;
-}
-#secondary .wp-my-instagram .wpmi-me {
-	position: relative;
-}
 
-#secondary .wp-my-instagram .wpmi-me a {
-	background: none;
+#secondary .catch-instagram-feed-gallery-widget-wrapper .item {
+	width: 50%;
 }
 
 #secondary .yotu-button-prs {
