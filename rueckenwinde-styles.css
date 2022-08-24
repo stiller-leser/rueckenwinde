@@ -330,6 +330,10 @@ body.error404 .navigation-wrapper {
 	width: 50%;
 }
 
+#secondary .catch-instagram-feed-gallery-widget-wrapper.default .item:nth-child(3n+1) {
+	clear: none;
+}
+
 #secondary .yotu-button-prs {
 	background: none;
 	padding: 5px;
