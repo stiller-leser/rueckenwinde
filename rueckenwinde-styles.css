@@ -98,6 +98,8 @@ body.post-type-archive-reisen .navigation-wrapper,
 body.category-reisen .navigation-wrapper,
 body.post-type-archive-paragliding .navigation-wrapper,
 body.category-paragliding .navigation-wrapper,
+body.post-type-archive-vanlife .navigation-wrapper,
+body.category-vanlife .navigation-wrapper,
 body.single .navigation-wrapper {
 	background: transparent !important;
 	position: absolute;

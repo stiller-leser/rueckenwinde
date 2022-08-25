@@ -28,6 +28,16 @@
 			</div>
 		</section>
 		<section class="master-box">
+			<a href="/vanlife" class="master">
+				<div class="icon">
+					<i class="fas fa-van-shuttle"></i>
+				</div>
+				<div class="content">	
+					<h4>Traveling</h4>
+					<p>Always on the road</p>
+				</div>
+			</a>
+
 			<a href="/traveling" class="master">
 				<div class="icon">
 					<i class="fas fa-passport"></i>

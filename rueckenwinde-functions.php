@@ -135,6 +135,24 @@ function rueckenwinde_add_sections( $wp_customize ) {
         'section'           => 'rueckenwinde_reisen_section',
         'settings'          => 'rueckenwinde_reisen_header_image_setting',    
     )));
+
+    // Vanlife section
+    $wp_customize->add_section( 'rueckenwinde_vanlife_section' , array(
+        'title'      => __( 'Vanlife' , 'rueckenwinde' ),
+        'priority'   => 30
+    ) );
+
+    // Vanlife Header Image
+    $wp_customize->add_setting('rueckenwinde_vanlife_header_image_setting', array(
+        'transport'         => 'refresh',
+        'height'         => 325,
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_vanlife_header_image_control', array(
+        'label'             => __('Header Image', 'rueckenwinde'),
+        'section'           => 'rueckenwinde_vanlife_section',
+        'settings'          => 'rueckenwinde_vanlife_header_image_setting',    
+    )));
 }
 
 add_action( 'customize_register', 'rueckenwinde_add_sections' );
@@ -276,7 +294,7 @@ add_filter( 'template_include', 'rueckenwinde_template_include', 11 );
 function namespace_add_custom_types( $query ) {
     if( (is_category() || is_tag()) && $query->is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
         $query->set( 'post_type', array(
-            'post', 'paragliding', 'reisen'
+            'post', 'paragliding', 'reisen', 'vanlife'
         ));
     }
 }
@@ -284,6 +302,8 @@ add_action( 'pre_get_posts', 'namespace_add_custom_types' );
   
 register_nav_menu( 'frontpage', __( 'Frontpage Navigation', 'rueckenwinde' ) );
 register_nav_menu( 'paragliding', __( 'Paragliding Navigation', 'rueckenwinde' ) );
+register_nav_menu( 'paragliding-archive', __( 'Paragliding Archive Navigation', 'rueckenwinde' ) );
 register_nav_menu( 'reisen', __( 'Reisen Navigation', 'rueckenwinde' ) );
 register_nav_menu( 'reisen-archive', __( 'Reisen Archive Navigation', 'rueckenwinde' ) );
-register_nav_menu( 'paragliding-archive', __( 'Paragliding Archive Navigation', 'rueckenwinde' ) );
+register_nav_menu( 'vanlife', __( 'Vanlife Navigation', 'rueckenwinde' ) );
+register_nav_menu( 'vanlife-archive', __( 'Vanlife Archive Navigation', 'rueckenwinde' ) );

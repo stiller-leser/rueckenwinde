@@ -18,7 +18,7 @@ get_rueckenwinde_header('frontpage');
 			<?php
 				$query = new WP_Query( array ( 
 					'category_name' => 'Featured',
-					'post_type' => array('post','reisen','paragliding'),
+					'post_type' => array('post','reisen','paragliding','vanlife'),
 					'nopaging' => true,
 					'posts_per_page' => 50
 				) );
