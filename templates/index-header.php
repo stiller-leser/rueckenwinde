@@ -33,8 +33,8 @@
 					<i class="fas fa-van-shuttle"></i>
 				</div>
 				<div class="content">	
-					<h4>Traveling</h4>
-					<p>Always on the road</p>
+					<h4>Vanlife</h4>
+					<p>Building our dream</p>
 				</div>
 			</a>
 

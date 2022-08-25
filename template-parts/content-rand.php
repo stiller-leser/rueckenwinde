@@ -26,7 +26,8 @@
                     'post_type' => array(
                         'post',
                         'reisen',
-                        'paragliding'
+                        'paragliding',
+                        'vanlife'
                     ),
                     'orderby'   => 'rand',
                     'posts_per_page' => 5, 
