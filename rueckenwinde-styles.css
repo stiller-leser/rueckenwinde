@@ -233,10 +233,10 @@ body.error404 .navigation-wrapper {
 }
 
 .master-box {
-	margin: -5% 21% 0 21%;
+	margin: -5% 16% 0 16%;
 	text-align: center;
 	height: 150px;
-	width: 58%;
+	width: 68%;
 	z-index: 999;
 	position: absolute;
 }
@@ -252,7 +252,7 @@ body.error404 .navigation-wrapper {
 }
 
 .master {
-	width: 35%;
+	width: 29%;
 	height: 100%;
 	display: inline-block;
 	box-shadow: 0 0 70px -15px rgba(0,0,0,.65);
@@ -539,7 +539,7 @@ nf-field .submit-container input[type="button"] {
 	}
 
 	.master {
-		width: 50%;
+		width: 33%;
 		float: left;
 		box-shadow: none;
 	}
@@ -551,6 +551,10 @@ nf-field .submit-container input[type="button"] {
 
 	.master .icon {
 		width: 30%;
+	}
+
+	.master p {
+		font-size: 1.2em;
 	}
 
 	.home #page {
