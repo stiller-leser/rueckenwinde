@@ -30,7 +30,7 @@
 		<section class="master-box">
 			<a href="/vanlife" class="master">
 				<div class="icon">
-					<i class="fas fa-van-shuttle"></i>
+					<i class="fas fa-car"></i>
 				</div>
 				<div class="content">	
 					<h4>Vanlife</h4>
