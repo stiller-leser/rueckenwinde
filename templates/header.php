@@ -28,7 +28,7 @@ endif;
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
-	<?php if(is_page( array( 'contact-us', 'privacy-policy' ) )): ?>
+	<?php if(is_page( array( 'impressum', 'datenschutz' ) )): ?>
 	<meta name="robots" content="noindex,nofollow">
 	<?php endif; ?>
 </head>

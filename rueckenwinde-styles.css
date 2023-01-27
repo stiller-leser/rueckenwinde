@@ -338,6 +338,10 @@ body.error404 .navigation-wrapper {
 	clear: none;
 }
 
+#secondary .widget .affiliate-hinweis {
+	color: black;
+}
+
 #secondary .yotu-button-prs {
 	background: none;
 	padding: 5px;
