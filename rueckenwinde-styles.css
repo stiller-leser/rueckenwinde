@@ -338,7 +338,7 @@ body.error404 .navigation-wrapper {
 	clear: none;
 }
 
-#secondary .widget .affiliate-hinweis {
+#secondary .widget .affiliate-hinweis.has-black-color * {
 	color: black;
 }
 
