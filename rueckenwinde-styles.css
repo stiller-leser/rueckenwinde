@@ -143,8 +143,11 @@ body.error404 .navigation-wrapper {
 
 .site-title h1,h2 {
 	margin: 0;
+	color: white;
+	font-size: 1.5em;
 }
 
+/* 
 .site-title div {
 	transition: all 2s ease;
 	display: inline;
@@ -153,7 +156,7 @@ body.error404 .navigation-wrapper {
 .site-title:hover div {
 	margin-left: 20%;
 }
-
+ */
 /* .site-branding:hover i {
 	animation: shake 0.5s;
   
