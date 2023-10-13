@@ -154,11 +154,9 @@ body.error404 .navigation-wrapper {
 	margin-left: 20%;
 }
 
-.site-branding:hover i {
-	/* Start the shake animation and make the animation last for 0.5 seconds */
+/* .site-branding:hover i {
 	animation: shake 0.5s;
   
-	/* When the animation is finished, start again */
 	animation-iteration-count: infinite;
 }
   
@@ -174,7 +172,7 @@ body.error404 .navigation-wrapper {
 	80% { transform: translate(-1px, -1px) rotate(1deg); }
 	90% { transform: translate(1px, 2px) rotate(0deg); }
 	100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
+} */
 
 #primary-menu.menu {
 	display: block;
@@ -206,8 +204,11 @@ body.error404 .navigation-wrapper {
 
 .bottom-header-wrapper {
 	position: relative;
-	padding: 12% 0 17%;
+	padding: 17% 0 15%;
 	text-align: center;
+	background-image: url("https://www.rueckenwin.de/wp-content/uploads/2023/10/RueckenwindeBlackAndWhite.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .site-description {
@@ -247,7 +248,6 @@ body.error404 .navigation-wrapper {
 }
 
 .master-box p {
-	font-size: 1.3em;
 	margin-bottom: 0;
 }
 
@@ -544,7 +544,6 @@ nf-field .submit-container input[type="button"] {
 
 	.master {
 		width: 33%;
-		float: left;
 		box-shadow: none;
 	}
 
@@ -569,6 +568,13 @@ nf-field .submit-container input[type="button"] {
 	.search-results main article:not(:first-child):nth-child(2n+1),
 	.archive main article:not(:first-child):nth-child(2n+1) {
 		margin-left: 0;
+	}
+}
+
+
+@media screen and ( max-width: 892px ) {
+	.master {
+		float: left;
 	}
 }
 
