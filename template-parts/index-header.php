@@ -19,12 +19,12 @@
 		<section class="content-wrap" style="background-image:url(<?php echo esc_url($custom_header->url); ?>)">	
 			<div class="glass"></div>			
 			<div class="bottom-header-wrapper">
-				<?php
+				<!-- <?php
 				$writers_blogily_description = get_bloginfo( 'description', 'display' );
 				if ( $writers_blogily_description || is_customize_preview() ) :
 					?>
 					<h3 class="site-description"><?php echo $writers_blogily_description; /* WPCS: xss ok. */ ?></h3>
-				<?php endif; ?>
+				<?php endif; ?> -->
 			</div>
 		</section>
 		<section class="master-box">

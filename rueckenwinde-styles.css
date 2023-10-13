@@ -209,6 +209,7 @@ body.error404 .navigation-wrapper {
 	background-image: url("https://www.rueckenwin.de/wp-content/uploads/2023/10/RueckenwindeBlackAndWhite.png");
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: 17%;
 }
 
 .site-description {
@@ -591,6 +592,10 @@ nf-field .submit-container input[type="button"] {
 }
 
 @media screen and ( max-width: 767px ) {
+	.bottom-header-wrapper {
+		background-size: 36%;
+	}
+
 	.master {
 		display: block;
 		float: none;
@@ -611,7 +616,7 @@ nf-field .submit-container input[type="button"] {
 	.home #page .site-content.grid-x {
 		margin: 0;
 		width: 100%;
-		margin-top: 175px;
+		margin-top: 315px;
 	}
 
 	#about #picture {
@@ -628,4 +633,10 @@ nf-field .submit-container input[type="button"] {
 		float: none;
 	}
 
+}
+
+@media screen and ( max-width: 575px ) {
+	.bottom-header-wrapper {
+		background-size: 60%;
+	}
 }

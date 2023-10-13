@@ -28,21 +28,6 @@
 		<div class="site grid-container">
 			<header id="masthead" class="site-header grid-x grid-padding-x">
 				<div class="site-branding large-4 medium-10 small-9 cell">
-					<!-- <?php
-					the_custom_logo();
-					if ( is_front_page() && is_home() ) :
-						?>
-					<div class="logo-container">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title" rel="home"><h1><i class="fas fa-wind"></i><div><?php bloginfo( 'name' ); ?></div></h1></a>
-						<?php
-						else :
-							?>
-						<div class="logo-container">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title" rel="home"><h2><i class="fas fa-wind"></i><div><?php bloginfo( 'name' ); ?></div></h2></a>
-							<?php
-							endif;
-							?>
-					</div>	 -->
 				</div><!-- .site-branding -->
 
 				<nav id="site-navigation" class="main-navigation large-8 medium-2 small-3 cell">

@@ -39,9 +39,9 @@ endif;
 		<div class="site grid-container">
 			<header id="masthead" class="site-header grid-x grid-padding-x">
 				<div class="site-branding large-4 medium-10 small-9 cell">
-					<div class="logo-container">
+					<!-- <div class="logo-container">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title" rel="home"><h1><i class="fas fa-wind"></i><div><?php bloginfo( 'name' ); ?></div></h1></a>
-					</div>	
+					</div>	 -->
 				</div><!-- .site-branding -->
 
 				<nav id="site-navigation" class="main-navigation large-8 medium-2 small-3 cell">
