@@ -519,6 +519,10 @@ nf-field .submit-container input[type="button"] {
 	color: white;
 }
 
+.nf-form-content button, .nf-form-content input[type="button"], .nf-form-content input[type="submit"] {
+	background: none;
+}
+
 @media screen and (max-width: 86em) {
 	.master-box {
 		margin: -5% 8% 0 8%;
