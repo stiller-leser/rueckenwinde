@@ -346,6 +346,10 @@ body.error404 .navigation-wrapper {
 	color: black;
 }
 
+#secondary .widget .wp-block-heading {
+	color: black;
+}
+
 #secondary .yotu-button-prs {
 	background: none;
 	padding: 5px;
