@@ -350,6 +350,10 @@ body.error404 .navigation-wrapper {
 	color: black;
 }
 
+#secondary .yotu-playlist {
+	padding: 0;
+}
+
 #secondary .yotu-button-prs {
 	background: none;
 	padding: 5px;
