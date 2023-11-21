@@ -540,6 +540,10 @@ nf-field .submit-container input[type="button"] {
 	.home #page {
 		margin-top: 115px;
 	}
+
+	.is-form-style {
+		position: inherit;
+	}
 }
 
 @media screen and (max-width: 64em) {
