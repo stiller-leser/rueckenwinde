@@ -334,6 +334,17 @@ body.error404 .navigation-wrapper {
 	word-break: break-all;
 }
 
+#secondary .catch-instagram-feed-gallery-widget-wrapper .overlay-icon {
+	opacity: 0;
+	position: relative;
+	top: 0rem;
+	right: 0rem;
+}
+
+#secondary .dashicons-video-alt3::before {
+	font-family: dashicons;
+}
+
 #secondary .catch-instagram-feed-gallery-widget-wrapper .item {
 	width: 50%;
 }
