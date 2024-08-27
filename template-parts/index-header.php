@@ -27,6 +27,9 @@
 				<?php endif; ?> -->
 			</div>
 			<a id="back-home" href="/"></a>
+			<?php if ( is_active_sidebar( 'header-widget-area' ) ) {
+				dynamic_sidebar( 'header-widget-area' );
+			}?>
 		</section>
 		<section class="master-box">
 			<a href="/vanlife" class="master">

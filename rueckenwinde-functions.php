@@ -56,8 +56,29 @@ function rueckenwinde_style() {
                 color: <?php echo esc_attr(get_theme_mod( 'navigation_link_color' )); ?>;
             }
 
-            .single .content-area h1, .single .content-area h2, .single .content-area h3, .single .content-area h4, .single .content-area h5, .single .content-area h6, .page .content-area h1, .page .content-area h2, .page .content-area h3, .page .content-area h4, .page .content-area h5, .page .content-area h6, .page .content-area th, .single .content-area th, .blog.related-posts main article h4 a, .single b.fn, .page b.fn, .error404 h1, .search-results h1.page-title, .search-no-results h1.page-title, .archive h1.page-title,
-            main article a h2.entry-title {
+            .single .content-area h1,
+            .single .content-area h2, 
+            .single .content-area h3, 
+            .single .content-area h4, 
+            .single .content-area h5, 
+            .single .content-area h6, 
+            .page .content-area h1, 
+            .page .content-area h2,
+            .page .content-area h3, 
+            .page .content-area h4, 
+            .page .content-area h5, 
+            .page .content-area h6, 
+            .page .content-area th, 
+            .single .content-area th, 
+            .blog.related-posts main article h4 a, 
+            .single b.fn, 
+            .page b.fn, 
+            .error404 h1, 
+            .search-results h1.page-title, 
+            .search-no-results h1.page-title, 
+            .archive h1.page-title,
+            main article a h2.entry-title, 
+            .index-footer-widget-area h2 {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_headline_color' )); ?>;
             }
 
@@ -299,6 +320,42 @@ function namespace_add_custom_types( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'namespace_add_custom_types' );
+
+function rueckenwinde_header_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Header-Widget-Area', 'rueckenwinde' ),
+        'id'            => 'header-widget-area',
+        'before_widget' => '<div class="widget header-widget-area">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'rueckenwinde_header_widgets_init' );
+
+function rueckenwinde_index_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Index-Widget-Area', 'rueckenwinde' ),
+        'id'            => 'index-widget-area',
+        'before_widget' => '<div class="widget index-widget-area">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'rueckenwinde_index_widgets_init' );
+
+function rueckenwinde_index_footer_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Index-Footer-Widget-Area', 'rueckenwinde' ),
+        'id'            => 'index-footer-widget-area',
+        'before_widget' => '<div class="widget index-footer-widget-area">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'rueckenwinde_index_footer_widgets_init' );
   
 register_nav_menu( 'frontpage', __( 'Frontpage Navigation', 'rueckenwinde' ) );
 register_nav_menu( 'paragliding', __( 'Paragliding Navigation', 'rueckenwinde' ) );

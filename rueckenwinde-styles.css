@@ -211,6 +211,17 @@ body.error404 .navigation-wrapper {
 	text-align: center;
 }
 
+.content-wrap .header-widget-area {
+	position: absolute;
+  	right: 2%;
+  	top: 6%;
+	z-index: 4;
+}
+
+.content-wrap .header-widget-area .sxc-follow-buttons .sxc-follow-button{
+	display: initial !important;
+}
+
 body.post-type-archive-reisen .bottom-header-wrapper,
 body.category-reisen .bottom-header-wrapper,
 body.post-type-archive-paragliding .bottom-header-wrapper,
@@ -376,6 +387,35 @@ body.single .bottom-header-wrapper {
 	padding: 5px;
 }
 
+/* Index widget area */
+.index-widget-area {
+	width: 100%;
+}
+
+.index-widget-area .srpw-img,
+.index-widget-area .srpw-thumbnail {
+	width: 150px;
+	height: 150px;
+}
+
+.index-widget-area .master .content,
+.index-widget-area  .master .icon i{
+	transform: none;
+}
+
+.index-widget-area section a {
+	width: 100%;
+}
+
+/* Index footer widget area */
+.index-footer-widget-area .yotu-pagination:first-child {
+	display: none;
+}
+
+.index-footer-widget-area .yotu-playlist {
+	width: 100%;
+}
+
 /* Single blog post & pages */
 .post-thumbnail {
 	margin-top: -29px;
@@ -513,10 +553,6 @@ nf-field .submit-container input[type="button"] {
 	padding-left: 5%;
 }
 
-#about #picture img {
-	border-radius: 100%;
-}
-
 #about #post {
 	float: left;
 	width: 80%;
@@ -565,6 +601,10 @@ nf-field .submit-container input[type="button"] {
 
 @media screen and (max-width: 64em) {
 	#primary-menu {
+		display: none !important;
+	}
+
+	.content-wrap .header-widget-area .sxc-follow-buttons .sxc-follow-button{ 
 		display: none !important;
 	}
 
