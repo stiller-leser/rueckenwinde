@@ -27,9 +27,6 @@
 	<section class="navigation-wrapper">		
 		<div class="site grid-container">
 			<header id="masthead" class="site-header grid-x grid-padding-x">
-				<div class="site-branding large-4 medium-10 small-9 cell">
-				</div><!-- .site-branding -->
-
 				<nav id="site-navigation" class="main-navigation large-8 medium-2 small-3 cell">
 					<?php
 					wp_nav_menu( array(

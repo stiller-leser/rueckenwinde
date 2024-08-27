@@ -38,15 +38,7 @@ endif;
 		<div class="glass"></div>	
 		<div class="site grid-container">
 			<header id="masthead" class="site-header grid-x grid-padding-x">
-				<div class="site-branding large-4 medium-10 small-9 cell">
-					<div class="logo-container">
-						<?php if(!is_home()): ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title" rel="home"><h1>Startseite</h1></a>
-						<?php endif; ?>
-					</div>	
-				</div><!-- .site-branding -->
-
-				<nav id="site-navigation" class="main-navigation large-8 medium-2 small-3 cell">
+				<nav id="site-navigation" class="main-navigation large-12 medium-2 small-3 cell">
 					<?php
 					    wp_nav_menu( array(
 						    'theme_location' => $theme_location,

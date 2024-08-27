@@ -74,8 +74,16 @@ body {
 	background:#232323;
 }
 
+.main-navigation ul {
+	float: left;
+}
+
 .main-navigation ul ul {
 	background:#232323;
+}
+
+.main-navigation ul li:nth-child(3) {
+	margin-right: 33%;
 }
 
 
@@ -180,6 +188,7 @@ body.error404 .navigation-wrapper {
 #primary-menu.menu {
 	display: block;
 	flex: none;
+	width: 100%;
 }
 
 #site-navigation .menu .page_item a,
@@ -211,7 +220,7 @@ body.error404 .navigation-wrapper {
 	text-align: center;
 	background-image: url("https://www.rueckenwin.de/wp-content/uploads/2023/11/klein-RueckenwindeBlackAndWhite.png");
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top center;
 	background-size: 17%;
 }
 
