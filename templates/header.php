@@ -46,6 +46,7 @@ endif;
 						) );
 						?>
 				</nav><!-- #site-navigation -->
+				<a id="back-home" href="/"></a>
 			</header><!-- #masthead -->
 		</div>
 	</section>

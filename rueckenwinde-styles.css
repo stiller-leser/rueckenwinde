@@ -79,8 +79,12 @@ body {
 	background:#232323;
 }
 
-.main-navigation ul li:nth-child(3) {
-	margin-right: 195px;
+.main-navigation ul li:nth-child(5) {
+	float: right;
+}
+
+.page .main-navigation ul li:last-child {
+	float: right;
 }
 
 
@@ -133,11 +137,20 @@ body.error404 .navigation-wrapper {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 17%;
-  padding-bottom: 132px;
+  padding-bottom: 14%;
 }
 
 .navigation-wrapper .glass {
 	display: none;
+}
+
+.navigation-wrapper #masthead #back-home{
+	display: block;
+	height: 100%;
+	width: 18%;
+	position: absolute;
+	top: 0;
+	left: 41%;
 }
 
 .single .navigation-wrapper .glass {
@@ -172,6 +185,7 @@ body.error404 .navigation-wrapper {
 #site-navigation .menu .menu-item a {
 	font-size: 1.5em;
 	line-height: 47px;
+	padding: 0 1rem 0 0;
 }
 
 .content-wrap {
@@ -182,7 +196,7 @@ body.error404 .navigation-wrapper {
 }
 
 .glass {
-	background-image: linear-gradient(180deg,#000000 35%,#ffffff 120%);
+	background-image: linear-gradient(180deg,#000000 35%,#000000 120%);
 	opacity: .3;
 	height: 100%;
 	width: 100%;
@@ -193,12 +207,18 @@ body.error404 .navigation-wrapper {
 
 .bottom-header-wrapper {
 	position: relative;
-	padding: 17% 0 15%;
+	padding: 17% 0 6%;
 	text-align: center;
-	background-image: url("https://www.rueckenwin.de/wp-content/uploads/2023/11/klein-RueckenwindeBlackAndWhite.png");
-	background-repeat: no-repeat;
-	background-position: top center;
-	background-size: 17%;
+}
+
+body.post-type-archive-reisen .bottom-header-wrapper,
+body.category-reisen .bottom-header-wrapper,
+body.post-type-archive-paragliding .bottom-header-wrapper,
+body.category-paragliding .bottom-header-wrapper,
+body.post-type-archive-vanlife .bottom-header-wrapper,
+body.category-vanlife .bottom-header-wrapper,
+body.single .bottom-header-wrapper {
+	padding: 10% 0 6%;
 }
 
 .site-description {
@@ -597,7 +617,7 @@ nf-field .submit-container input[type="button"] {
 
 @media screen and ( max-width: 767px ) and ( orientation: landscape ) {
 	.bottom-header-wrapper {
-		padding: 20% 0 25%;
+		padding: 20% 0 0%;
 	} 
 }
 

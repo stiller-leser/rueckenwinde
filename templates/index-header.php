@@ -26,6 +26,7 @@
 					<h3 class="site-description"><?php echo $writers_blogily_description; /* WPCS: xss ok. */ ?></h3>
 				<?php endif; ?>
 			</div>
+			<a id="back-home" href="/"></a>
 		</section>
 		<section class="master-box">
 			<a href="/vanlife" class="master">
