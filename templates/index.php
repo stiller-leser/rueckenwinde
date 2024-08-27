@@ -13,6 +13,19 @@
  */
 get_rueckenwinde_header('frontpage');
 ?>
+	<div id="about">
+		<?php
+			$page = get_page_by_path( 'ueber-uns' );
+		?>
+		<h1><?php echo get_the_title( $page ); ?></h1>
+		<div id="picture">
+			<?php echo get_the_post_thumbnail($page, 'thumbnail'); ?>
+		</div>
+		<div id="post">
+			<?php echo $page->post_content ?>
+		</div>
+		<div style="float: none"></div>
+	</div>
 	<div id="primary" class="content-area large-8 medium-8 small-12 cell fp-blog-grid">
 		<main id="main" class="site-main">
 			<?php
@@ -44,19 +57,6 @@ get_rueckenwinde_header('frontpage');
 <?php
 	get_sidebar();
 ?>
-	<div id="about">
-		<?php
-			$page = get_page_by_path( 'ueber-uns' );
-		?>
-		<h1><?php echo get_the_title( $page ); ?></h1>
-		<div id="picture">
-			<?php echo get_the_post_thumbnail($page, 'thumbnail'); ?>
-		</div>
-		<div id="post">
-			<?php echo $page->post_content ?>
-		</div>
-		<div style="float: none"></div>
-	</div>
 <?php
 	get_rueckenwinde_footer();
 ?>
