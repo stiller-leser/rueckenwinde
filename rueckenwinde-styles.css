@@ -181,6 +181,11 @@ body.error404 .navigation-wrapper {
 	width: 100%;
 }
 
+#primary-menu .sub-menu {
+	width: 300%;
+	background-image: linear-gradient(180deg,#000000 35%,#000000 120%);
+}
+
 #site-navigation .menu .page_item a,
 #site-navigation .menu .menu-item a {
 	font-size: 1.5em;
@@ -651,7 +656,7 @@ nf-field .submit-container input[type="button"] {
 	} 
 
 	.content-wrap {
-		height: 120px;
+		height: 145px;
 	}
 }
 
@@ -661,7 +666,7 @@ nf-field .submit-container input[type="button"] {
 	} 
 
 	.content-wrap {
-		height: 85px;
+		height: 145px;
 	}
 }
 
@@ -712,5 +717,9 @@ nf-field .submit-container input[type="button"] {
 @media screen and ( max-width: 575px ) {
 	.bottom-header-wrapper {
 		background-size: 60%;
+	}
+
+	.content-wrap {
+		height: 115px;
 	}
 }
