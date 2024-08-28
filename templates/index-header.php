@@ -28,7 +28,7 @@
 			</div>
 			<a id="back-home" href="/"></a>
 		</section>
-		<section class="master-box">
+		<!--<section class="master-box">
 			<a href="/vanlife" class="master">
 				<div class="icon">
 					<i class="fas fa-car"></i>
@@ -57,6 +57,6 @@
 					<p>Up in the air</p>
 				</div>
 			</a>
-		</section>
+		</section>!-->
 	<?php endif; ?>
 <?php endif; ?>

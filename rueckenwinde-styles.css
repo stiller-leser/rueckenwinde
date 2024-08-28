@@ -207,7 +207,7 @@ body.error404 .navigation-wrapper {
 
 .bottom-header-wrapper {
 	position: relative;
-	padding: 17% 0 6%;
+	padding: 17% 0 2%;
 	text-align: center;
 }
 
@@ -287,14 +287,13 @@ body.single .bottom-header-wrapper {
 	display: inline-block;
 	width: 36%;
 	height: 100%;
-	float: left;
+	padding: 22px;
 }
 
 .master .icon i {
 	position: relative;
 	font-size: 80px;
 	top: 50%;
-	transform: translateY(-50%);
 }
 
 .master .content {
@@ -302,7 +301,6 @@ body.single .bottom-header-wrapper {
 	display: inline-block;
 	width: 60%;
 	top: 50%;
-	transform: translateY(-50%);
 }
 
 .category-description {
@@ -398,16 +396,15 @@ body.single .bottom-header-wrapper {
 	height: 150px;
 }
 
-.index-widget-area .master .content,
-.index-widget-area  .master .icon i{
-	transform: none;
-}
-
 .index-widget-area section a {
 	width: 100%;
 }
 
 /* Index footer widget area */
+.index-footer-widget-area {
+	width: 100%;
+}
+
 .index-footer-widget-area .yotu-pagination:first-child {
 	display: none;
 }
@@ -540,7 +537,7 @@ nf-field .submit-container input[type="button"] {
 }
 
 #about {
-	margin: 50px 0 50px 0;
+	margin: 0px 0 50px 0;
 	padding: 50px 0 50px 0;
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
@@ -585,13 +582,13 @@ nf-field .submit-container input[type="button"] {
 }
 
 @media screen and (max-width: 86em) {
-	.master-box {
+	/**.master-box {
 		margin: -5% 8% 0 8%;
 		width: 84%;
-	}
+	}**/
 
 	.home #page {
-		margin-top: 115px;
+		margin-top: 0px;
 	}
 
 	.is-form-style {
@@ -612,7 +609,7 @@ nf-field .submit-container input[type="button"] {
 		display: block;
 	}
 
-	.master-box {
+	/**.master-box {
 		position: relative;
 		margin: 0;
 		width: 100%;
@@ -635,7 +632,7 @@ nf-field .submit-container input[type="button"] {
 
 	.master p {
 		font-size: 1.2em;
-	}
+	}**/
 
 	.home #page {
 		margin-top: 20px;
@@ -648,23 +645,24 @@ nf-field .submit-container input[type="button"] {
 	}
 }
 
-
-@media screen and ( max-width: 892px ) {
-	.master {
-		float: left;
-	}
-}
-
 @media screen and ( max-width: 767px ) and ( orientation: landscape ) {
 	.bottom-header-wrapper {
 		padding: 20% 0 0%;
 	} 
+
+	.content-wrap {
+		height: 120px;
+	}
 }
 
 @media screen and ( max-width: 767px ) and ( orientation: portrait ) {
 	.bottom-header-wrapper {
-		padding: 25% 0 67%;
+		padding: 25% 0 2%;
 	} 
+
+	.content-wrap {
+		height: 85px;
+	}
 }
 
 @media screen and ( max-width: 767px ) {
@@ -672,7 +670,7 @@ nf-field .submit-container input[type="button"] {
 		background-size: 36%;
 	}
 
-	.master {
+	/**.master {
 		display: block;
 		float: none;
 		width: 100%;
@@ -687,12 +685,12 @@ nf-field .submit-container input[type="button"] {
 	.master:not(:first-child) {
 		border-top: solid 1px;
 		border-left: none;
-	}
+	}**/
 
 	.home #page .site-content.grid-x {
 		margin: 0;
 		width: 100%;
-		margin-top: 315px;
+		margin-top: 0px;
 	}
 
 	#about #picture {
