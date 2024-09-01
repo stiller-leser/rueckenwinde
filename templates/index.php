@@ -26,7 +26,7 @@ get_rueckenwinde_header('frontpage');
 		</div>
 		<div style="float: none"></div>
 	</div>
-	<div id="primary" class="content-area large-8 medium-8 small-12 cell fp-blog-grid">
+	<div id="primary" class="content-area large-12 medium-12 small-12 cell fp-blog-grid">
 		<main id="main" class="site-main">
 			<?php if ( is_active_sidebar( 'index-widget-area' ) ) {
 				dynamic_sidebar( 'index-widget-area' );
@@ -58,7 +58,7 @@ get_rueckenwinde_header('frontpage');
 		</main><!-- #main -->
 	</div><!-- #primary -->
 <?php
-	get_sidebar();
+	// get_sidebar();
 ?>
 <?php if ( is_active_sidebar( 'index-footer-widget-area' ) ) {
 	dynamic_sidebar( 'index-footer-widget-area' );

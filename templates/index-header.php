@@ -28,35 +28,5 @@
 			</div>
 			<a id="back-home" href="/"></a>
 		</section>
-		<!--<section class="master-box">
-			<a href="/vanlife" class="master">
-				<div class="icon">
-					<i class="fas fa-car"></i>
-				</div>
-				<div class="content">	
-					<h4>Vanlife</h4>
-					<p>Building our dream</p>
-				</div>
-			</a>
-
-			<a href="/traveling" class="master">
-				<div class="icon">
-					<i class="fas fa-passport"></i>
-				</div>
-				<div class="content">	
-					<h4>Traveling</h4>
-					<p>Always on the road</p>
-				</div>
-			</a>
-			<a href="/paragliding" class="master">
-				<div class="icon">
-					<i class="fas fa-parachute-box"></i>
-				</div>
-				<div class="content">	
-					<h4>Paragliding</h4>
-					<p>Up in the air</p>
-				</div>
-			</a>
-		</section>!-->
 	<?php endif; ?>
 <?php endif; ?>
