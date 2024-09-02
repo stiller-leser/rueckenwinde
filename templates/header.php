@@ -34,30 +34,31 @@ endif;
 </head>
 
 <body <?php body_class(); ?>>
-	<section class="navigation-wrapper">	
-		<div class="glass"></div>	
-		<div class="site grid-container">
-			<header id="masthead" class="site-header grid-x grid-padding-x">
-				<nav id="site-navigation" class="main-navigation large-12 medium-2 small-3 cell">
-					<?php
-					    wp_nav_menu( array(
-						    'theme_location' => $theme_location,
-						    'menu_id'        => 'primary-menu',
-						) );
-						?>
-				</nav><!-- #site-navigation -->
-				<a id="back-home" href="/"></a>
-			</header><!-- #masthead -->
-		</div>
-	</section>
-    <?php 
-        if ( is_front_page() ):
-			get_rueckenwinde_part('index-header');
-		else:
-			get_rueckenwinde_part($template.'-header');
-		endif;
-    ?>
-
+	<div id="header-wrap">
+		<section class="navigation-wrapper">	
+			<div class="glass"></div>	
+			<div class="site grid-container">
+				<header id="masthead" class="site-header grid-x grid-padding-x">
+					<nav id="site-navigation" class="main-navigation large-12 medium-2 small-3 cell">
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => $theme_location,
+								'menu_id'        => 'primary-menu',
+							) );
+							?>
+					</nav><!-- #site-navigation -->
+					<a id="back-home" href="/"></a>
+				</header><!-- #masthead -->
+			</div>
+		</section>
+		<?php 
+			if ( is_front_page() ):
+				get_rueckenwinde_part('index-header');
+			else:
+				get_rueckenwinde_part($template.'-header');
+			endif;
+		?>
+	</div>
 	<section id="page" class="site grid-container start-container-head">
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'writers-blogily' ); ?></a>
 		<div id="content" class="site-content grid-x grid-padding-x">

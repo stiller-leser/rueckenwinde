@@ -22,9 +22,6 @@ get_rueckenwinde_header($post_type, 'single');
 			</div><!-- first content -->
 		</section><!-- first page -->
 		
-		<div class="post-thumbnail">
-			<?php the_post_thumbnail('full'); ?>
-		</div>
 		<section id="page" class="site grid-container">
 			<div id="content" class="site-content grid-x grid-padding-x">
 	<?php endif; ?>
