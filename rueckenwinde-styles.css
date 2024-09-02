@@ -428,9 +428,27 @@ body.single .bottom-header-wrapper {
 	width: 100%;
 }
 
+.index-widget-area .srpw-li {
+	width: 30%;
+	background-color: white;
+	float: left;
+	padding-top: 0;
+	margin-right: 5%;
+	padding: 0 !important;
+}
+
+.index-widget-area .srpw-li:last-child {
+	margin-right: 0;
+}
+
+.index-widget-area .srpw-content {
+	/*Height of the image plus 10*/
+	padding: 160px 10px 10px 10px;
+}
+
 .index-widget-area .srpw-img,
 .index-widget-area .srpw-thumbnail {
-	width: 150px;
+	width: 100%;
 	height: 150px;
 }
 
