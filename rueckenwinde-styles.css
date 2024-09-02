@@ -434,6 +434,13 @@ body.single .bottom-header-wrapper {
 	width: 100%;
 }
 
+.index-widget-area .srpw-block,
+.index-widget-area .srpw-ul,
+.index-widget-area .srpw-li,
+.index-widget-area .srpw-content {
+	height: 100%;
+}
+
 .index-widget-area .srpw-li {
 	width: 30%;
 	background-color: white;
@@ -450,6 +457,7 @@ body.single .bottom-header-wrapper {
 .index-widget-area .srpw-content {
 	/*Height of the image plus 10*/
 	padding: 160px 10px 10px 10px;
+	position: relative;
 }
 
 .index-widget-area .srpw-img,
@@ -460,6 +468,11 @@ body.single .bottom-header-wrapper {
 
 .index-widget-area section a {
 	width: 100%;
+}
+
+.index-widget-area .srpw-more-link {
+	position: absolute;
+	bottom: 0;
 }
 
 /* Index footer widget area */
