@@ -15,8 +15,13 @@ else:
 endif;
 get_rueckenwinde_header($post_type, 'single');
 ?>
-
 <?php if ( get_theme_mod( 'hide_featured_image' ) == '' ) : ?>
+	<style>
+        #header-wrap {
+            background-image: url('<?php echo esc_url(get_the_post_thumbnail_url($post, 'full')); ?>');
+            background-size: cover;
+        }
+    </style>
 	<!-- Featured img -->
 	<?php if ( has_post_thumbnail() ) : ?>
 			</div><!-- first content -->

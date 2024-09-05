@@ -32,6 +32,15 @@ endif;
 $category_title = single_cat_title( $prefix = '', $display = false ); 
 ?>
 
+<?php if (function_exists('z_taxonomy_image_url')): ?>
+    <style>
+        #header-wrap {
+            background-image: url('<?php echo esc_url(z_taxonomy_image_url($cat->term_id)); ?>');
+            background-size: cover;
+        }
+    </style>
+<?php endif; ?>
+
     <div id="primary" class="content-area large-8 medium-8 small-12 cell fp-blog-grid">
         <main id="main" class="site-main">
             <?php

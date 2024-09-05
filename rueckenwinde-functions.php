@@ -281,7 +281,7 @@ function get_rueckenwinde_header($menu, $template = null) {
     $header_template = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/templates/' . basename( 'header.php' );
     if ( file_exists( $header_template ) ):
         load_template($header_template, null, array('menu' => $menu, 'template' => $template));
-   endif;
+    endif;
 }
 
 function get_rueckenwinde_footer() {

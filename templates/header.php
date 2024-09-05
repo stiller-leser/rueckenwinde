@@ -29,7 +29,7 @@ endif;
 
 	<?php wp_head(); ?>
 	<?php if(is_page( array( 'impressum', 'datenschutz' ) )): ?>
-	<meta name="robots" content="noindex,nofollow">
+		<meta name="robots" content="noindex,nofollow">
 	<?php endif; ?>
 </head>
 

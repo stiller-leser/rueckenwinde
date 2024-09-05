@@ -14,7 +14,6 @@
 
 get_rueckenwinde_header('homepage');
 ?>
-
 	<div id="primary" class="content-area large-8 medium-8 small-12 cell">
 		<main id="main" class="site-main">
 		<?php
