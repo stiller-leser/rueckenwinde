@@ -47,13 +47,15 @@ $category_title = single_cat_title( $prefix = '', $display = false );
                 if ( !empty($category_title) && $category_title != 'Reisen' && $category_title != 'Paragliding' ) :
             ?>
                     <section class="category-description">
+                        <?php if (function_exists('z_taxonomy_image')) z_taxonomy_image(); ?>
                         <h1>
                             <?php esc_html_e($category_title); ?>
                         </h1>
-                        <?php
-                            if ( !empty($category_description) ) :
-                                esc_html_e(wp_strip_all_tags($category_description));
-                            endif;
+                        <?php   
+                            $category = get_queried_object();
+                            if ($category && !empty($category->description)) {
+                                echo "<p>" . esc_html($category->description) . "</p>";
+                            }
                         ?>
                     </section>
             <?php
