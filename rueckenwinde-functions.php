@@ -35,7 +35,6 @@ function rueckenwinde_style() {
                 border-color: #<?php echo esc_attr(get_theme_mod( 'background_color' )); ?> !important;
             }
 
-            .master, 
             .category-description {
                 background-color: white;
             }
@@ -77,8 +76,11 @@ function rueckenwinde_style() {
             .search-results h1.page-title, 
             .search-no-results h1.page-title, 
             .archive h1.page-title,
+            .index-footer-widget-area h2,
             main article a h2.entry-title, 
-            .index-footer-widget-area h2 {
+            main h1,
+            main .master .content h4,
+            #about h1 {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_headline_color' )); ?>;
             }
 
@@ -89,7 +91,9 @@ function rueckenwinde_style() {
             .privacy-policy .entry-content a,
             #secondary a,
             .single .content-area a.url,
-            .master i {
+            .master i,
+            .srpw-li a,
+            .entry-content p a {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_link_color' )); ?> !important;
             }
 
@@ -103,7 +107,9 @@ function rueckenwinde_style() {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_excerpt_color' )); ?> !important;
             }
 
-            #secondary .widget-title {
+            #secondary .widget-title,
+            #secondary .widgettitle,
+            #secondary .yotu-video-title  {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_sidebar_color' )); ?> !important;
             }
 
@@ -114,6 +120,25 @@ function rueckenwinde_style() {
             .single .content-area .fn,
             nf-section div {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_meta_color' )); ?> !important;
+            }
+
+            .panamericana .master {
+                background-image: url(<?php echo esc_url( z_taxonomy_image_url(193) )?>);
+            }
+            
+            .post-type-archive-reisen .content-wrap,
+            .reisen .master {
+                background-image: url(<?php echo esc_url( z_taxonomy_image_url(9) )?>);
+            }
+
+            .post-type-archive-vanlife .content-wrap,
+            .vanlife .master {
+                background-image: url(<?php echo esc_url( z_taxonomy_image_url(15) )?>);
+            }
+
+            .post-type-archive-paragliding .content-wrap,
+            .paragliding .master {
+                background-image: url(<?php echo esc_url( z_taxonomy_image_url(208) )?>);
             }
         </style>
     <?php

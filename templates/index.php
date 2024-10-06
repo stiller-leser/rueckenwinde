@@ -18,11 +18,13 @@ get_rueckenwinde_header('frontpage');
 			$page = get_page_by_path( 'ueber-uns' );
 		?>
 		<h1><?php echo get_the_title( $page ); ?></h1>
-		<div id="picture">
-			<?php echo get_the_post_thumbnail($page, 'thumbnail'); ?>
-		</div>
-		<div id="post">
-			<?php echo $page->post_content ?>
+		<div id="about-content">
+			<div id="picture">
+				<?php echo get_the_post_thumbnail($page, 'large'); ?>
+			</div>
+			<div id="post">
+				<?php echo $page->post_content ?>
+			</div>
 		</div>
 		<div style="float: none"></div>
 	</div>

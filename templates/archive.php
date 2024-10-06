@@ -7,21 +7,7 @@
  * @package rueckenwin.de
  */
 
-$object = get_queried_object();
-$slug = 'homepage';
-if(isset($object->category_parent) && !is_null($object->category_parent) && !is_null(get_category($object->category_parent)->slug)):
-    $category = get_category($object->category_parent);
-    $slug = $category->slug.'-archive';
-else:
-    if( !isset($object->slug) ):
-        if( isset($object->rewrite['slug']) ):
-            $slug = $object->rewrite['slug'];
-        endif;
-    else:
-        $slug = $object->slug;
-    endif;
-endif;
-get_rueckenwinde_header($slug);
+get_rueckenwinde_header("category");
 
 $catID = get_the_category();
 if(isset($catID[0])):
