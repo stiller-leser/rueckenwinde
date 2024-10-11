@@ -6,20 +6,6 @@
  *
  * @package rueckenwin.de
  */
-// $object = get_queried_object();
-// $slug = 'homepage';
-// if(isset($object->category_parent) && !is_null($object->category_parent) && !is_null(get_category($object->category_parent)->slug)):
-//     $category = get_category($object->category_parent);
-//     $slug = $category->slug.'-archive';
-// else:
-//     if( !isset($object->slug) ):
-//         if( isset($object->rewrite['slug']) ):
-//             $slug = $object->rewrite['slug'];
-//         endif;
-//     else:
-//         $slug = $object->slug;
-//     endif;
-// endif;
 
 get_rueckenwinde_header("frontpage", "category");
 
@@ -37,6 +23,7 @@ $category_title = single_cat_title( $prefix = '', $display = false );
         #header-wrap {
             background-image: url('<?php echo esc_url(z_taxonomy_image_url($cat->term_id)); ?>');
             background-size: cover;
+
         }
     </style>
 <?php endif; ?>
@@ -48,13 +35,17 @@ $category_title = single_cat_title( $prefix = '', $display = false );
                 if ( $category && !empty($category->description) ) :
             ?>
                     <section class="category-description">
-                        <?php if (function_exists('z_taxonomy_image')) z_taxonomy_image(); ?>
-                        <h1>
-                            <?php esc_html_e($category_title); ?> 
-                        </h1>
-                        <?php   
-                            echo "<p>" . esc_html($category->description) . "</p>";
-                        ?>
+                        <div class="category-image">
+                            <?php if (function_exists('z_taxonomy_image')) z_taxonomy_image(); ?>
+                        </div>    
+                        <div class="category-content">
+                            <h1>
+                                <?php esc_html_e($category_title); ?> 
+                            </h1>
+                            <?php   
+                                echo "<p>" . esc_html($category->description) . "</p>";
+                            ?>
+                        </div>
                     </section>
             <?php
                 endif;

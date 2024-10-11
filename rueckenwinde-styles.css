@@ -239,7 +239,7 @@ body.archive .navigation-wrapper {
 }
 
 .iot-dot-menu-a::after {
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 .sub-menu .iot-dot-menu-a::after {
@@ -371,7 +371,7 @@ body.single .bottom-header-wrapper {
 	position: relative;
 	box-shadow: 0 0 70px -15px rgba(0,0,0,.65);
 	background-size: cover;
-  	height: 150px;
+  	height: 160px;
   	background-position: center;
 	border-radius: 20px 20px 0 0;
 }
@@ -405,13 +405,21 @@ body.single .bottom-header-wrapper {
 	width: 100%;
 	padding: 15px;
 	margin-bottom: 31px;
+	display: table;
+}
+
+.category-description .category-image {
+	display: table-cell;
+	vertical-align: middle;
+	padding-right: 20px;
 }
 
 .category-description img {
-	height: 150px;
-	float: left;
-	vertical-align: top;
-	margin-right: 10px;
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75) !important;
+}
+
+.category-description .category-content {
+	display: table-cell;
 }
 
 .category-description h1 {
@@ -504,6 +512,11 @@ body.single .bottom-header-wrapper {
 	width: 100%;
 }
 
+.index-widget-area:nth-child(2n) {
+	transform: translateY(-50px);
+  	padding: 10px 10px;
+}
+
 .index-widget-area .srpw-block,
 .index-widget-area .srpw-ul,
 .index-widget-area .srpw-li,
@@ -514,6 +527,7 @@ body.single .bottom-header-wrapper {
 .index-widget-area .srpw-li {
 	width: 30%;
 	background-color: white;
+	border: 5px solid white;
 	box-shadow: 0 0 30px 0 rgba(0,0,0,.1) !important;
 	float: left;
 	padding-top: 0;
