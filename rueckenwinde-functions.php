@@ -122,13 +122,19 @@ function rueckenwinde_style() {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_meta_color' )); ?> !important;
             }
 
+            .post-type-archive-panamericana .content-wrap,
             .panamericana .master {
                 background-image: url(<?php echo esc_url( z_taxonomy_image_url(193) )?>);
             }
             
-            .post-type-archive-reisen .content-wrap,
-            .reisen .master {
+            .post-type-archive-reiseziele .content-wrap,
+            .reiseziele .master {
                 background-image: url(<?php echo esc_url( z_taxonomy_image_url(9) )?>);
+            }
+
+            .post-type-archive-reiseplanung .content-wrap,
+            .reiseplanung .master {
+                background-image: url(<?php echo esc_url( z_taxonomy_image_url(209) )?>);
             }
 
             .post-type-archive-vanlife .content-wrap,
@@ -145,63 +151,81 @@ function rueckenwinde_style() {
 }
 add_action( 'wp_head', 'rueckenwinde_style', 999 );
 
-function rueckenwinde_add_sections( $wp_customize ) {
-    // Paragliding Section
-    $wp_customize->add_section( 'abc' , array(
-        'title'      => __( 'Paragliding' , 'rueckenwinde' ),
-        'priority'   => 30
-    ) );
+// function rueckenwinde_add_sections( $wp_customize ) {
+    // // Paragliding Section
+    // $wp_customize->add_section( 'abc' , array(
+    //     'title'      => __( 'Paragliding' , 'rueckenwinde' ),
+    //     'priority'   => 30
+    // ) );
 
-    // Paragliding Header Image
-    $wp_customize->add_setting('rueckenwinde_paragliding_header_image_setting', array(
-        'transport'         => 'refresh',
-        'height'         => 325,
-    ));
+    // // Paragliding Header Image
+    // $wp_customize->add_setting('rueckenwinde_paragliding_header_image_setting', array(
+    //     'transport'         => 'refresh',
+    //     'height'         => 325,
+    // ));
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_paragliding_header_image_control', array(
-        'label'             => __('Header Image', 'rueckenwinde'),
-        'section'           => 'abc',
-        'settings'          => 'rueckenwinde_paragliding_header_image_setting',    
-    )));
+    // $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_paragliding_header_image_control', array(
+    //     'label'             => __('Header Image', 'rueckenwinde'),
+    //     'section'           => 'abc',
+    //     'settings'          => 'rueckenwinde_paragliding_header_image_setting',    
+    // )));
 
-    // Reisen section
-    $wp_customize->add_section( 'rueckenwinde_reisen_section' , array(
-        'title'      => __( 'Reisen' , 'rueckenwinde' ),
-        'priority'   => 30
-    ) );
+    // // Reiseziele section
+    // $wp_customize->add_section( 'rueckenwinde_reiseziele_section' , array(
+    //     'title'      => __( 'Reiseziele' , 'rueckenwinde' ),
+    //     'priority'   => 30
+    // ) );
 
-    // Reisen Header Image
-    $wp_customize->add_setting('rueckenwinde_reisen_header_image_setting', array(
-        'transport'         => 'refresh',
-        'height'         => 325,
-    ));
+    // // Reisen Header Image
+    // $wp_customize->add_setting('rueckenwinde_reiseziele_header_image_setting', array(
+    //     'transport'         => 'refresh',
+    //     'height'         => 325,
+    // ));
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_reisen_header_image_control', array(
-        'label'             => __('Header Image', 'rueckenwinde'),
-        'section'           => 'rueckenwinde_reisen_section',
-        'settings'          => 'rueckenwinde_reisen_header_image_setting',    
-    )));
+    // $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_reiseziele_header_image_control', array(
+    //     'label'             => __('Header Image', 'rueckenwinde'),
+    //     'section'           => 'rueckenwinde_reiseziele_section',
+    //     'settings'          => 'rueckenwinde_reiseziele_header_image_setting',    
+    // )));
 
-    // Vanlife section
-    $wp_customize->add_section( 'rueckenwinde_vanlife_section' , array(
-        'title'      => __( 'Vanlife' , 'rueckenwinde' ),
-        'priority'   => 30
-    ) );
+    // // Reiseplanung section
+    // $wp_customize->add_section( 'rueckenwinde_reiseziele_section' , array(
+    //     'title'      => __( 'Reiseziele' , 'rueckenwinde' ),
+    //     'priority'   => 30
+    // ) );
+    
+    // // Reisen Header Image
+    // $wp_customize->add_setting('rueckenwinde_reiseziele_header_image_setting', array(
+    //     'transport'         => 'refresh',
+    //     'height'         => 325,
+    // ));
+    
+    // $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_reiseziele_header_image_control', array(
+    //     'label'             => __('Header Image', 'rueckenwinde'),
+    //     'section'           => 'rueckenwinde_reiseziele_section',
+    //     'settings'          => 'rueckenwinde_reiseziele_header_image_setting',    
+    // )));
 
-    // Vanlife Header Image
-    $wp_customize->add_setting('rueckenwinde_vanlife_header_image_setting', array(
-        'transport'         => 'refresh',
-        'height'         => 325,
-    ));
+    // // Vanlife section
+    // $wp_customize->add_section( 'rueckenwinde_vanlife_section' , array(
+    //     'title'      => __( 'Vanlife' , 'rueckenwinde' ),
+    //     'priority'   => 30
+    // ) );
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_vanlife_header_image_control', array(
-        'label'             => __('Header Image', 'rueckenwinde'),
-        'section'           => 'rueckenwinde_vanlife_section',
-        'settings'          => 'rueckenwinde_vanlife_header_image_setting',    
-    )));
-}
+    // // Vanlife Header Image
+    // $wp_customize->add_setting('rueckenwinde_vanlife_header_image_setting', array(
+    //     'transport'         => 'refresh',
+    //     'height'         => 325,
+    // ));
 
-add_action( 'customize_register', 'rueckenwinde_add_sections' );
+    // $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'rueckenwinde_vanlife_header_image_control', array(
+    //     'label'             => __('Header Image', 'rueckenwinde'),
+    //     'section'           => 'rueckenwinde_vanlife_section',
+    //     'settings'          => 'rueckenwinde_vanlife_header_image_setting',    
+    // )));
+// }
+
+// add_action( 'customize_register', 'rueckenwinde_add_sections' );
 
 function rueckenwinde_add_colors( $wp_customize ) {
     // Link color
@@ -300,7 +324,7 @@ function rueckenwinde_add_colors( $wp_customize ) {
     );
 }
 
-add_action( 'customize_register', 'rueckenwinde_add_colors', 999 );
+add_action( 'customize_register', 'rueckenwinde_add_colors', 999 ); 
 
 function get_rueckenwinde_header($menu, $template = null) {
     $header_template = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/templates/' . basename( 'header.php' );
@@ -337,14 +361,25 @@ function rueckenwinde_template_include( $template ) {
 }
 add_filter( 'template_include', 'rueckenwinde_template_include', 11 );
 
-function namespace_add_custom_types( $query ) {
-    if( (is_category() || is_tag()) && $query->is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
-        $query->set( 'post_type', array(
-            'post', 'paragliding', 'reisen', 'vanlife'
-        ));
-    }
+function my_cptui_add_post_types_to_archives( $query ) {
+	// We do not want unintended consequences.
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;    
+	}
+
+	if ( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+		$cptui_post_types = cptui_get_post_type_slugs();
+
+		$query->set(
+			'post_type',
+			array_merge(
+				array( 'post', 'reiseziele', 'reiseplanung', 'vanlife', 'paragliding' ),
+				$cptui_post_types
+			)
+		);
+	}
 }
-add_action( 'pre_get_posts', 'namespace_add_custom_types' );
+add_filter( 'pre_get_posts', 'my_cptui_add_post_types_to_archives' );
 
 function rueckenwinde_header_widgets_init() {
     register_sidebar( array(
@@ -383,9 +418,9 @@ function rueckenwinde_index_footer_widgets_init() {
 add_action( 'widgets_init', 'rueckenwinde_index_footer_widgets_init' );
   
 register_nav_menu( 'frontpage', __( 'Frontpage Navigation', 'rueckenwinde' ) );
-register_nav_menu( 'paragliding', __( 'Paragliding Navigation', 'rueckenwinde' ) );
-register_nav_menu( 'paragliding-archive', __( 'Paragliding Archive Navigation', 'rueckenwinde' ) );
-register_nav_menu( 'reisen', __( 'Reisen Navigation', 'rueckenwinde' ) );
-register_nav_menu( 'reisen-archive', __( 'Reisen Archive Navigation', 'rueckenwinde' ) );
-register_nav_menu( 'vanlife', __( 'Vanlife Navigation', 'rueckenwinde' ) );
-register_nav_menu( 'vanlife-archive', __( 'Vanlife Archive Navigation', 'rueckenwinde' ) );
+// register_nav_menu( 'paragliding', __( 'Paragliding Navigation', 'rueckenwinde' ) );
+// register_nav_menu( 'paragliding-archive', __( 'Paragliding Archive Navigation', 'rueckenwinde' ) );
+// register_nav_menu( 'reisen', __( 'Reisen Navigation', 'rueckenwinde' ) );
+// register_nav_menu( 'reisen-archive', __( 'Reisen Archive Navigation', 'rueckenwinde' ) );
+// register_nav_menu( 'vanlife', __( 'Vanlife Navigation', 'rueckenwinde' ) );
+// register_nav_menu( 'vanlife-archive', __( 'Vanlife Archive Navigation', 'rueckenwinde' ) );

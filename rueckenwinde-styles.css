@@ -118,7 +118,7 @@ body {
 
 .navigation-wrapper {
 	padding-bottom: 0;
-
+	background: transparent !important;
 }
 
 .navigation-wrapper, .content-wrap {
@@ -126,12 +126,8 @@ body {
 }
 
 body.home .navigation-wrapper,
-body.post-type-archive-reisen .navigation-wrapper,
-body.category-reisen .navigation-wrapper,
-body.post-type-archive-paragliding .navigation-wrapper,
-body.category-paragliding .navigation-wrapper,
-body.post-type-archive-vanlife .navigation-wrapper,
-body.category-vanlife .navigation-wrapper,
+body.category .navigation-wrapper,
+body.post-type-archive
 body.single .navigation-wrapper {
 	background: transparent !important;
 	top: 0;
@@ -233,6 +229,7 @@ body.archive .navigation-wrapper {
 	line-height: 47px;
 	padding: 0 1rem 0 0;
 	z-index: 4;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .sub-menu .iot-dot-menu-a,
@@ -276,6 +273,10 @@ body.archive .navigation-wrapper {
 	position: absolute;
 }
 
+#header-wrap {
+	background-position: center;
+}  
+
 .bottom-header-wrapper {
 	position: relative;
 	text-align: center;
@@ -292,8 +293,10 @@ body.archive .navigation-wrapper {
 	display: initial !important;
 }
 
-body.post-type-archive-reisen .bottom-header-wrapper,
-body.category-reisen .bottom-header-wrapper,
+body.post-type-archive-reiseziele .bottom-header-wrapper,
+body.category-reiseziele .bottom-header-wrapper,
+body.post-type-archive-reiseplanung .bottom-header-wrapper,
+body.category-reiseplanung .bottom-header-wrapper,
 body.post-type-archive-paragliding .bottom-header-wrapper,
 body.category-paragliding .bottom-header-wrapper,
 body.post-type-archive-vanlife .bottom-header-wrapper,
@@ -322,7 +325,7 @@ body.single .bottom-header-wrapper {
 
 #about {
 	margin: 0px 0 50px 0;
-	padding: 50px 0 10px 0;
+	padding: 60px 0 30px 0;
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
 }
@@ -775,6 +778,10 @@ nf-field .submit-container input[type="button"] {
 @media screen and (max-width: 950px) {
 	.blog main, .search-results main, .archive main {
 		display: flex;
+	}
+
+	.master .content p {
+		font-size: 1.3em;
 	}
 }
 

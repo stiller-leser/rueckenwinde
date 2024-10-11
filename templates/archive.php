@@ -6,8 +6,22 @@
  *
  * @package rueckenwin.de
  */
+// $object = get_queried_object();
+// $slug = 'homepage';
+// if(isset($object->category_parent) && !is_null($object->category_parent) && !is_null(get_category($object->category_parent)->slug)):
+//     $category = get_category($object->category_parent);
+//     $slug = $category->slug.'-archive';
+// else:
+//     if( !isset($object->slug) ):
+//         if( isset($object->rewrite['slug']) ):
+//             $slug = $object->rewrite['slug'];
+//         endif;
+//     else:
+//         $slug = $object->slug;
+//     endif;
+// endif;
 
-get_rueckenwinde_header("category");
+get_rueckenwinde_header("frontpage", "category");
 
 $catID = get_the_category();
 if(isset($catID[0])):
@@ -30,18 +44,16 @@ $category_title = single_cat_title( $prefix = '', $display = false );
     <div id="primary" class="content-area large-8 medium-8 small-12 cell fp-blog-grid">
         <main id="main" class="site-main">
             <?php
-                if ( !empty($category_title) && $category_title != 'Reisen' && $category_title != 'Paragliding' ) :
+                $category = get_queried_object();
+                if ( $category && !empty($category->description) ) :
             ?>
                     <section class="category-description">
                         <?php if (function_exists('z_taxonomy_image')) z_taxonomy_image(); ?>
                         <h1>
-                            <?php esc_html_e($category_title); ?>
+                            <?php esc_html_e($category_title); ?> 
                         </h1>
                         <?php   
-                            $category = get_queried_object();
-                            if ($category && !empty($category->description)) {
-                                echo "<p>" . esc_html($category->description) . "</p>";
-                            }
+                            echo "<p>" . esc_html($category->description) . "</p>";
                         ?>
                     </section>
             <?php
