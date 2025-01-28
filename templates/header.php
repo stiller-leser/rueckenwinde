@@ -26,6 +26,8 @@ endif;
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<meta name="google-site-verification" content="qWSxcQ35GaiRPHJSJtZ_6U4U31A-YsyUwG8xV44QYZQ" />
+
 
 	<?php wp_head(); ?>
 	<?php if(is_page( array( 'impressum', 'datenschutz' ) )): ?>

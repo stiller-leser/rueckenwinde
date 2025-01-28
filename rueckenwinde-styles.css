@@ -1,11 +1,11 @@
-@font-face {
+/* @font-face {
     font-family: 'Nerkoone';
     src: url('fonts/nerkoone/NerkoOne-Regular.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
-}
+} */
 
-html {
+html { 
 	line-height: 1.15; /* 1 */
 	-webkit-text-size-adjust: 100%; /* 2 */
 	min-height: 100vh;
@@ -21,8 +21,13 @@ html *:not(.fas) {
 }
 
 html #page h1,h2,h3,h4,h5,h6,.srpw-title {
-	font-family: 'Nerkoone', 'Open Sans', helvetica, 'helvetica neue', arial, sans-serif !important;
+	font-family: 'Open Sans Condensed', 'Open Sans', helvetica, 'helvetica neue', arial, sans-serif !important;
 	font-size: 1.5em;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.yotu-video h3 {
+	text-shadow: none;
 }
 
 ::-webkit-scrollbar { 
@@ -43,6 +48,15 @@ body {
 
 #primary {
 	padding: 0;
+	margin-top: 30px;
+}
+
+.single #primary {
+	margin-top: 0;
+}
+
+#secondary {
+	margin-top: 31px
 }
 
 .blog main article a h2,
@@ -212,7 +226,7 @@ body.archive .navigation-wrapper {
 }
 
 #site-navigation {
-	padding-left: 0;
+	padding: 0;
 	position: absolute;
 	bottom: 0;
 }
@@ -220,16 +234,25 @@ body.archive .navigation-wrapper {
 #site-navigation .menu-item,
 .main-navigation .page_item {
 	float: none;
-  	display: inline-flex;
+  display: inline-flex;
 }
 
 #site-navigation .menu .page_item a,
 #site-navigation .menu .menu-item a {
-	font-size: 1.5em;
+	font-size: 1.8em;
 	line-height: 47px;
 	padding: 0 1rem 0 0;
 	z-index: 4;
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
+}
+
+#site-navigation .menu .sub-menu .menu-item a {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#site-navigation .menu .page_item:last-child a,
+#site-navigation .menu .menu-item:last-child a {
+	padding-right: 0;
 }
 
 .sub-menu .iot-dot-menu-a,
@@ -305,17 +328,8 @@ body.single .bottom-header-wrapper {
 	padding: 10% 0 6%;
 }
 
-.site-description {
-	padding: 0 0 50px;
-	font-size: 3em;
-}
-
-.home #page {
-	margin-top: 85px;
-}
-
 #page {
- 	margin-top: 31px;
+ 	margin-top: 0px;
 }
 
 .single #page {
@@ -323,19 +337,30 @@ body.single .bottom-header-wrapper {
 	margin-bottom: 0;
 }
 
+#site-description {
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+html #site-description h1 {
+	font-size: 3em;
+	margin-bottom: 0;
+}
+
 #about {
-	margin: 0px 0 50px 0;
-	padding: 60px 0 30px 0;
+	margin: 0px 0px 0px 0;
+	padding: 10px 0 30px 0;
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
 }
 
 #page #about h1 {
-	font-size: 3em;
+	font-size: 2em;
 }
 
 #about-content {
 	display: table;
+	padding-top: 20px;
 }
 
 #about #picture {
@@ -346,8 +371,10 @@ body.single .bottom-header-wrapper {
 }
 
 #about #picture img {
+	height: 40vh;
 	border-radius: 20px;
-	transform: rotate(8deg);
+	transform: rotate(8deg) translateX(-50%);
+  margin-left: 50%;
 }
 
 #about #post {
@@ -371,8 +398,8 @@ body.single .bottom-header-wrapper {
 	position: relative;
 	box-shadow: 0 0 70px -15px rgba(0,0,0,.65);
 	background-size: cover;
-  	height: 160px;
-  	background-position: center;
+  height: 200px;
+  background-position: center;
 	border-radius: 20px 20px 0 0;
 }
 
@@ -392,13 +419,13 @@ body.single .bottom-header-wrapper {
 .master .content h4 {
 	font-size: 4em;
 	margin: 0;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
 }
 
 .master .content p {
 	color: white;
 	font-size: 2em;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
 }
 
 .category-description {
@@ -513,7 +540,7 @@ body.single .bottom-header-wrapper {
 }
 
 .index-widget-area:nth-child(2n) {
-	transform: translateY(-50px);
+	transform: translateY(-70px);
   	padding: 10px 10px;
 }
 
@@ -765,10 +792,6 @@ nf-field .submit-container input[type="button"] {
     	left: 9px;
 	}
 
-	.home #page {
-		margin-top: 20px;
-	}
-
 	.blog main article:not(:first-child):nth-child(2n+1),
 	.search-results main article:not(:first-child):nth-child(2n+1),
 	.archive main article:not(:first-child):nth-child(2n+1) {
@@ -839,7 +862,8 @@ nf-field .submit-container input[type="button"] {
 	}
 
 	#about #picture img {
-		transform: rotate(0deg);
+		transform: rotate(0deg) translateX(0%);
+		margin-left: 0;
 	}
 	
 	#about #post {
@@ -848,6 +872,12 @@ nf-field .submit-container input[type="button"] {
 		display: inline-block;
 	}
 
+}
+
+@media screen and (min-width: 639px) {
+  #primary.content-area {
+    padding-right: 0px;
+  }
 }
 
 @media screen and ( max-width: 575px ) {

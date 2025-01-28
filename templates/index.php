@@ -13,6 +13,11 @@
  */
 get_rueckenwinde_header('frontpage');
 ?>
+  <div id="site-description" class="large-12 medium-12 small-12 cell fp-blog-grid">
+		<h1><?php echo get_bloginfo('description'); ?></h1>
+	</div>
+	<div id="slider">
+	</div>
 	<div id="about">
 		<?php
 			$page = get_page_by_path( 'ueber-uns' );

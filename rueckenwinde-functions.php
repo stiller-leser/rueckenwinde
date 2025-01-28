@@ -65,6 +65,7 @@ function rueckenwinde_style() {
             .single .content-area h4, 
             .single .content-area h5, 
             .single .content-area h6, 
+            #page #site-description h1,
             .page .content-area h1, 
             .page .content-area h2,
             .page .content-area h3, 
