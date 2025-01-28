@@ -58,15 +58,20 @@ $top_level_category = get_top_level_category($post_id);
                 if ( $category && !empty($category->description) ) :
             ?>
                     <section class="category-description">
-                        <div class="category-image">
-                            <?php if (function_exists('z_taxonomy_image')) z_taxonomy_image(); ?>
-                        </div>    
                         <div class="category-content">
                             <h1>
                                 <?php esc_html_e($category_title); ?> 
                             </h1>
                             <?php   
-                                echo "<p>" . esc_html($category->description) . "</p>";
+                                $description = esc_html($category->description); 
+                                $description = $description = preg_replace_callback('/\\\\(.*?)\\\\/', function($matches) {
+                                    return '<' . $matches[1] . '>';
+                                }, $description);
+                                echo "<p>";
+                                if (function_exists('z_taxonomy_image')) {
+                                    z_taxonomy_image();
+                                 }
+                                 echo $description . "</p>";
                             ?>
                         </div>
                     </section>
