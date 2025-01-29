@@ -14,7 +14,13 @@
 get_rueckenwinde_header('frontpage');
 ?>
   <div id="site-description" class="large-12 medium-12 small-12 cell fp-blog-grid">
-		<h1><?php echo get_bloginfo('description'); ?></h1>
+		<h1>
+			<?php 
+				echo preg_replace_callback('/\\\\(.*?)\\\\/', function($matches) {
+					return '<' . $matches[1] . '>';
+				},  get_bloginfo('description'));
+			?>
+		</h1>
 	</div>
 	<div id="slider">
 	</div>

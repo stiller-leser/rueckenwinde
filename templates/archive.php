@@ -64,7 +64,7 @@ $top_level_category = get_top_level_category($post_id);
                             </h1>
                             <?php   
                                 $description = esc_html($category->description); 
-                                $description = $description = preg_replace_callback('/\\\\(.*?)\\\\/', function($matches) {
+                                $description = preg_replace_callback('/\\\\(.*?)\\\\/', function($matches) {
                                     return '<' . $matches[1] . '>';
                                 }, $description);
                                 echo "<p>";

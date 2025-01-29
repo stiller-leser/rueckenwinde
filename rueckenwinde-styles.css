@@ -298,6 +298,7 @@ body.archive .navigation-wrapper {
 
 #header-wrap {
 	background-position: center;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,.5);
 }  
 
 .bottom-header-wrapper {
@@ -347,6 +348,10 @@ html #site-description h1 {
 	margin-bottom: 0;
 }
 
+html #site-description b {
+	line-height: 10px;
+}
+
 #about {
 	margin: 0px 0px 0px 0;
 	padding: 10px 0 30px 0;
@@ -373,6 +378,7 @@ html #site-description h1 {
 #about #picture img {
 	height: 40vh;
 	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,.5) !important;
 	transform: rotate(8deg) translateX(-50%);
   margin-left: 50%;
 }
@@ -391,12 +397,11 @@ html #site-description h1 {
 	font-size: 1.2em; 
 }
 
-.master {
-	width: 29%;
+#main .widget .master {
 	height: 100%;
 	display: block;
 	position: relative;
-	box-shadow: 0 0 70px -15px rgba(0,0,0,.65);
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,.5) !important;
 	background-size: cover;
   height: 200px;
   background-position: center;
@@ -428,10 +433,11 @@ html #site-description h1 {
 	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
 }
 
-.category-description {
+#primary #main .category-description {
 	width: 100%;
 	padding: 15px;
 	margin-bottom: 31px;
+	box-shadow: 0 0px 10px rgba(0,0,0,0.1) !important;
 }
 
 .category-description img {
@@ -645,7 +651,7 @@ html #site-description h1 {
 .blog main article,
 .search-results main article,
 .archive main article {
-	box-shadow: 0 0px 10px rgba(0,0,0,0.1);
+	box-shadow: 0 0px 10px rgba(0,0,0,0.1) !important;
 	background: white;
 }
 
@@ -759,6 +765,14 @@ nf-field .submit-container input[type="button"] {
 	.is-form-style {
 		position: inherit;
 	}
+
+	.master .content h4 {
+		font-size: 3.5em;
+	}
+
+	.footer-menu li a {
+		font-size: 13px;
+	}
 }
 
 @media screen and (max-width: 1024px) {
@@ -804,6 +818,16 @@ nf-field .submit-container input[type="button"] {
 	}
 }
 
+@media screen and (max-width: 1024px){
+	.iot-menu-left-ul ul li a {
+		padding-left: 35px;
+	}
+
+	.iot-menu-left-ul ul ul li a {
+		padding-left: 55px;
+	}
+}
+
 @media screen and (max-width: 950px) {
 	.blog main, .search-results main, .archive main {
 		display: flex;
@@ -837,6 +861,11 @@ nf-field .submit-container input[type="button"] {
 	
 	.bottom-header-wrapper {
 		background-size: 36%;
+	}
+
+	html #site-description b {
+		display: block;
+  	line-height: 10px;
 	}
 
 	.home #page .site-content.grid-x {
