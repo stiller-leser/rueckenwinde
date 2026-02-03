@@ -1,0 +1,21 @@
+/* ===================================
+   COUNTRY INFO BOX
+   =================================== */
+
+.country-info-box {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.country-info-box .info-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.country-info-box .info-list li {
+    padding: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.country-info-box .info-list strong {
+    color: #2271b1;
+}

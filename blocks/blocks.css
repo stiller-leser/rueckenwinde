@@ -1,0 +1,217 @@
+/* 
+ * CSS für Länder-Guide Block Patterns
+ * Füge dies zu rueckenwinde-styles.css hinzu
+ */
+
+/* ===================================
+   QUICK-LINKS NAVIGATION
+   =================================== */
+
+.quicklinks-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.quicklinks-nav .wp-block-paragraph {
+    margin: 0;
+}
+
+.quicklinks-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.quicklinks-nav a:hover {
+    color: #2271b1;
+}
+
+@media (max-width: 768px) {
+    .quicklinks-nav {
+        position: relative;
+        padding: 1rem !important;
+    }
+    
+    .quicklinks-nav .wp-block-paragraph {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ===================================
+   SEHENSWÜRDIGKEITEN CARDS
+   =================================== */
+
+.wp-block-group.has-light-gray-1-background-color {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.wp-block-group.has-light-gray-1-background-color:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* ===================================
+   KOSTEN-TABELLE
+   =================================== */
+
+.cost-table table {
+    width: 100%;
+}
+
+.cost-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cost-table tr:last-child td {
+    border-bottom: 2px solid #2271b1;
+    font-size: 1.1em;
+    background: #f5f7fa;
+}
+
+.cost-table tr:nth-last-child(2) td {
+    background: #fafafa;
+    font-style: italic;
+}
+
+/* ===================================
+   UNTERKUNFT-TABELLE
+   =================================== */
+
+.unterkunft-tabelle table {
+    width: 100%;
+}
+
+.unterkunft-tabelle th {
+    background: #2271b1;
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.unterkunft-tabelle td {
+    padding: 0.75rem 1rem;
+}
+
+.unterkunft-tabelle a {
+    color: #2271b1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.unterkunft-tabelle a:hover {
+    text-decoration: underline;
+}
+
+/* Preis-Badges */
+.unterkunft-tabelle td:last-child {
+    font-weight: bold;
+    color: #00a32a;
+}
+
+/* ===================================
+   BILDSTILE
+   =================================== */
+
+.is-style-rounded img {
+    border-radius: 12px;
+}
+
+/* ===================================
+   RESPONSIVE ANPASSUNGEN
+   =================================== */
+
+@media (max-width: 768px) {
+    .country-info-box {
+        padding: 1.5rem !important;
+    }
+    
+    .wp-block-columns {
+        flex-direction: column;
+    }
+    
+    .wp-block-column {
+        flex-basis: 100% !important;
+        margin-bottom: 1rem;
+    }
+    
+    .cost-table td,
+    .unterkunft-tabelle td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
+
+/* ===================================
+   CALL-TO-ACTION BOXEN
+   =================================== */
+
+.has-pale-pink-background-color a {
+    color: #2271b1;
+    font-weight: 600;
+}
+
+.wp-block-button__link {
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.wp-block-button__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ===================================
+   SECTION SPACING
+   =================================== */
+
+.wp-block-group[style*="padding-top"] + .wp-block-spacer {
+    /* Zusätzlicher Abstand zwischen Sections */
+}
+
+#wichtig,
+#reisezeit,
+#sehenswuerdigkeiten,
+#routen,
+#unterkuenfte,
+#kosten,
+#essen {
+    scroll-margin-top: 80px; /* Offset für sticky nav */
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+    .quicklinks-nav {
+        display: none;
+    }
+    
+    .country-info-box {
+        border: 1px solid #ccc;
+        box-shadow: none;
+    }
+}
+
+/* ===================================
+   FARB-VARIABLEN (Optional)
+   =================================== */
+
+:root {
+    --rw-primary: #2271b1;
+    --rw-success: #00a32a;
+    --rw-info: #4a9eff;
+    --rw-warning: #f0b849;
+    --rw-light-gray: #f8f9fa;
+}
+
+/* Nutze diese für konsistente Farben */
+.country-info-box {
+    /* background: var(--rw-light-gray); */
+}

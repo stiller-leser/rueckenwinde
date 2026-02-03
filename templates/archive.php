@@ -63,15 +63,26 @@ $top_level_category = get_top_level_category($post_id);
                                 <?php esc_html_e($category_title); ?> 
                             </h1>
                             <?php   
-                                $description = esc_html($category->description); 
-                                $description = preg_replace_callback('/\\\\(.*?)\\\\/', function($matches) {
-                                    return '<' . $matches[1] . '>';
-                                }, $description);
-                                echo "<p>";
+                                // Bild anzeigen falls vorhanden
                                 if (function_exists('z_taxonomy_image')) {
                                     z_taxonomy_image();
-                                 }
-                                 echo $description . "</p>";
+                                }
+                                
+                                // NEUE BLOCK-UNTERSTÜTZUNG
+                                $description = $category->description;
+                                
+                                // Prüfen ob es Gutenberg Blocks sind
+                                if (has_blocks($description)) {
+                                    // Als Blocks rendern
+                                    echo do_blocks($description);
+                                } else {
+                                    // Fallback: Legacy Pseudo-HTML Support
+                                    $description = esc_html($description); 
+                                    $description = preg_replace_callback('/\\\\(.*?)\\\\/', function($matches) {
+                                        return '<' . $matches[1] . '>';
+                                    }, $description);
+                                    echo wpautop($description);
+                                }
                             ?>
                         </div>
                     </section>
