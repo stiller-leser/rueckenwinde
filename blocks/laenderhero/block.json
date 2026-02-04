@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/country-hero",
+  "title": "Country Hero",
+  "category": "widgets",
+  "icon": "location-alt",
+  "description": "Ein Block zur Anzeige von Länder-Reiseinformationen für die Panamericana",
+  "keywords": ["uruguay", "panamericana", "reise", "info"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Land"
+    },
+    "imageSrc": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": "Land Bild"
+    },
+    "distance": {
+      "type": "string",
+      "default": "xxxx KM"
+    },
+    "days": {
+      "type": "string",
+      "default": "xx Tage"
+    },
+    "difficulty": {
+      "type": "string",
+      "default": "Easy"
+    },
+    "budget": {
+      "type": "string",
+      "default": "€€€"
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./index.php"
+}

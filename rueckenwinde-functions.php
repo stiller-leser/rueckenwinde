@@ -366,44 +366,9 @@ add_action( 'init', function () {
 
     $blocks_dir = plugin_dir_path( __FILE__ ) . 'blocks/';
 
-    /**
-     * Generic render dispatcher for server-rendered blocks.
-     * Looks up the block's closure in blocks/<slug>/index.php and invokes it.
-     */
-    function rueckenwinde_render_dispatcher( $attributes = array(), $content = '', $block = null ) {
-        $block_name = '';
-        if ( is_array( $block ) && ! empty( $block['blockName'] ) ) {
-            $block_name = $block['blockName'];
-        } elseif ( is_object( $block ) && property_exists( $block, 'name' ) ) {
-            $block_name = $block->name;
-        }
-        if ( empty( $block_name ) ) {
-            return '';
-        }
-
-        $slug = str_replace( 'rueckenwinde/', '', $block_name );
-        $file = plugin_dir_path( __FILE__ ) . 'blocks/' . $slug . '/index.php';
-        if ( ! file_exists( $file ) ) {
-            error_log( '[rueckenwinde] render dispatcher: missing file for ' . $block_name . ' -> ' . $file );
-            return '';
-        }
-
-        $render = include $file;
-        if ( is_callable( $render ) ) {
-            try {
-                return call_user_func( $render, $attributes, $content, $block );
-            } catch ( \Throwable $e ) {
-                error_log( '[rueckenwinde] render dispatcher error for ' . $block_name . ': ' . $e->getMessage() );
-                return '';
-            }
-        }
-        return '';
-    }
-
     foreach ( glob( $blocks_dir . '*/block.json' ) as $block_json ) {
-        // Log block metadata name for debugging
         $dir = dirname( $block_json );
-        register_block_type( $dir, array( 'render_callback' => 'rueckenwinde_render_dispatcher' ) );
+        register_block_type( $dir );
     }
 
 });

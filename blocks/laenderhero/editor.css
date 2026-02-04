@@ -1,0 +1,19 @@
+/**
+ * Editor-specific Styles for Uruguay Info Block
+ */
+
+.wp-block-rueckenwinde-country-hero {
+    border: 1px dashed #ccc;
+    padding: 1rem;
+    background-color: #fafafa;
+}
+
+.editor-country-hero-container {
+    width: 100%;
+}
+
+/* Add some visual feedback in the editor */
+.wp-block-rueckenwinde-country-hero:hover {
+    border-color: #5a2d82;
+    background-color: #f5f5f5;
+}
