@@ -47,29 +47,29 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'country-hero
             </div>
         <?php endif; ?>
 
-        <div class="row country-hero-stats g-0">
-            <div class="col-6 col-md-3 country-hero-stat">
+        <div class="row country-hero-stats grid-x">
+            <div class="cell col-6 col-md-3 country-hero-stat">
                 <div class="stat-content">
                     <span class="stat-label">Distanz:</span>
                     <span class="stat-value"><?php echo esc_html($distance); ?></span>
                 </div>
             </div>
             
-            <div class="col-6 col-md-3 country-hero-stat">
+            <div class="cell col-6 col-md-3 country-hero-stat">
                 <div class="stat-content stat-separator-left">
                     <span class="stat-label">Tage:</span>
                     <span class="stat-value"><?php echo esc_html($days); ?></span>
                 </div>
             </div>
             
-            <div class="col-6 col-md-3 country-hero-stat">
+            <div class="cell col-6 col-md-3 country-hero-stat">
                 <div class="stat-content stat-separator-left">
                     <span class="stat-label">Vanlife-Faktor:</span>
                     <span class="stat-value"><?php echo esc_html($difficulty); ?></span>
                 </div>
             </div>
             
-            <div class="col-6 col-md-3 country-hero-stat">
+            <div class="cell col-6 col-md-3 country-hero-stat">
                 <div class="stat-content stat-separator-left">
                     <span class="stat-label">Budget:</span>
                     <span class="stat-value"><?php echo esc_html($budget); ?></span>

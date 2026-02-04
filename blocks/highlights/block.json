@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/highlights-hero",
+  "title": "Highlights Hero",
+  "category": "widgets",
+  "icon": "star-filled",
+  "description": "Highlights-Sektion mit drei Bildern und Link",
+  "keywords": ["highlights", "hero", "bilder"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "UNSERE HIGHLIGHTS"
+    },
+    "image1Src": {
+      "type": "string",
+      "default": ""
+    },
+    "image1Alt": {
+      "type": "string",
+      "default": "Highlight 1"
+    },
+    "image2Src": {
+      "type": "string",
+      "default": ""
+    },
+    "image2Alt": {
+      "type": "string",
+      "default": "Highlight 2"
+    },
+    "image3Src": {
+      "type": "string",
+      "default": ""
+    },
+    "image3Alt": {
+      "type": "string",
+      "default": "Highlight 3"
+    },
+    "linkText": {
+      "type": "string",
+      "default": ">>WEITERLESEN [LINK]"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./index.php"
+}

@@ -1,0 +1,150 @@
+/**
+ * Route Hero Block - Frontend Styles
+ */
+
+.wp-block-rueckenwinde-route-hero {
+    margin: 2rem 0;
+}
+
+.route-hero-container {
+    width: 100%;
+}
+
+/* Heading */
+.route-hero-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Content Grid */
+.route-hero-content {
+    min-height: 300px;
+    width: 100%;
+}
+
+.route-hero-content > .large-6.columns {
+    padding: 0;
+}
+
+/* Left: Image */
+.route-hero-image-wrapper {
+    height: 100%;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.route-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.route-hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #999;
+}
+
+/* Right: Info */
+.route-hero-info {
+    padding: 0 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+}
+
+.route-hero-fill-section {
+    flex: 1;
+}
+
+.route-hero-fill-label {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #d32f2f;
+    margin: 0 0 1rem 0;
+}
+
+.route-hero-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.route-hero-list li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+/* Link */
+.route-hero-link,
+.route-hero-link-placeholder {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #d32f2f;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.route-hero-link:hover {
+    text-decoration: underline;
+}
+
+.route-hero-link-placeholder {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .route-hero-heading {
+        font-size: 1.5rem;
+    }
+
+    .route-hero-image-wrapper {
+        min-height: 200px;
+    }
+
+    .route-hero-info {
+        padding: 1.5rem;
+        min-height: auto;
+    }
+
+    .route-hero-fill-label {
+        font-size: 1.1rem;
+    }
+
+    .route-hero-list li {
+        font-size: 1rem;
+    }
+}
+
+/* Desktop Layout */
+@media (min-width: 1024px) {
+    .route-hero-content > .large-6.columns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .route-hero-image-wrapper,
+    .route-hero-info {
+        flex: 1;
+    }
+}

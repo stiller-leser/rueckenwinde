@@ -1,0 +1,97 @@
+/**
+ * Highlights Hero Block - Frontend Styles
+ */
+
+.wp-block-rueckenwinde-highlights-hero {
+    margin: 2rem 0;
+}
+
+.highlights-hero-container {
+    width: 100%;
+}
+
+/* Heading */
+.highlights-hero-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Images Row */
+.highlights-hero-images {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.highlights-hero-images .columns {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Image Wrapper */
+.highlights-hero-image-wrapper {
+    border: 2px solid #000;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.highlights-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.highlights-hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #999;
+}
+
+/* Link */
+.highlights-hero-link,
+.highlights-hero-link-placeholder {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #d32f2f;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.highlights-hero-link:hover {
+    text-decoration: underline;
+}
+
+.highlights-hero-link-placeholder {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .highlights-hero-heading {
+        font-size: 1.5rem;
+    }
+
+    .highlights-hero-image-wrapper {
+        height: 200px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .highlights-hero-image-wrapper {
+        height: 220px;
+    }
+}

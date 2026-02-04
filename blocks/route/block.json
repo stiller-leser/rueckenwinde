@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/route-hero",
+  "title": "Route Hero",
+  "category": "widgets",
+  "icon": "location-alt",
+  "description": "Route-Übersicht mit Bild und wichtigen Informationen",
+  "keywords": ["route", "hero", "reise", "info"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "UNSERE ROUTE"
+    },
+    "imageSrc": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": "Route Bild"
+    },
+    "fillLabel": {
+      "type": "string",
+      "default": "Ausfüllen:"
+    },
+    "startEnd": {
+      "type": "string",
+      "default": "Start -> Ende"
+    },
+    "feeling": {
+      "type": "string",
+      "default": "Fahrgefühl"
+    },
+    "climate": {
+      "type": "string",
+      "default": "Klima & Reisezeit"
+    },
+    "linkText": {
+      "type": "string",
+      "default": ">>WEITERLESEN [LINK]"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./index.php"
+}

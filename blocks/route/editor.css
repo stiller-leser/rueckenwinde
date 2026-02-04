@@ -1,0 +1,12 @@
+/**
+ * Route Hero Block - Editor Styles
+ */
+
+.wp-block-rueckenwinde-route-hero {
+    /* Editor-spezifische Styles falls nötig */
+}
+
+/* Disabled wrapper entfernen visuell */
+.wp-block-rueckenwinde-route-hero .components-disabled {
+    cursor: default;
+}

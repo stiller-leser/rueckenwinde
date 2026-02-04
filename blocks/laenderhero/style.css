@@ -13,10 +13,6 @@
 
 /* Title Styling */
 .country-hero-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #5a2d82;
-    line-height: 1.3;
     margin: 0 0 1.5rem 0;
     padding: 0;
 }
@@ -50,20 +46,15 @@
 /* Stats Container */
 .country-hero-stats {
     margin: 0;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .country-hero-stat {
     padding: 0;
-    flex: 0 0 25%;
     max-width: 25%;
 }
 
 .stat-content {
     padding: 1.25rem 1rem;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -86,12 +77,8 @@
 
 /* Responsive Design */
 @media (max-width: 767px) {
-    .country-hero-title {
-        font-size: 1.5rem;
-    }
 
     .country-hero-stat {
-        flex: 0 0 50%;
         max-width: 50%;
     }
 
@@ -120,10 +107,7 @@
 }
 
 @media (min-width: 768px) {
-    .country-hero-title {
-        font-size: 1.875rem;
-    }
-    
+
     /* Remove any potential mobile borders */
     .country-hero-stat .stat-content {
         border-top: none !important;

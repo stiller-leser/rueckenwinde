@@ -372,3 +372,13 @@ add_action( 'init', function () {
     }
 
 });
+
+add_action('enqueue_block_editor_assets', 'rueckenwinde_editor_foundation');
+function rueckenwinde_editor_foundation() {
+    wp_enqueue_style(
+        'foundation-editor',
+        get_template_directory_uri() . '/css/foundation.css',
+        array(),
+        '6.7.4'
+    );
+}

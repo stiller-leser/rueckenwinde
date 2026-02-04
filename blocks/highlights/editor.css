@@ -1,0 +1,43 @@
+/**
+ * Highlights Hero Block - Editor Styles
+ */
+
+/* Foundation Grid Simulation für Editor */
+.wp-block-rueckenwinde-highlights-hero-editor .row {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-block-rueckenwinde-highlights-hero-editor .row::before,
+.wp-block-rueckenwinde-highlights-hero-editor .row::after {
+    content: ' ';
+    display: table;
+}
+
+.wp-block-rueckenwinde-highlights-hero-editor .row::after {
+    clear: both;
+}
+
+.wp-block-rueckenwinde-highlights-hero-editor .columns {
+    float: left;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.wp-block-rueckenwinde-highlights-hero-editor .large-4 {
+    width: 33.33333%;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .wp-block-rueckenwinde-highlights-hero-editor .columns {
+        width: 100%;
+        float: none;
+    }
+}
+
+/* Disabled wrapper */
+.wp-block-rueckenwinde-highlights-hero-editor .components-disabled {
+    cursor: default;
+}
