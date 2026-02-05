@@ -18,8 +18,12 @@ $image2_alt = isset($attributes['image2Alt']) ? $attributes['image2Alt'] : 'High
 $image3_src = isset($attributes['image3Src']) ? $attributes['image3Src'] : '';
 $image3_alt = isset($attributes['image3Alt']) ? $attributes['image3Alt'] : 'Highlight 3';
 
-$link_text = isset($attributes['linkText']) ? $attributes['linkText'] : '>>WEITERLESEN [LINK]';
-$link_url = isset($attributes['linkUrl']) ? $attributes['linkUrl'] : '';
+$image1_url = isset($attributes['image1Url']) ? $attributes['image1Url'] : '';
+$image1_label = isset($attributes['image1Label']) ? $attributes['image1Label'] : '';
+$image2_url = isset($attributes['image2Url']) ? $attributes['image2Url'] : '';
+$image2_label = isset($attributes['image2Label']) ? $attributes['image2Label'] : '';
+$image3_url = isset($attributes['image3Url']) ? $attributes['image3Url'] : '';
+$image3_label = isset($attributes['image3Label']) ? $attributes['image3Label'] : '';
 
 $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-hero-' . uniqid();
 ?>
@@ -37,9 +41,20 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
             <div class="cell large-4 columns">
                 <div class="highlights-hero-image-wrapper">
                     <?php if (!empty($image1_src)) : ?>
+                        <?php if (!empty($image1_url)) : ?>
+                            <a href="<?php echo esc_url($image1_url); ?>">
+                        <?php endif; ?>
                         <img src="<?php echo esc_url($image1_src); ?>" 
                              alt="<?php echo esc_attr($image1_alt); ?>" 
                              class="highlights-hero-image">
+                        <?php if (!empty($image1_label)) : ?>
+                            <span class="highlights-hero-image-label">
+                                <?php echo esc_html($image1_label); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if (!empty($image1_url)) : ?>
+                            </a>
+                        <?php endif; ?>
                     <?php else : ?>
                         <div class="highlights-hero-image-placeholder">
                             <span>BILD</span>
@@ -52,9 +67,20 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
             <div class="cell large-4 columns">
                 <div class="highlights-hero-image-wrapper">
                     <?php if (!empty($image2_src)) : ?>
+                        <?php if (!empty($image2_url)) : ?>
+                            <a href="<?php echo esc_url($image2_url); ?>">
+                        <?php endif; ?>
                         <img src="<?php echo esc_url($image2_src); ?>" 
                              alt="<?php echo esc_attr($image2_alt); ?>" 
                              class="highlights-hero-image">
+                        <?php if (!empty($image2_label)) : ?>
+                            <span class="highlights-hero-image-label">
+                                <?php echo esc_html($image2_label); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if (!empty($image2_url)) : ?>
+                            </a>
+                        <?php endif; ?>
                     <?php else : ?>
                         <div class="highlights-hero-image-placeholder">
                             <span>BILD</span>
@@ -67,9 +93,20 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
             <div class="cell large-4 columns">
                 <div class="highlights-hero-image-wrapper">
                     <?php if (!empty($image3_src)) : ?>
+                        <?php if (!empty($image3_url)) : ?>
+                            <a href="<?php echo esc_url($image3_url); ?>">
+                        <?php endif; ?>
                         <img src="<?php echo esc_url($image3_src); ?>" 
                              alt="<?php echo esc_attr($image3_alt); ?>" 
                              class="highlights-hero-image">
+                        <?php if (!empty($image3_label)) : ?>
+                            <span class="highlights-hero-image-label">
+                                <?php echo esc_html($image3_label); ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if (!empty($image3_url)) : ?>
+                            </a>
+                        <?php endif; ?>
                     <?php else : ?>
                         <div class="highlights-hero-image-placeholder">
                             <span>BILD</span>
@@ -79,13 +116,6 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
             </div>
 
         </div>
-
-        <!-- Link -->
-        <?php if (!empty($link_url)) : ?>
-            <a href="<?php echo esc_url($link_url); ?>" class="highlights-hero-link">
-                <?php echo esc_html($link_text); ?>
-            </a>
-        <?php endif; ?>
 
     </div>
 </div>

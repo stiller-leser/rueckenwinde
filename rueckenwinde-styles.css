@@ -258,11 +258,11 @@ body.archive .navigation-wrapper {
 	line-height: 47px;
 	padding: 0 1rem 0 0;
 	z-index: 4;
-	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 }
 
 #site-navigation .menu .sub-menu .menu-item a {
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	text-shadow: none;
 }
 
 #site-navigation .menu .page_item:last-child a,

@@ -43,11 +43,27 @@
       "type": "string",
       "default": "Highlight 3"
     },
-    "linkText": {
+    "image1Url": {
       "type": "string",
-      "default": ">>WEITERLESEN [LINK]"
+      "default": ""
     },
-    "linkUrl": {
+    "image1Label": {
+      "type": "string",
+      "default": ""
+    },
+    "image2Url": {
+      "type": "string",
+      "default": ""
+    },
+    "image2Label": {
+      "type": "string",
+      "default": ""
+    },
+    "image3Url": {
+      "type": "string",
+      "default": ""
+    },
+    "image3Label": {
       "type": "string",
       "default": ""
     }

@@ -47,11 +47,27 @@
                 type: 'string',
                 default: 'Highlight 3'
             },
-            linkText: {
+            image1Url: {
                 type: 'string',
-                default: '>>WEITERLESEN [LINK]'
+                default: ''
             },
-            linkUrl: {
+            image1Label: {
+                type: 'string',
+                default: ''
+            },
+            image2Url: {
+                type: 'string',
+                default: ''
+            },
+            image2Label: {
+                type: 'string',
+                default: ''
+            },
+            image3Url: {
+                type: 'string',
+                default: ''
+            },
+            image3Label: {
                 type: 'string',
                 default: ''
             }
@@ -61,10 +77,9 @@
             const { attributes, setAttributes } = props;
             const { 
                 heading,
-                image1Src, image1Alt,
-                image2Src, image2Alt,
-                image3Src, image3Alt,
-                linkText, linkUrl
+                image1Src, image1Alt, image1Url, image1Label,
+                image2Src, image2Alt, image2Url, image2Label,
+                image3Src, image3Alt, image3Url, image3Label
             } = attributes;
             const blockProps = useBlockProps();
 
@@ -152,6 +167,23 @@
                             onChange: function (value) {
                                 setAttributes({ image1Alt: value });
                             }
+                        }),
+                        el(TextControl, {
+                            label: __('Link-URL', 'rueckenwinde'),
+                            type: 'url',
+                            value: image1Url,
+                            onChange: function (value) {
+                                setAttributes({ image1Url: value });
+                            },
+                            help: __('URL für dieses Bild (optional)', 'rueckenwinde')
+                        }),
+                        el(TextControl, {
+                            label: __('Label', 'rueckenwinde'),
+                            value: image1Label,
+                            onChange: function (value) {
+                                setAttributes({ image1Label: value });
+                            },
+                            help: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
                         })
                     ),
                     // Bild 2
@@ -178,6 +210,23 @@
                             onChange: function (value) {
                                 setAttributes({ image2Alt: value });
                             }
+                        }),
+                        el(TextControl, {
+                            label: __('Link-URL', 'rueckenwinde'),
+                            type: 'url',
+                            value: image2Url,
+                            onChange: function (value) {
+                                setAttributes({ image2Url: value });
+                            },
+                            help: __('URL für dieses Bild (optional)', 'rueckenwinde')
+                        }),
+                        el(TextControl, {
+                            label: __('Label', 'rueckenwinde'),
+                            value: image2Label,
+                            onChange: function (value) {
+                                setAttributes({ image2Label: value });
+                            },
+                            help: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
                         })
                     ),
                     // Bild 3
@@ -204,27 +253,23 @@
                             onChange: function (value) {
                                 setAttributes({ image3Alt: value });
                             }
-                        })
-                    ),
-                    // Link
-                    el(
-                        PanelBody,
-                        { title: __('Link', 'rueckenwinde'), initialOpen: false },
-                        el(TextControl, {
-                            label: __('Link-Text', 'rueckenwinde'),
-                            value: linkText,
-                            onChange: function (value) {
-                                setAttributes({ linkText: value });
-                            }
                         }),
                         el(TextControl, {
                             label: __('Link-URL', 'rueckenwinde'),
                             type: 'url',
-                            value: linkUrl,
+                            value: image3Url,
                             onChange: function (value) {
-                                setAttributes({ linkUrl: value });
+                                setAttributes({ image3Url: value });
                             },
-                            help: __('Komplette URL eingeben (z.B. https://...)', 'rueckenwinde')
+                            help: __('URL für dieses Bild (optional)', 'rueckenwinde')
+                        }),
+                        el(TextControl, {
+                            label: __('Label', 'rueckenwinde'),
+                            value: image3Label,
+                            onChange: function (value) {
+                                setAttributes({ image3Label: value });
+                            },
+                            help: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
                         })
                     )
                 ),
