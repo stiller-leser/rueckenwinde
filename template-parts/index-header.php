@@ -16,8 +16,7 @@
 		<?php
 			$custom_header = get_custom_header();
 		?>
-		<section class="content-wrap" style="background-image:url(<?php echo esc_url($custom_header->url); ?>)">	
-			<div class="glass"></div>			
+		<section class="content-wrap" style="background-image:url(<?php echo get_background_image(); ?>)">	
 			<div class="bottom-header-wrapper">
 				<!-- <?php
 				$writers_blogily_description = get_bloginfo( 'description', 'display' );

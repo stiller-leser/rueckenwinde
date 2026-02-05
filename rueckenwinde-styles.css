@@ -5,6 +5,13 @@
     font-style: normal;
 } */
 
+@font-face {
+    font-family: 'LeagueSpartan_Light';
+    src: url('fonts/League_Spartan/static/LeagueSpartan-Light.ttf') format('truetype');
+	font-weight: normal;
+    font-style: normal;
+}
+
 html { 
 	line-height: 1.15; /* 1 */
 	-webkit-text-size-adjust: 100%; /* 2 */
@@ -15,7 +22,7 @@ html {
 }
 
 html *:not(.fas) {
-	font-family: 'Palatino', 'Open Sans', helvetica, 'helvetica neue', arial, sans-serif;
+	font-family: 'LeagueSpartan_Light', 'Open Sans', helvetica, 'helvetica neue', arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -132,6 +139,10 @@ html body .grid-container {
 	display: grid;
 	position: relative;
 	height: 248px;
+}
+
+.home #header-wrap {
+	height: auto;
 }
 
 .navigation-wrapper {
@@ -286,9 +297,18 @@ body.archive .navigation-wrapper {
 	padding-bottom: 29px;
 }
 
+/* Responsive Header für rueckenwin.de frontpage */
 .home .content-wrap {
-	padding-bottom: 19px;
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.22%; /* 768 / 1366 = 56.22% */
+    background-size: cover !important; /* Überschreibt inline-style */
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    min-height: 250px;
 }
+
 
 .glass {
 	background-image: linear-gradient(180deg,#000000 35%,#000000 120%);
@@ -608,6 +628,10 @@ html #site-description b {
 	width: 100%;
 }
 
+.index-footer-widget-area .yotu-column-4 li {
+  width: 24.2506%;
+}
+
 .index-footer-widget-area .yotu-pagination:first-child {
 	display: none;
 }
@@ -760,6 +784,13 @@ nf-field .submit-container input[type="button"] {
 	cursor: pointer;
 }
 
+/* Responsive Anpassungen */
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+    .home .content-wrap {
+        padding-bottom: 60%;
+    }
+}
+
 @media screen and (max-width: 1376px) {
 
 	.home #page {
@@ -782,6 +813,10 @@ nf-field .submit-container input[type="button"] {
 @media screen and (max-width: 1024px) {
 	#header-wrap {
 		height: 184px;
+	}
+
+	.home #header-wrap {
+		height: auto;
 	}
 
 	#primary-menu {
@@ -855,6 +890,10 @@ nf-field .submit-container input[type="button"] {
 		height: 142px;
 	}
 
+	.home #header-wrap {
+		height: auto;
+	}
+
 	#site-navigation {
 		height: 100%;
 	}
@@ -862,6 +901,10 @@ nf-field .submit-container input[type="button"] {
 	.content-wrap {
 		height: 100%;
 	}
+
+	.home .content-wrap {
+        padding-bottom: 56%;
+    }
 	
 	.bottom-header-wrapper {
 		background-size: 36%;
@@ -917,4 +960,10 @@ nf-field .submit-container input[type="button"] {
 	.bottom-header-wrapper {
 		background-size: 60%;
 	}	
+}
+
+@media screen and (max-width: 480px) {
+    .home .content-wrap {
+        padding-bottom: 50%;
+    }
 }

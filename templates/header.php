@@ -37,8 +37,14 @@ endif;
 
 <body <?php body_class(); ?>>
 	<div id="header-wrap">
-		<section class="navigation-wrapper">	
-			<div class="glass"></div>	
+		<section class="navigation-wrapper">
+			<?php 
+				if ( !is_front_page() ):
+			?>
+					<div class="glass"></div>	
+			<?php
+				endif;
+			?>	
 			<div class="site grid-container">
 				<header id="masthead" class="site-header grid-x grid-padding-x">
 					<nav id="site-navigation" class="main-navigation large-12 medium-2 small-3 cell">

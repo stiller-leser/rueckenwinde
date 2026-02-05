@@ -85,10 +85,6 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
             <a href="<?php echo esc_url($link_url); ?>" class="highlights-hero-link">
                 <?php echo esc_html($link_text); ?>
             </a>
-        <?php else : ?>
-            <div class="highlights-hero-link-placeholder">
-                <?php echo esc_html($link_text); ?>
-            </div>
         <?php endif; ?>
 
     </div>
