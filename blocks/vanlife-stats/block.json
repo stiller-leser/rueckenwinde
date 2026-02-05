@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "rueckenwinde/country-hero",
-  "title": "Country Hero",
+  "name": "rueckenwinde/vanlife-stats",
+  "title": "Vanlife Stats",
   "category": "widgets",
-  "icon": "location-alt",
-  "description": "Ein Block zur Anzeige von Länder-Reiseinformationen für die Panamericana",
-  "keywords": ["uruguay", "panamericana", "reise", "info"],
+  "icon": "chart-bar",
+  "description": "Statistiken für Vanlife-Reise (Distanz, Tage, Vanlife-Faktor, Budget)",
+  "keywords": ["vanlife", "stats", "reise", "info"],
   "version": "1.0.0",
   "textdomain": "rueckenwinde",
   "supports": {
@@ -15,17 +15,21 @@
     "align": false
   },
   "attributes": {
-    "title": {
+    "distance": {
       "type": "string",
-      "default": "Land"
+      "default": "2065 KM"
     },
-    "imageSrc": {
+    "days": {
       "type": "string",
-      "default": ""
+      "default": "34 Tage"
     },
-    "imageAlt": {
+    "difficulty": {
       "type": "string",
-      "default": "Land Bild"
+      "default": "Easy"
+    },
+    "budget": {
+      "type": "string",
+      "default": "€€€"
     }
   },
   "editorScript": "file:./editor.js",

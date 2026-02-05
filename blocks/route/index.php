@@ -23,9 +23,9 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'route-hero-'
 <div id="<?php echo esc_attr($block_id); ?>" class="wp-block-rueckenwinde-route-hero">
     <div class="route-hero-container">
         
-        <h2 class="route-hero-heading">
+        <h3 class="route-hero-heading">
             <?php echo esc_html($heading); ?>
-        </h2>
+        </h3>
 
         <div class="grid-x route-hero-content">
             
@@ -49,9 +49,9 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'route-hero-'
                 <div class="route-hero-info">
                     
                     <div class="route-hero-fill-section">
-                        <h3 class="route-hero-fill-label">
+                        <h4 class="route-hero-fill-label">
                             <?php echo esc_html($fill_label); ?>
-                        </h3>
+                        </h4>
                         
                         <ul class="route-hero-list">
                             <li><?php echo esc_html($start_end); ?></li>

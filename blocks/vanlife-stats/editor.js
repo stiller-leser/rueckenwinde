@@ -1,0 +1,107 @@
+/**
+ * WordPress Gutenberg Block Editor
+ * Nutzt ServerSideRender - HTML nur in render.php!
+ */
+
+(function (wp) {
+    const { registerBlockType } = wp.blocks;
+    const { InspectorControls, useBlockProps } = wp.blockEditor;
+    const { PanelBody, TextControl, Disabled } = wp.components;
+    const { __ } = wp.i18n;
+    const { ServerSideRender } = wp.serverSideRender;
+    const el = wp.element.createElement;
+
+    registerBlockType('rueckenwinde/vanlife-stats', {
+        title: __('Vanlife Stats', 'rueckenwinde'),
+        icon: 'chart-bar',
+        category: 'widgets',
+        description: __('Statistiken für Vanlife-Reise (Distanz, Tage, Vanlife-Faktor, Budget)', 'rueckenwinde'),
+        keywords: [__('vanlife', 'rueckenwinde'), __('stats', 'rueckenwinde'), __('reise', 'rueckenwinde')],
+        
+        attributes: {
+            distance: {
+                type: 'string',
+                default: '2065 KM'
+            },
+            days: {
+                type: 'string',
+                default: '34 Tage'
+            },
+            difficulty: {
+                type: 'string',
+                default: 'Easy'
+            },
+            budget: {
+                type: 'string',
+                default: '€€€'
+            }
+        },
+
+        edit: function (props) {
+            const { attributes, setAttributes } = props;
+            const { distance, days, difficulty, budget } = attributes;
+            const blockProps = useBlockProps();
+
+            return el(
+                'div',
+                blockProps,
+                el(
+                    wp.element.Fragment,
+                    null,
+                    el(
+                        InspectorControls,
+                        null,
+                        el(
+                            PanelBody,
+                            { title: __('Statistiken', 'rueckenwinde'), initialOpen: true },
+                            el(TextControl, {
+                                label: __('Distanz', 'rueckenwinde'),
+                                value: distance,
+                                onChange: function (value) {
+                                    setAttributes({ distance: value });
+                                },
+                                help: __('z.B. "2065 KM"', 'rueckenwinde')
+                            }),
+                            el(TextControl, {
+                                label: __('Tage', 'rueckenwinde'),
+                                value: days,
+                                onChange: function (value) {
+                                    setAttributes({ days: value });
+                                },
+                                help: __('z.B. "34 Tage"', 'rueckenwinde')
+                            }),
+                            el(TextControl, {
+                                label: __('Vanlife-Faktor', 'rueckenwinde'),
+                                value: difficulty,
+                                onChange: function (value) {
+                                    setAttributes({ difficulty: value });
+                                },
+                                help: __('z.B. "Easy", "Medium", "Hard"', 'rueckenwinde')
+                            }),
+                            el(TextControl, {
+                                label: __('Budget', 'rueckenwinde'),
+                                value: budget,
+                                onChange: function (value) {
+                                    setAttributes({ budget: value });
+                                },
+                                help: __('z.B. "€€€"', 'rueckenwinde')
+                            })
+                        )
+                    ),
+                    el(
+                        Disabled,
+                        null,
+                        el(ServerSideRender, {
+                            block: 'rueckenwinde/vanlife-stats',
+                            attributes: attributes
+                        })
+                    )
+                )
+            );
+        },
+
+        save: function () {
+            return null;
+        }
+    });
+})(window.wp);

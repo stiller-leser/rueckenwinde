@@ -1,0 +1,77 @@
+/**
+ * Frontend Styles for Vanlife Stats Block
+ */
+
+.wp-block-rueckenwinde-vanlife-stats {
+    margin: 0;
+    padding: 0;
+}
+
+.vanlife-stats {
+    margin: 0;
+}
+
+.vanlife-stat {
+    padding: 0;
+    max-width: 25%;
+}
+
+.stat-content {
+    padding: 1.25rem 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80px;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #6c757d;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+
+    .vanlife-stat {
+        max-width: 50%;
+    }
+
+    .stat-content {
+        padding: 1rem 0.75rem;
+        min-height: 70px;
+    }
+
+    .stat-value {
+        font-size: 1.1rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    /* Remove left border on first item of each row on mobile */
+    .vanlife-stat:nth-child(odd) .stat-separator-left {
+        border-left: none;
+    }
+
+    /* Add top border for second row on mobile */
+    .vanlife-stat:nth-child(n+3) .stat-content {
+        border-top: 1px solid #dee2e6;
+    }
+}
+
+@media (min-width: 768px) {
+
+    /* Remove any potential mobile borders */
+    .vanlife-stat .stat-content {
+        border-top: none !important;
+    }
+}

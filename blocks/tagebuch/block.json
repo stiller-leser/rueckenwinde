@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "rueckenwinde/country-hero",
-  "title": "Country Hero",
+  "name": "rueckenwinde/tagebuch",
+  "title": "Tagebuch",
   "category": "widgets",
-  "icon": "location-alt",
-  "description": "Ein Block zur Anzeige von Länder-Reiseinformationen für die Panamericana",
-  "keywords": ["uruguay", "panamericana", "reise", "info"],
+  "icon": "book",
+  "description": "Zweispaltiger Tagebuch-Teaser mit Text und Bild",
+  "keywords": ["tagebuch", "teaser", "gedanken"],
   "version": "1.0.0",
   "textdomain": "rueckenwinde",
   "supports": {
@@ -15,9 +15,21 @@
     "align": false
   },
   "attributes": {
-    "title": {
+    "heading": {
       "type": "string",
-      "default": "Land"
+      "default": "UNSERE GEDANKEN"
+    },
+    "body": {
+      "type": "string",
+      "default": ""
+    },
+    "linkLabel": {
+      "type": "string",
+      "default": ">> ZUM TAGEBUCH"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": ""
     },
     "imageSrc": {
       "type": "string",
@@ -25,7 +37,7 @@
     },
     "imageAlt": {
       "type": "string",
-      "default": "Land Bild"
+      "default": "Tagebuch Bild"
     }
   },
   "editorScript": "file:./editor.js",

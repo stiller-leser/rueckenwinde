@@ -31,9 +31,9 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
 <div id="<?php echo esc_attr($block_id); ?>" class="wp-block-rueckenwinde-highlights-hero">
     <div class="highlights-hero-container">
         
-        <h2 class="highlights-hero-heading">
+        <h3 class="highlights-hero-heading">
             <?php echo esc_html($heading); ?>
-        </h2>
+        </h3>
 
         <div class="row highlights-hero-images grid-x">
             

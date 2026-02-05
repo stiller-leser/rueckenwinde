@@ -1,0 +1,72 @@
+/**
+ * Frontend Styles for Tagebuch Block
+ */
+
+.wp-block-rueckenwinde-tagebuch {
+    margin: 0;
+    padding: 0;
+}
+
+.tagebuch-grid {
+    margin: 0;
+}
+
+.tagebuch-text {
+    background: #f4dcd0;
+    padding: 2rem;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tagebuch-heading {
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    letter-spacing: 0.02em;
+}
+
+.tagebuch-body {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.tagebuch-link {
+    margin-top: 1.5rem;
+    font-weight: 700;
+}
+
+.tagebuch-link a,
+.tagebuch-link span {
+    color: #c21712;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.tagebuch-image {
+    border: 2px solid #000;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.tagebuch-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tagebuch-image-placeholder {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+@media (max-width: 900px) {
+    .tagebuch-image,
+    .tagebuch-text {
+        min-height: 240px;
+    }
+}

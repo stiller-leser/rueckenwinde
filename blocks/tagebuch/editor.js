@@ -11,17 +11,29 @@
     const { ServerSideRender } = wp.serverSideRender;
     const el = wp.element.createElement;
 
-    registerBlockType('rueckenwinde/country-hero', {
-        title: __('Country Hero', 'rueckenwinde'),
-        icon: 'location-alt',
+    registerBlockType('rueckenwinde/tagebuch', {
+        title: __('Tagebuch', 'rueckenwinde'),
+        icon: 'book',
         category: 'widgets',
-        description: __('Ein Block zur Anzeige von Uruguay-Reiseinformationen für die Panamericana', 'rueckenwinde'),
-        keywords: [__('uruguay', 'rueckenwinde'), __('panamericana', 'rueckenwinde'), __('reise', 'rueckenwinde')],
+        description: __('Zweispaltiger Tagebuch-Teaser mit Text und Bild', 'rueckenwinde'),
+        keywords: [__('tagebuch', 'rueckenwinde'), __('teaser', 'rueckenwinde'), __('gedanken', 'rueckenwinde')],
         
         attributes: {
-            title: {
+            heading: {
                 type: 'string',
-                default: 'Uruguay war unser Einstieg in die Panamericana – ruhig, überschaubar und perfekt, um anzukommen. Hier findest du alles zu unseren Erlebnissen und Learnings.'
+                default: 'UNSERE GEDANKEN'
+            },
+            body: {
+                type: 'string',
+                default: ''
+            },
+            linkLabel: {
+                type: 'string',
+                default: '>> ZUM TAGEBUCH'
+            },
+            linkUrl: {
+                type: 'string',
+                default: ''
             },
             imageSrc: {
                 type: 'string',
@@ -29,13 +41,13 @@
             },
             imageAlt: {
                 type: 'string',
-                default: 'Uruguay Bild'
+                default: 'Tagebuch Bild'
             }
         },
 
         edit: function (props) {
             const { attributes, setAttributes } = props;
-            const { title, imageSrc, imageAlt } = attributes;
+            const { heading, body, linkLabel, linkUrl, imageSrc, imageAlt } = attributes;
             const blockProps = useBlockProps();
 
             return el(
@@ -50,14 +62,34 @@
                         el(
                             PanelBody,
                             { title: __('Inhalt', 'rueckenwinde'), initialOpen: true },
-                            el(TextareaControl, {
-                                label: __('Titel', 'rueckenwinde'),
-                                value: title,
+                            el(TextControl, {
+                                label: __('Überschrift', 'rueckenwinde'),
+                                value: heading,
                                 onChange: function (value) {
-                                    setAttributes({ title: value });
+                                    setAttributes({ heading: value });
+                                }
+                            }),
+                            el(TextareaControl, {
+                                label: __('Text', 'rueckenwinde'),
+                                value: body,
+                                onChange: function (value) {
+                                    setAttributes({ body: value });
                                 },
-                                rows: 3,
-                                help: __('Der Haupttext des Blocks', 'rueckenwinde')
+                                rows: 6
+                            }),
+                            el(TextControl, {
+                                label: __('Link-Text', 'rueckenwinde'),
+                                value: linkLabel,
+                                onChange: function (value) {
+                                    setAttributes({ linkLabel: value });
+                                }
+                            }),
+                            el(TextControl, {
+                                label: __('Link-URL', 'rueckenwinde'),
+                                value: linkUrl,
+                                onChange: function (value) {
+                                    setAttributes({ linkUrl: value });
+                                }
                             })
                         ),
                         el(
@@ -70,7 +102,7 @@
                                     onSelect: function (media) {
                                         setAttributes({
                                             imageSrc: media.url,
-                                            imageAlt: media.alt || 'Uruguay Bild'
+                                            imageAlt: media.alt || 'Tagebuch Bild'
                                         });
                                     },
                                     allowedTypes: ['image'],
@@ -108,7 +140,6 @@
                                 onChange: function (value) {
                                     setAttributes({ imageAlt: value });
                                 },
-                                help: __('Beschreibung für Screenreader', 'rueckenwinde'),
                                 style: { marginTop: '15px' }
                             })
                         )
@@ -117,7 +148,7 @@
                         Disabled,
                         null,
                         el(ServerSideRender, {
-                            block: 'rueckenwinde/country-hero',
+                            block: 'rueckenwinde/tagebuch',
                             attributes: attributes
                         })
                     )

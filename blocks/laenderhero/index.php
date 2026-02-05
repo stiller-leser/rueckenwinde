@@ -14,10 +14,6 @@
 $title = isset($attributes['title']) ? wp_kses_post($attributes['title']) : '';
 $image_src = isset($attributes['imageSrc']) ? $attributes['imageSrc'] : '';
 $image_alt = isset($attributes['imageAlt']) ? $attributes['imageAlt'] : 'Uruguay Bild';
-$distance = isset($attributes['distance']) ? $attributes['distance'] : '2065 KM';
-$days = isset($attributes['days']) ? $attributes['days'] : '34 Tage';
-$difficulty = isset($attributes['difficulty']) ? $attributes['difficulty'] : 'Easy';
-$budget = isset($attributes['budget']) ? $attributes['budget'] : '€€€';
 
 // Generate unique ID for anchor support
 $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'country-hero-' . uniqid();
@@ -47,34 +43,5 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'country-hero
             </div>
         <?php endif; ?>
 
-        <div class="row country-hero-stats grid-x">
-            <div class="cell col-6 col-md-3 country-hero-stat">
-                <div class="stat-content">
-                    <span class="stat-label">Distanz:</span>
-                    <span class="stat-value"><?php echo esc_html($distance); ?></span>
-                </div>
-            </div>
-            
-            <div class="cell col-6 col-md-3 country-hero-stat">
-                <div class="stat-content stat-separator-left">
-                    <span class="stat-label">Tage:</span>
-                    <span class="stat-value"><?php echo esc_html($days); ?></span>
-                </div>
-            </div>
-            
-            <div class="cell col-6 col-md-3 country-hero-stat">
-                <div class="stat-content stat-separator-left">
-                    <span class="stat-label">Vanlife-Faktor:</span>
-                    <span class="stat-value"><?php echo esc_html($difficulty); ?></span>
-                </div>
-            </div>
-            
-            <div class="cell col-6 col-md-3 country-hero-stat">
-                <div class="stat-content stat-separator-left">
-                    <span class="stat-label">Budget:</span>
-                    <span class="stat-value"><?php echo esc_html($budget); ?></span>
-                </div>
-            </div>
-        </div>
     </div>
 </div>

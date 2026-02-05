@@ -3,13 +3,65 @@
     src: url('fonts/nerkoone/NerkoOne-Regular.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
-} */
+ } */
 
 @font-face {
     font-family: 'LeagueSpartan_Light';
     src: url('fonts/League_Spartan/static/LeagueSpartan-Light.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
+}
+
+/* Colors */
+.site-info .credits a,
+.site-info .credits,
+.master .content p,
+.site-title h1,
+.site-title h2,
+.blog main article a h2,
+.search-results main article a h2,
+.archive main article a h2,
+#secondary *,
+.blog main article p,
+.entry-content p,
+.search-results main article p,
+.archive main article p,
+.single .comment-content p {
+	color: white;
+}
+
+#secondary span.srpw-post-title {
+	color: whitesmoke !important;
+}
+
+.single .content-area h1,
+.single .content-area h2,
+.single .content-area h3,
+#commentform .comment-notes,
+#commentform label,
+.sub-menu .iot-dot-menu-a,
+.sub-menu .iot-dot-menu-a::after,
+.sub-menu .menu-item a,
+#secondary .widget .affiliate-hinweis.has-black-color *,
+#secondary .widget .wp-block-heading {
+	color: black;
+}
+
+.field-wrap input[type="button"] {
+	color: #333 !important;
+}
+
+#gdpr-comments-checkbox + label {
+    color: #5d5d5d;
+}
+
+input[type="search"],
+input[type="submit"] {
+    color: rgb(51, 51, 51) !important;
+}
+
+.comments-area .comment-awaiting-moderation {
+    color: rgb(249, 223, 169);
 }
 
 html { 
@@ -29,7 +81,6 @@ html *:not(.fas) {
 
 html #page h1,h2,h3,h4,h5,h6,.srpw-title {
 	font-family: 'Open Sans Condensed', 'Open Sans', helvetica, 'helvetica neue', arial, sans-serif !important;
-	font-size: 2.5em;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
@@ -50,7 +101,6 @@ html #page h1,h2,h3,h4,h5,h6,.srpw-title {
 body {
 	position: relative;
 	min-height: 100vh;
-	font-size: 0.8rem;
 }
 
 html body .grid-container {
@@ -68,37 +118,6 @@ html body .grid-container {
 
 #secondary {
 	margin-top: 31px
-}
-
-.blog main article a h2,
-.search-results main article h2,
-.archive main article h2{
-	color: white;
-}
-
-#secondary *,
-.blog main article p,
-.entry-content p 
-.search-results main article p,
-.archive main article p,
-.single .comment-content p {
-	color: white;
-	word-break: normal;
-}
-
-.single .content-area h1,
-.single .content-area h2, 
-.single .content-area h3 {
-	color: black;
-}
-
-#secondary span.srpw-post-title {
-	color: whitesmoke !important;
-}
-
-#commentform .comment-notes,
-#commentform label {
-	color: black;
 }
 
 .footer-widgets-container {
@@ -120,14 +139,6 @@ html body .grid-container {
 	background:#232323;
 }
 
-
-.blog main article p,
-.search-results main article p,
-.archive main article p,
-.entry-content p,
-.comment-content p {
-	font-size: 18px;
-}
 
 .home > #page, .search > #page {
 	min-height: calc(100vh - 70px);
@@ -216,12 +227,6 @@ body.archive .navigation-wrapper {
 	width: 100%;
 }
 
-.site-title h1,h2 {
-	margin: 0;
-	color: white;
-	font-size: 1.5em;
-}
-
 #primary-menu.menu {
 	display: block;
 	flex: none;
@@ -254,7 +259,6 @@ body.archive .navigation-wrapper {
 
 #site-navigation .menu .page_item a,
 #site-navigation .menu .menu-item a {
-	font-size: 1.8em;
 	line-height: 47px;
 	padding: 0 1rem 0 0;
 	z-index: 4;
@@ -268,12 +272,6 @@ body.archive .navigation-wrapper {
 #site-navigation .menu .page_item:last-child a,
 #site-navigation .menu .menu-item:last-child a {
 	padding-right: 0;
-}
-
-.sub-menu .iot-dot-menu-a,
-.sub-menu .iot-dot-menu-a::after,
-.sub-menu .menu-item a {
-	color: black !important;
 }
 
 .iot-dot-menu-a::after {
@@ -368,7 +366,6 @@ body.single .bottom-header-wrapper {
 }
 
 html #site-description h1 {
-	font-size: 3em;
 	margin-bottom: 0;
 }
 
@@ -381,10 +378,6 @@ html #site-description b {
 	padding: 10px 0 30px 0;
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
-}
-
-#page #about h1 {
-	font-size: 2em;
 }
 
 #about-content {
@@ -416,11 +409,6 @@ html #site-description b {
 	padding-left: 5%;
 }
 
-#about p {
-	margin-bottom: 0;
-	font-size: 1.2em; 
-}
-
 #main .widget .master {
 	height: 100%;
 	display: block;
@@ -446,14 +434,11 @@ html #site-description b {
 }
 
 .master .content h4 {
-	font-size: 4em;
 	margin: 0;
 	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
 }
 
 .master .content p {
-	color: white;
-	font-size: 2em;
 	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
 }
 
@@ -537,14 +522,6 @@ html #site-description b {
 
 #secondary .catch-instagram-feed-gallery-widget-wrapper.default .item:nth-child(3n+1) {
 	clear: none;
-}
-
-#secondary .widget .affiliate-hinweis.has-black-color * {
-	color: black;
-}
-
-#secondary .widget .wp-block-heading {
-	color: black;
 }
 
 #secondary .yotu-playlist {
@@ -665,7 +642,6 @@ html #site-description b {
 }
 
 .comments-area .comment-awaiting-moderation {
-    color: rgb(249, 223, 169);
     margin-left: 20px;
 }
 
@@ -711,11 +687,6 @@ html #site-description b {
 	transform: scale(1.2);
 }
 
-#secondary .widget *,
-#secondary .srpw-title {
-	font-size: 16px !important;
-}
-
 .blog,
 .search-results,
 .archive {
@@ -747,18 +718,6 @@ html #site-description b {
     max-height: 300px;
 }
 
-#gdpr-comments-checkbox + label {
-    color: #5d5d5d;
-}
-
-input[type="search"], input[type="submit"] {
-    color: rgb(51, 51, 51) !important;
-}
-
-.field-wrap input[type="button"] {
-	color: #333 !important;
-}
-
 nf-field .submit-container input[type="button"] {
 	background: white;
 	box-shadow: 0 0 70px -15px rgba(0,0,0,.65);
@@ -769,14 +728,8 @@ nf-field .submit-container input[type="button"] {
 }
 
 .credits {
-	color: white;
 	float: right;
-	font-size: 12px;
 	padding-top: 2px;
-}
-
-.credits a {
-	color: white;
 }
 
 .nf-form-content button, .nf-form-content input[type="button"], .nf-form-content input[type="submit"] {
@@ -799,14 +752,6 @@ nf-field .submit-container input[type="button"] {
 
 	.is-form-style {
 		position: inherit;
-	}
-
-	.master .content h4 {
-		font-size: 3.5em;
-	}
-
-	.footer-menu li a {
-		font-size: 13px;
 	}
 }
 
@@ -870,10 +815,6 @@ nf-field .submit-container input[type="button"] {
 @media screen and (max-width: 950px) {
 	.blog main, .search-results main, .archive main {
 		display: flex;
-	}
-
-	.master .content p {
-		font-size: 1.3em;
 	}
 }
 
