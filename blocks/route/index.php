@@ -34,7 +34,7 @@ $layout_class = $image_position === 'right' ? ' is-image-right' : '';
         <div class="grid-x route-hero-content<?php echo esc_attr($layout_class); ?>">
             
             <!-- Left: Image -->
-            <div class="cell large-6 route-hero-image-cell">
+            <div class="cell large-4 route-hero-image-cell">
                 <div class="route-hero-image-wrapper">
                     <?php if (!empty($image_src)) : ?>
                         <img src="<?php echo esc_url($image_src); ?>" 
@@ -49,7 +49,7 @@ $layout_class = $image_position === 'right' ? ' is-image-right' : '';
             </div>
 
             <!-- Right: Info -->
-            <div class="cell large-6 route-hero-info-cell">
+            <div class="cell large-8 route-hero-info-cell">
                 <div class="route-hero-info">
                     
                     <div class="route-hero-fill-section">
