@@ -27,6 +27,10 @@
       "type": "string",
       "default": "Route Bild"
     },
+    "imagePosition": {
+      "type": "string",
+      "default": "left"
+    },
     "listItems": {
       "type": "array",
       "default": ["Start -> Ende", "Fahrgefühl", "Klima & Reisezeit"],

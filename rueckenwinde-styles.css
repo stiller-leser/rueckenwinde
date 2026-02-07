@@ -84,7 +84,7 @@ html #page h1,h2,h3,h4,h5,h6,.srpw-title {
 }
 
 html #page #primary section :is(h1, h2, h3, h4, h5, h6, p) {
-		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
 .yotu-video h3 {
@@ -825,6 +825,10 @@ nf-field .submit-container input[type="button"] {
 }
 
 @media screen and ( max-width: 767px ) {
+	html body .grid-container {
+  		max-width: 75rem;
+	}
+
 	#header-wrap {
 		height: 142px;
 	}
@@ -849,9 +853,13 @@ nf-field .submit-container input[type="button"] {
 		background-size: 36%;
 	}
 
+	#primary {
+    	padding: 0px 15px;
+  	}
+
 	html #site-description b {
 		display: block;
-  	line-height: 10px;
+  		line-height: 10px;
 	}
 
 	.home #page .site-content.grid-x {
@@ -881,10 +889,14 @@ nf-field .submit-container input[type="button"] {
 
 }
 
-@media screen and (min-width: 639px) {
-  #primary.content-area {
-    padding-right: 0px;
-  }
+@media screen and (max-width: 639px) {
+	html body .grid-container {
+		max-width: 70rem;
+	}
+
+  	#primary {
+    	padding: 0px 15px;
+  	}
 }
 
 @media screen and ( max-width: 575px ) {

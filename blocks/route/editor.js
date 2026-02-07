@@ -5,7 +5,7 @@
 (function (wp) {
     const { registerBlockType } = wp.blocks;
     const { InspectorControls, MediaUpload, MediaUploadCheck, URLInput, useBlockProps, RichText } = wp.blockEditor;
-    const { PanelBody, TextControl, Button, Disabled } = wp.components;
+    const { PanelBody, TextControl, Button, Disabled, SelectControl } = wp.components;
     const { __ } = wp.i18n;
     const { ServerSideRender } = wp.serverSideRender;
     const el = wp.element.createElement;
@@ -29,6 +29,10 @@
             imageAlt: {
                 type: 'string',
                 default: 'Route Bild'
+            },
+            imagePosition: {
+                type: 'string',
+                default: 'left'
             },
             listItems: {
                 type: 'array',
@@ -63,6 +67,7 @@
                 imageSrc, 
                 imageAlt, 
                 listItems,
+                imagePosition,
                 startEnd, 
                 feeling, 
                 climate, 
@@ -119,6 +124,17 @@
                     el(
                         PanelBody,
                         { title: __('Bild', 'rueckenwinde'), initialOpen: true },
+                        el(SelectControl, {
+                            label: __('Bild-Position', 'rueckenwinde'),
+                            value: imagePosition,
+                            options: [
+                                { label: __('Bild links', 'rueckenwinde'), value: 'left' },
+                                { label: __('Bild rechts', 'rueckenwinde'), value: 'right' }
+                            ],
+                            onChange: function (value) {
+                                setAttributes({ imagePosition: value });
+                            }
+                        }),
                         el(
                             MediaUploadCheck,
                             null,

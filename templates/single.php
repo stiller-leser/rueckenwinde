@@ -27,7 +27,7 @@ get_rueckenwinde_header("frontpage", 'single');
 		
 		<section id="page" class="site grid-container">
 			<div id="content" class="site-content grid-x grid-padding-x">
-				<div id="primary" class="content-area large-8 medium-8 small-12 cell">
+				<div id="primary" class="content-area large-12 medium-12 small-12 cell">
 					<main id="main" class="site-main">
 						<?php
 							while ( have_posts() ) :
@@ -95,5 +95,8 @@ get_rueckenwinde_header("frontpage", 'single');
 					<!-- End Related Posts -->
 				</div><!-- #primary -->
 <?php
-get_sidebar();
+// get_sidebar();
+if ( is_active_sidebar( 'index-footer-widget-area' ) ) {
+	dynamic_sidebar( 'index-footer-widget-area' );
+}
 get_rueckenwinde_footer();
