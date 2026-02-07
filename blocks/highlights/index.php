@@ -24,10 +24,17 @@ $image2_url = isset($attributes['image2Url']) ? $attributes['image2Url'] : '';
 $image2_label = isset($attributes['image2Label']) ? wp_kses_post($attributes['image2Label']) : '';
 $image3_url = isset($attributes['image3Url']) ? $attributes['image3Url'] : '';
 $image3_label = isset($attributes['image3Label']) ? wp_kses_post($attributes['image3Label']) : '';
+$images = isset($attributes['images']) ? $attributes['images'] : null;
 $link_text = isset($attributes['linkText']) ? wp_kses_post($attributes['linkText']) : '>>WEITERLESEN [LINK]';
 $link_url = isset($attributes['linkUrl']) ? $attributes['linkUrl'] : '';
 
 $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-hero-' . uniqid();
+
+$resolved_images = is_array($images) && !empty($images) ? $images : array(
+    array('src' => $image1_src, 'alt' => $image1_alt, 'url' => $image1_url, 'label' => $image1_label),
+    array('src' => $image2_src, 'alt' => $image2_alt, 'url' => $image2_url, 'label' => $image2_label),
+    array('src' => $image3_src, 'alt' => $image3_alt, 'url' => $image3_url, 'label' => $image3_label),
+);
 ?>
 
 <div id="<?php echo esc_attr($block_id); ?>" class="wp-block-rueckenwinde-highlights-hero">
@@ -38,85 +45,38 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
         </h3>
 
         <div class="row highlights-hero-images grid-x">
-            
-            <!-- Image 1 -->
-            <div class="cell large-4 columns">
-                <div class="highlights-hero-image-wrapper">
-                    <?php if (!empty($image1_src)) : ?>
-                        <?php if (!empty($image1_url)) : ?>
-                            <a href="<?php echo esc_url($image1_url); ?>">
+            <?php foreach ($resolved_images as $image) : ?>
+                <?php
+                $src = isset($image['src']) ? $image['src'] : '';
+                $alt = isset($image['alt']) ? $image['alt'] : '';
+                $url = isset($image['url']) ? $image['url'] : '';
+                $label = isset($image['label']) ? $image['label'] : '';
+                ?>
+                <div class="cell large-4 columns">
+                    <div class="highlights-hero-image-wrapper">
+                        <?php if (!empty($src)) : ?>
+                            <?php if (!empty($url)) : ?>
+                                <a href="<?php echo esc_url($url); ?>">
+                            <?php endif; ?>
+                            <img src="<?php echo esc_url($src); ?>" 
+                                 alt="<?php echo esc_attr($alt); ?>" 
+                                 class="highlights-hero-image">
+                            <?php if (!empty($label)) : ?>
+                                <span class="highlights-hero-image-label">
+                                    <?php echo nl2br(wp_kses_post($label)); ?>
+                                </span>
+                            <?php endif; ?>
+                            <?php if (!empty($url)) : ?>
+                                </a>
+                            <?php endif; ?>
+                        <?php else : ?>
+                            <div class="highlights-hero-image-placeholder">
+                                <span>BILD</span>
+                            </div>
                         <?php endif; ?>
-                        <img src="<?php echo esc_url($image1_src); ?>" 
-                             alt="<?php echo esc_attr($image1_alt); ?>" 
-                             class="highlights-hero-image">
-                        <?php if (!empty($image1_label)) : ?>
-                            <span class="highlights-hero-image-label">
-                                <?php echo nl2br(wp_kses_post($image1_label)); ?>
-                            </span>
-                        <?php endif; ?>
-                        <?php if (!empty($image1_url)) : ?>
-                            </a>
-                        <?php endif; ?>
-                    <?php else : ?>
-                        <div class="highlights-hero-image-placeholder">
-                            <span>BILD</span>
-                        </div>
-                    <?php endif; ?>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Image 2 -->
-            <div class="cell large-4 columns">
-                <div class="highlights-hero-image-wrapper">
-                    <?php if (!empty($image2_src)) : ?>
-                        <?php if (!empty($image2_url)) : ?>
-                            <a href="<?php echo esc_url($image2_url); ?>">
-                        <?php endif; ?>
-                        <img src="<?php echo esc_url($image2_src); ?>" 
-                             alt="<?php echo esc_attr($image2_alt); ?>" 
-                             class="highlights-hero-image">
-                        <?php if (!empty($image2_label)) : ?>
-                            <span class="highlights-hero-image-label">
-                                <?php echo nl2br(wp_kses_post($image2_label)); ?>
-                            </span>
-                        <?php endif; ?>
-                        <?php if (!empty($image2_url)) : ?>
-                            </a>
-                        <?php endif; ?>
-                    <?php else : ?>
-                        <div class="highlights-hero-image-placeholder">
-                            <span>BILD</span>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <!-- Image 3 -->
-            <div class="cell large-4 columns">
-                <div class="highlights-hero-image-wrapper">
-                    <?php if (!empty($image3_src)) : ?>
-                        <?php if (!empty($image3_url)) : ?>
-                            <a href="<?php echo esc_url($image3_url); ?>">
-                        <?php endif; ?>
-                        <img src="<?php echo esc_url($image3_src); ?>" 
-                             alt="<?php echo esc_attr($image3_alt); ?>" 
-                             class="highlights-hero-image">
-                        <?php if (!empty($image3_label)) : ?>
-                            <span class="highlights-hero-image-label">
-                                <?php echo nl2br(wp_kses_post($image3_label)); ?>
-                            </span>
-                        <?php endif; ?>
-                        <?php if (!empty($image3_url)) : ?>
-                            </a>
-                        <?php endif; ?>
-                    <?php else : ?>
-                        <div class="highlights-hero-image-placeholder">
-                            <span>BILD</span>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-
+            <?php endforeach; ?>
         </div>
 
         <?php if (!empty($link_url)) : ?>

@@ -10,6 +10,7 @@
     const { ServerSideRender } = wp.serverSideRender;
     const el = wp.element.createElement;
     const Fragment = wp.element.Fragment;
+    const { useEffect } = wp.element;
 
     registerBlockType('rueckenwinde/highlights-hero', {
         title: __('Highlights Hero', 'rueckenwinde'),
@@ -71,6 +72,14 @@
                 type: 'string',
                 default: ''
             },
+            images: {
+                type: 'array',
+                default: [
+                    { src: '', alt: 'Highlight 1', url: '', label: '' },
+                    { src: '', alt: 'Highlight 2', url: '', label: '' },
+                    { src: '', alt: 'Highlight 3', url: '', label: '' }
+                ]
+            },
             linkText: {
                 type: 'string',
                 default: '>>WEITERLESEN [LINK]'
@@ -88,9 +97,47 @@
                 image1Src, image1Alt, image1Url, image1Label,
                 image2Src, image2Alt, image2Url, image2Label,
                 image3Src, image3Alt, image3Url, image3Label,
+                images,
                 linkText, linkUrl
             } = attributes;
             const blockProps = useBlockProps();
+
+            const legacyImages = [
+                { src: image1Src, alt: image1Alt, url: image1Url, label: image1Label },
+                { src: image2Src, alt: image2Alt, url: image2Url, label: image2Label },
+                { src: image3Src, alt: image3Alt, url: image3Url, label: image3Label }
+            ];
+
+            useEffect(function () {
+                const hasLegacyContent = legacyImages.some(function (item) {
+                    return item.src || item.url || item.label;
+                });
+                if ((!Array.isArray(images) || images.length === 0) && hasLegacyContent) {
+                    setAttributes({ images: legacyImages });
+                }
+            }, [image1Src, image1Alt, image1Url, image1Label, image2Src, image2Alt, image2Url, image2Label, image3Src, image3Alt, image3Url, image3Label]);
+
+            const currentImages = Array.isArray(images) && images.length ? images : legacyImages;
+
+            function updateImage(index, updates) {
+                const nextImages = currentImages.slice();
+                const current = nextImages[index] || { src: '', alt: '', url: '', label: '' };
+                nextImages[index] = Object.assign({}, current, updates);
+                setAttributes({ images: nextImages });
+            }
+
+            function addImage() {
+                setAttributes({
+                    images: currentImages.concat([{ src: '', alt: 'Highlight', url: '', label: '' }])
+                });
+            }
+
+            function removeImage(index) {
+                const nextImages = currentImages.filter(function (_, i) {
+                    return i !== index;
+                });
+                setAttributes({ images: nextImages });
+            }
 
             // Helper function für Media Upload Button
             function createMediaControl(imageSrc, imageAlt, onSelect, onRemove, label) {
@@ -157,146 +204,68 @@
                             placeholder: __('Hauptüberschrift', 'rueckenwinde')
                         })
                     ),
-                    // Bild 1
+                    // Bilder
                     el(
                         PanelBody,
-                        { title: __('Bild 1', 'rueckenwinde'), initialOpen: true },
-                        createMediaControl(
-                            image1Src,
-                            image1Alt,
-                            function (media) {
-                                setAttributes({
-                                    image1Src: media.url,
-                                    image1Alt: media.alt || 'Highlight 1'
-                                });
-                            },
-                            function () {
-                                setAttributes({ image1Src: '', image1Alt: 'Highlight 1' });
-                            },
-                            __('Erstes Highlight-Bild', 'rueckenwinde')
-                        ),
-                        el(TextControl, {
-                            label: __('Alt-Text', 'rueckenwinde'),
-                            value: image1Alt,
-                            onChange: function (value) {
-                                setAttributes({ image1Alt: value });
-                            }
+                        { title: __('Bilder', 'rueckenwinde'), initialOpen: true },
+                        currentImages.map(function (item, index) {
+                            return el('div', { key: index, style: { marginBottom: '20px', paddingBottom: '10px', borderBottom: '1px solid #e1e1e1' } },
+                                createMediaControl(
+                                    item.src,
+                                    item.alt,
+                                    function (media) {
+                                        updateImage(index, {
+                                            src: media.url,
+                                            alt: media.alt || ('Highlight ' + (index + 1))
+                                        });
+                                    },
+                                    function () {
+                                        updateImage(index, { src: '', alt: 'Highlight ' + (index + 1) });
+                                    },
+                                    __('Highlight-Bild', 'rueckenwinde') + ' ' + (index + 1)
+                                ),
+                                el(TextControl, {
+                                    label: __('Alt-Text', 'rueckenwinde'),
+                                    value: item.alt || '',
+                                    onChange: function (value) {
+                                        updateImage(index, { alt: value });
+                                    }
+                                }),
+                                el(TextControl, {
+                                    label: __('Link-URL', 'rueckenwinde'),
+                                    type: 'url',
+                                    value: item.url || '',
+                                    onChange: function (value) {
+                                        updateImage(index, { url: value });
+                                    },
+                                    help: __('URL für dieses Bild (optional)', 'rueckenwinde')
+                                }),
+                                el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                                    __('Label', 'rueckenwinde')
+                                ),
+                                el(RichText, {
+                                    tagName: 'div',
+                                    value: item.label || '',
+                                    allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
+                                    onChange: function (value) {
+                                        updateImage(index, { label: value });
+                                    },
+                                    placeholder: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
+                                }),
+                                el(Button, {
+                                    variant: 'secondary',
+                                    isDestructive: true,
+                                    onClick: function () {
+                                        removeImage(index);
+                                    },
+                                    style: { marginTop: '10px' }
+                                }, __('Bild entfernen', 'rueckenwinde'))
+                            );
                         }),
-                        el(TextControl, {
-                            label: __('Link-URL', 'rueckenwinde'),
-                            type: 'url',
-                            value: image1Url,
-                            onChange: function (value) {
-                                setAttributes({ image1Url: value });
-                            },
-                            help: __('URL für dieses Bild (optional)', 'rueckenwinde')
-                        }),
-                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
-                            __('Label', 'rueckenwinde')
-                        ),
-                        el(RichText, {
-                            tagName: 'div',
-                            value: image1Label,
-                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
-                            onChange: function (value) {
-                                setAttributes({ image1Label: value });
-                            },
-                            placeholder: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
-                        })
-                    ),
-                    // Bild 2
-                    el(
-                        PanelBody,
-                        { title: __('Bild 2', 'rueckenwinde'), initialOpen: false },
-                        createMediaControl(
-                            image2Src,
-                            image2Alt,
-                            function (media) {
-                                setAttributes({
-                                    image2Src: media.url,
-                                    image2Alt: media.alt || 'Highlight 2'
-                                });
-                            },
-                            function () {
-                                setAttributes({ image2Src: '', image2Alt: 'Highlight 2' });
-                            },
-                            __('Zweites Highlight-Bild', 'rueckenwinde')
-                        ),
-                        el(TextControl, {
-                            label: __('Alt-Text', 'rueckenwinde'),
-                            value: image2Alt,
-                            onChange: function (value) {
-                                setAttributes({ image2Alt: value });
-                            }
-                        }),
-                        el(TextControl, {
-                            label: __('Link-URL', 'rueckenwinde'),
-                            type: 'url',
-                            value: image2Url,
-                            onChange: function (value) {
-                                setAttributes({ image2Url: value });
-                            },
-                            help: __('URL für dieses Bild (optional)', 'rueckenwinde')
-                        }),
-                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
-                            __('Label', 'rueckenwinde')
-                        ),
-                        el(RichText, {
-                            tagName: 'div',
-                            value: image2Label,
-                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
-                            onChange: function (value) {
-                                setAttributes({ image2Label: value });
-                            },
-                            placeholder: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
-                        })
-                    ),
-                    // Bild 3
-                    el(
-                        PanelBody,
-                        { title: __('Bild 3', 'rueckenwinde'), initialOpen: false },
-                        createMediaControl(
-                            image3Src,
-                            image3Alt,
-                            function (media) {
-                                setAttributes({
-                                    image3Src: media.url,
-                                    image3Alt: media.alt || 'Highlight 3'
-                                });
-                            },
-                            function () {
-                                setAttributes({ image3Src: '', image3Alt: 'Highlight 3' });
-                            },
-                            __('Drittes Highlight-Bild', 'rueckenwinde')
-                        ),
-                        el(TextControl, {
-                            label: __('Alt-Text', 'rueckenwinde'),
-                            value: image3Alt,
-                            onChange: function (value) {
-                                setAttributes({ image3Alt: value });
-                            }
-                        }),
-                        el(TextControl, {
-                            label: __('Link-URL', 'rueckenwinde'),
-                            type: 'url',
-                            value: image3Url,
-                            onChange: function (value) {
-                                setAttributes({ image3Url: value });
-                            },
-                            help: __('URL für dieses Bild (optional)', 'rueckenwinde')
-                        }),
-                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
-                            __('Label', 'rueckenwinde')
-                        ),
-                        el(RichText, {
-                            tagName: 'div',
-                            value: image3Label,
-                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
-                            onChange: function (value) {
-                                setAttributes({ image3Label: value });
-                            },
-                            placeholder: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
-                        })
+                        el(Button, {
+                            variant: 'primary',
+                            onClick: addImage
+                        }, __('Bild hinzufügen', 'rueckenwinde'))
                     ),
                     // Link
                     el(

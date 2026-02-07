@@ -67,6 +67,17 @@
       "type": "string",
       "default": ""
     },
+    "images": {
+      "type": "array",
+      "default": [
+        { "src": "", "alt": "Highlight 1", "url": "", "label": "" },
+        { "src": "", "alt": "Highlight 2", "url": "", "label": "" },
+        { "src": "", "alt": "Highlight 3", "url": "", "label": "" }
+      ],
+      "items": {
+        "type": "object"
+      }
+    },
     "linkText": {
       "type": "string",
       "default": ">>WEITERLESEN [LINK]"
