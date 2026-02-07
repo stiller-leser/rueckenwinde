@@ -5,8 +5,8 @@
 
 (function (wp) {
     const { registerBlockType } = wp.blocks;
-    const { InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps } = wp.blockEditor;
-    const { PanelBody, TextControl, TextareaControl, Button, Disabled } = wp.components;
+    const { InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps, RichText } = wp.blockEditor;
+    const { PanelBody, TextControl, Button, Disabled } = wp.components;
     const { __ } = wp.i18n;
     const { ServerSideRender } = wp.serverSideRender;
     const el = wp.element.createElement;
@@ -50,14 +50,17 @@
                         el(
                             PanelBody,
                             { title: __('Inhalt', 'rueckenwinde'), initialOpen: true },
-                            el(TextareaControl, {
-                                label: __('Titel', 'rueckenwinde'),
+                            el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                                __('Titel', 'rueckenwinde')
+                            ),
+                            el(RichText, {
+                                tagName: 'div',
                                 value: title,
+                                allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                                 onChange: function (value) {
                                     setAttributes({ title: value });
                                 },
-                                rows: 3,
-                                help: __('Der Haupttext des Blocks', 'rueckenwinde')
+                                placeholder: __('Der Haupttext des Blocks', 'rueckenwinde')
                             })
                         ),
                         el(
@@ -118,7 +121,8 @@
                         null,
                         el(ServerSideRender, {
                             block: 'rueckenwinde/country-hero',
-                            attributes: attributes
+                            attributes: attributes,
+                            httpMethod: 'POST'
                         })
                     )
                 )

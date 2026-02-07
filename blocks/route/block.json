@@ -27,9 +27,12 @@
       "type": "string",
       "default": "Route Bild"
     },
-    "fillLabel": {
-      "type": "string",
-      "default": "Ausfüllen:"
+    "listItems": {
+      "type": "array",
+      "default": ["Start -> Ende", "Fahrgefühl", "Klima & Reisezeit"],
+      "items": {
+        "type": "string"
+      }
     },
     "startEnd": {
       "type": "string",

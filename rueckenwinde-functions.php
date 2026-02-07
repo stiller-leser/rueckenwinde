@@ -55,9 +55,14 @@ function rueckenwinde_style() {
             .blog main article p,
             .search-results main article p,
             .archive main article p,
-            .entry-content p,
+            .entry-content :is(p,li,a),
+            .srpw-summary :is(a,p),
             .comment-content p,
-            .country-hero-title {
+            .country-hero-title,
+            .route-hero-info :is(li,a),
+            .highlights-hero-link,
+            .tagebuch-body,
+            .tagebuch-link {
                 font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_article_p' )); ?>;
             }
 
@@ -92,7 +97,8 @@ function rueckenwinde_style() {
 
             html #page h4,
             #secondary .widget .widgettitle,
-            .master .content h4 {
+            .master .content h4,
+            .highlights-hero-image-label {
                 font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_h4' )); ?>;
             }
 

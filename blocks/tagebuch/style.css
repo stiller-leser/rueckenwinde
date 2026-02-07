@@ -12,40 +12,43 @@
 }
 
 .tagebuch-text {
-    background: #f4dcd0;
-    padding: 2rem;
+    background-color: #f7efe4;
+    background-image:
+        linear-gradient(to right, transparent 0, transparent 2.4rem, rgba(206, 90, 90, 0.18) 2.4rem, rgba(206, 90, 90, 0.18) 2.48rem, transparent 2.48rem),
+        linear-gradient(to bottom, rgba(86, 123, 160, 0.09) 1px, transparent 1px),
+        radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.02), transparent 40%);
+    background-size: 100% 100%, 100% 32px, 100% 100%;
+    background-position: 0 0, 0 0, 0 0;
+    padding: 2.2rem 2rem 2rem 3.6rem;
     min-height: 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .tagebuch-heading {
     margin: 0 0 1rem 0;
     text-transform: uppercase;
-    font-size: 1.6rem;
     letter-spacing: 0.02em;
 }
 
 .tagebuch-body {
-    font-size: 1.05rem;
-    line-height: 1.6;
+    margin-top: 0.6rem;
+    line-height: 1.8;
 }
 
 .tagebuch-link {
-    margin-top: 1.5rem;
     font-weight: 700;
 }
 
 .tagebuch-link a,
 .tagebuch-link span {
-    color: #c21712;
     text-decoration: none;
     display: inline-block;
 }
 
 .tagebuch-image {
-    border: 2px solid #000;
     min-height: 320px;
     display: flex;
     align-items: center;
@@ -60,7 +63,6 @@
 }
 
 .tagebuch-image-placeholder {
-    font-size: 1.4rem;
     font-weight: 700;
 }
 

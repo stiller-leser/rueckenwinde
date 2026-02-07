@@ -4,7 +4,7 @@
 
 (function (wp) {
     const { registerBlockType } = wp.blocks;
-    const { InspectorControls, MediaUpload, MediaUploadCheck, URLInput, useBlockProps } = wp.blockEditor;
+    const { InspectorControls, MediaUpload, MediaUploadCheck, URLInput, useBlockProps, RichText } = wp.blockEditor;
     const { PanelBody, TextControl, Button, Disabled } = wp.components;
     const { __ } = wp.i18n;
     const { ServerSideRender } = wp.serverSideRender;
@@ -30,9 +30,9 @@
                 type: 'string',
                 default: 'Route Bild'
             },
-            fillLabel: {
-                type: 'string',
-                default: 'Ausfüllen:'
+            listItems: {
+                type: 'array',
+                default: ['Start -> Ende', 'Fahrgefühl', 'Klima & Reisezeit']
             },
             startEnd: {
                 type: 'string',
@@ -62,7 +62,7 @@
                 heading, 
                 imageSrc, 
                 imageAlt, 
-                fillLabel, 
+                listItems,
                 startEnd, 
                 feeling, 
                 climate, 
@@ -71,6 +71,25 @@
             } = attributes;
             const blockProps = useBlockProps();
 
+            const hasListItems = Array.isArray(listItems);
+            const currentListItems = hasListItems ? listItems : [startEnd, feeling, climate];
+
+            const updateListItem = function (index, value) {
+                const nextItems = currentListItems.slice();
+                nextItems[index] = value;
+                setAttributes({ listItems: nextItems });
+            };
+
+            const addListItem = function () {
+                setAttributes({ listItems: currentListItems.concat(['']) });
+            };
+
+            const removeListItem = function (index) {
+                const nextItems = currentListItems.filter(function (_, i) {
+                    return i !== index;
+                });
+                setAttributes({ listItems: nextItems });
+            };
 
             return el(
                 'div',
@@ -83,12 +102,17 @@
                     el(
                         PanelBody,
                         { title: __('Überschrift', 'rueckenwinde'), initialOpen: true },
-                        el(TextControl, {
-                            label: __('Hauptüberschrift', 'rueckenwinde'),
+                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                            __('Hauptüberschrift', 'rueckenwinde')
+                        ),
+                        el(RichText, {
+                            tagName: 'div',
                             value: heading,
+                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                             onChange: function (value) {
                                 setAttributes({ heading: value });
-                            }
+                            },
+                            placeholder: __('Hauptüberschrift', 'rueckenwinde')
                         })
                     ),
                     // Bild
@@ -148,45 +172,59 @@
                     el(
                         PanelBody,
                         { title: __('Info-Felder', 'rueckenwinde'), initialOpen: true },
-                        el(TextControl, {
-                            label: __('Label (z.B. "Ausfüllen:")', 'rueckenwinde'),
-                            value: fillLabel,
-                            onChange: function (value) {
-                                setAttributes({ fillLabel: value });
-                            }
-                        }),
-                        el(TextControl, {
-                            label: __('Start -> Ende', 'rueckenwinde'),
-                            value: startEnd,
-                            onChange: function (value) {
-                                setAttributes({ startEnd: value });
-                            }
-                        }),
-                        el(TextControl, {
-                            label: __('Fahrgefühl', 'rueckenwinde'),
-                            value: feeling,
-                            onChange: function (value) {
-                                setAttributes({ feeling: value });
-                            }
-                        }),
-                        el(TextControl, {
-                            label: __('Klima & Reisezeit', 'rueckenwinde'),
-                            value: climate,
-                            onChange: function (value) {
-                                setAttributes({ climate: value });
-                            }
-                        })
+                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                            __('Label (z.B. "Ausfüllen:")', 'rueckenwinde')
+                        ),
+                        el('div', { className: 'route-hero-list-editor' },
+                            currentListItems.map(function (item, index) {
+                                return el('div', { key: index, style: { marginBottom: '10px' } },
+                                    el('div', { style: { marginBottom: '6px' } },
+                                        el('strong', null, __('Listenelement', 'rueckenwinde') + ' ' + (index + 1))
+                                    ),
+                                    el(RichText, {
+                                        tagName: 'div',
+                                        value: item,
+                                        allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
+                                        formattingControls: ['bold', 'italic', 'strikethrough', 'link'],
+                                        onChange: function (value) {
+                                            updateListItem(index, value);
+                                        },
+                                        placeholder: __('Listenpunkt hinzufügen', 'rueckenwinde')
+                                    }),
+                                    el('div', { style: { fontSize: '12px', color: '#666', marginTop: '4px' } },
+                                        __('Tipp: Text markieren und Strg+B für fett. Alternativ <strong>Wort</strong>.', 'rueckenwinde')
+                                    ),
+                                    el(Button, {
+                                        variant: 'secondary',
+                                        isDestructive: true,
+                                        onClick: function () {
+                                            removeListItem(index);
+                                        },
+                                        style: { marginTop: '6px' }
+                                    }, __('Entfernen', 'rueckenwinde'))
+                                );
+                            })
+                        ),
+                        el(Button, {
+                            variant: 'primary',
+                            onClick: addListItem
+                        }, __('Listenelement hinzufügen', 'rueckenwinde'))
                     ),
                     // Link
                     el(
                         PanelBody,
                         { title: __('Link', 'rueckenwinde'), initialOpen: false },
-                        el(TextControl, {
-                            label: __('Link-Text', 'rueckenwinde'),
+                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                            __('Link-Text', 'rueckenwinde')
+                        ),
+                        el(RichText, {
+                            tagName: 'div',
                             value: linkText,
+                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                             onChange: function (value) {
                                 setAttributes({ linkText: value });
-                            }
+                            },
+                            placeholder: __('>>WEITERLESEN [LINK]', 'rueckenwinde')
                         }),
                         el(TextControl, {
                             label: __('Link-URL', 'rueckenwinde'),
@@ -205,7 +243,8 @@
                     null,
                     el(ServerSideRender, {
                         block: 'rueckenwinde/route-hero',
-                        attributes: attributes
+                        attributes: attributes,
+                        httpMethod: 'POST'
                     })
                 )
             );

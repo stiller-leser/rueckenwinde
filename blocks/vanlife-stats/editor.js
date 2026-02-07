@@ -5,7 +5,7 @@
 
 (function (wp) {
     const { registerBlockType } = wp.blocks;
-    const { InspectorControls, useBlockProps } = wp.blockEditor;
+    const { InspectorControls, useBlockProps, RichText } = wp.blockEditor;
     const { PanelBody, TextControl, Disabled } = wp.components;
     const { __ } = wp.i18n;
     const { ServerSideRender } = wp.serverSideRender;
@@ -54,37 +54,53 @@
                         el(
                             PanelBody,
                             { title: __('Statistiken', 'rueckenwinde'), initialOpen: true },
-                            el(TextControl, {
-                                label: __('Distanz', 'rueckenwinde'),
+                            el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                                __('Distanz', 'rueckenwinde')
+                            ),
+                            el(RichText, {
+                                tagName: 'div',
                                 value: distance,
+                                allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough'],
                                 onChange: function (value) {
                                     setAttributes({ distance: value });
                                 },
-                                help: __('z.B. "2065 KM"', 'rueckenwinde')
+                                placeholder: __('z.B. "2065 KM"', 'rueckenwinde')
                             }),
-                            el(TextControl, {
-                                label: __('Tage', 'rueckenwinde'),
+                            el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                                __('Tage', 'rueckenwinde')
+                            ),
+                            el(RichText, {
+                                tagName: 'div',
                                 value: days,
+                                allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough'],
                                 onChange: function (value) {
                                     setAttributes({ days: value });
                                 },
-                                help: __('z.B. "34 Tage"', 'rueckenwinde')
+                                placeholder: __('z.B. "34 Tage"', 'rueckenwinde')
                             }),
-                            el(TextControl, {
-                                label: __('Vanlife-Faktor', 'rueckenwinde'),
+                            el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                                __('Vanlife-Faktor', 'rueckenwinde')
+                            ),
+                            el(RichText, {
+                                tagName: 'div',
                                 value: difficulty,
+                                allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough'],
                                 onChange: function (value) {
                                     setAttributes({ difficulty: value });
                                 },
-                                help: __('z.B. "Easy", "Medium", "Hard"', 'rueckenwinde')
+                                placeholder: __('z.B. "Easy", "Medium", "Hard"', 'rueckenwinde')
                             }),
-                            el(TextControl, {
-                                label: __('Budget', 'rueckenwinde'),
+                            el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                                __('Budget', 'rueckenwinde')
+                            ),
+                            el(RichText, {
+                                tagName: 'div',
                                 value: budget,
+                                allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough'],
                                 onChange: function (value) {
                                     setAttributes({ budget: value });
                                 },
-                                help: __('z.B. "€€€"', 'rueckenwinde')
+                                placeholder: __('z.B. "€€€"', 'rueckenwinde')
                             })
                         )
                     ),
@@ -93,7 +109,8 @@
                         null,
                         el(ServerSideRender, {
                             block: 'rueckenwinde/vanlife-stats',
-                            attributes: attributes
+                            attributes: attributes,
+                            httpMethod: 'POST'
                         })
                     )
                 )

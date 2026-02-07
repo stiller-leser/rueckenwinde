@@ -4,7 +4,7 @@
 
 (function (wp) {
     const { registerBlockType } = wp.blocks;
-    const { InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps } = wp.blockEditor;
+    const { InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps, RichText } = wp.blockEditor;
     const { PanelBody, TextControl, Button, Disabled } = wp.components;
     const { __ } = wp.i18n;
     const { ServerSideRender } = wp.serverSideRender;
@@ -70,6 +70,14 @@
             image3Label: {
                 type: 'string',
                 default: ''
+            },
+            linkText: {
+                type: 'string',
+                default: '>>WEITERLESEN [LINK]'
+            },
+            linkUrl: {
+                type: 'string',
+                default: ''
             }
         },
 
@@ -79,7 +87,8 @@
                 heading,
                 image1Src, image1Alt, image1Url, image1Label,
                 image2Src, image2Alt, image2Url, image2Label,
-                image3Src, image3Alt, image3Url, image3Label
+                image3Src, image3Alt, image3Url, image3Label,
+                linkText, linkUrl
             } = attributes;
             const blockProps = useBlockProps();
 
@@ -135,12 +144,17 @@
                     el(
                         PanelBody,
                         { title: __('Überschrift', 'rueckenwinde'), initialOpen: true },
-                        el(TextControl, {
-                            label: __('Hauptüberschrift', 'rueckenwinde'),
+                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                            __('Hauptüberschrift', 'rueckenwinde')
+                        ),
+                        el(RichText, {
+                            tagName: 'div',
                             value: heading,
+                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                             onChange: function (value) {
                                 setAttributes({ heading: value });
-                            }
+                            },
+                            placeholder: __('Hauptüberschrift', 'rueckenwinde')
                         })
                     ),
                     // Bild 1
@@ -177,13 +191,17 @@
                             },
                             help: __('URL für dieses Bild (optional)', 'rueckenwinde')
                         }),
-                        el(TextControl, {
-                            label: __('Label', 'rueckenwinde'),
+                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                            __('Label', 'rueckenwinde')
+                        ),
+                        el(RichText, {
+                            tagName: 'div',
                             value: image1Label,
+                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                             onChange: function (value) {
                                 setAttributes({ image1Label: value });
                             },
-                            help: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
+                            placeholder: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
                         })
                     ),
                     // Bild 2
@@ -220,13 +238,17 @@
                             },
                             help: __('URL für dieses Bild (optional)', 'rueckenwinde')
                         }),
-                        el(TextControl, {
-                            label: __('Label', 'rueckenwinde'),
+                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                            __('Label', 'rueckenwinde')
+                        ),
+                        el(RichText, {
+                            tagName: 'div',
                             value: image2Label,
+                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                             onChange: function (value) {
                                 setAttributes({ image2Label: value });
                             },
-                            help: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
+                            placeholder: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
                         })
                     ),
                     // Bild 3
@@ -263,13 +285,43 @@
                             },
                             help: __('URL für dieses Bild (optional)', 'rueckenwinde')
                         }),
-                        el(TextControl, {
-                            label: __('Label', 'rueckenwinde'),
+                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                            __('Label', 'rueckenwinde')
+                        ),
+                        el(RichText, {
+                            tagName: 'div',
                             value: image3Label,
+                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                             onChange: function (value) {
                                 setAttributes({ image3Label: value });
                             },
-                            help: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
+                            placeholder: __('Kurzer Schriftzug unter dem Bild (optional)', 'rueckenwinde')
+                        })
+                    ),
+                    // Link
+                    el(
+                        PanelBody,
+                        { title: __('Link', 'rueckenwinde'), initialOpen: false },
+                        el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                            __('Link-Text', 'rueckenwinde')
+                        ),
+                        el(RichText, {
+                            tagName: 'div',
+                            value: linkText,
+                            allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
+                            onChange: function (value) {
+                                setAttributes({ linkText: value });
+                            },
+                            placeholder: __('>>WEITERLESEN [LINK]', 'rueckenwinde')
+                        }),
+                        el(TextControl, {
+                            label: __('Link-URL', 'rueckenwinde'),
+                            type: 'url',
+                            value: linkUrl,
+                            onChange: function (value) {
+                                setAttributes({ linkUrl: value });
+                            },
+                            help: __('Komplette URL eingeben (z.B. https://...)', 'rueckenwinde')
                         })
                     )
                 ),

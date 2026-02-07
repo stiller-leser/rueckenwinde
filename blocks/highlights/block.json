@@ -66,6 +66,14 @@
     "image3Label": {
       "type": "string",
       "default": ""
+    },
+    "linkText": {
+      "type": "string",
+      "default": ">>WEITERLESEN [LINK]"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": ""
     }
   },
   "editorScript": "file:./editor.js",

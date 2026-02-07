@@ -1,0 +1,9 @@
+/**
+ * Editor Styles for Laendernavigation Block
+ */
+
+.wp-block-rueckenwinde-laendernavigation {
+    border: 1px dashed #ccc;
+    padding: 1rem;
+    background-color: #fafafa;
+}

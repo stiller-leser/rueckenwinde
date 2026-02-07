@@ -5,8 +5,8 @@
 
 (function (wp) {
     const { registerBlockType } = wp.blocks;
-    const { InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps } = wp.blockEditor;
-    const { PanelBody, TextControl, TextareaControl, Button, Disabled } = wp.components;
+    const { InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps, RichText } = wp.blockEditor;
+    const { PanelBody, TextControl, Button, Disabled } = wp.components;
     const { __ } = wp.i18n;
     const { ServerSideRender } = wp.serverSideRender;
     const el = wp.element.createElement;
@@ -62,27 +62,41 @@
                         el(
                             PanelBody,
                             { title: __('Inhalt', 'rueckenwinde'), initialOpen: true },
-                            el(TextControl, {
-                                label: __('Überschrift', 'rueckenwinde'),
+                            el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold' } },
+                                __('Überschrift', 'rueckenwinde')
+                            ),
+                            el(RichText, {
+                                tagName: 'div',
                                 value: heading,
+                                allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                                 onChange: function (value) {
                                     setAttributes({ heading: value });
-                                }
+                                },
+                                placeholder: __('Überschrift', 'rueckenwinde')
                             }),
-                            el(TextareaControl, {
-                                label: __('Text', 'rueckenwinde'),
+                            el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold', marginTop: '12px' } },
+                                __('Text', 'rueckenwinde')
+                            ),
+                            el(RichText, {
+                                tagName: 'div',
                                 value: body,
+                                allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                                 onChange: function (value) {
                                     setAttributes({ body: value });
                                 },
-                                rows: 6
+                                placeholder: __('Text', 'rueckenwinde')
                             }),
-                            el(TextControl, {
-                                label: __('Link-Text', 'rueckenwinde'),
+                            el('label', { style: { display: 'block', marginBottom: '6px', fontWeight: 'bold', marginTop: '12px' } },
+                                __('Link-Text', 'rueckenwinde')
+                            ),
+                            el(RichText, {
+                                tagName: 'div',
                                 value: linkLabel,
+                                allowedFormats: ['core/bold', 'core/italic', 'core/strikethrough', 'core/link'],
                                 onChange: function (value) {
                                     setAttributes({ linkLabel: value });
-                                }
+                                },
+                                placeholder: __('>> ZUM TAGEBUCH', 'rueckenwinde')
                             }),
                             el(TextControl, {
                                 label: __('Link-URL', 'rueckenwinde'),
@@ -149,7 +163,8 @@
                         null,
                         el(ServerSideRender, {
                             block: 'rueckenwinde/tagebuch',
-                            attributes: attributes
+                            attributes: attributes,
+                            httpMethod: 'POST'
                         })
                     )
                 )

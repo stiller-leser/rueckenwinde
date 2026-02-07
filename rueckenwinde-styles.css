@@ -6,8 +6,8 @@
  } */
 
 @font-face {
-    font-family: 'LeagueSpartan_Light';
-    src: url('fonts/League_Spartan/static/LeagueSpartan-Light.ttf') format('truetype');
+    font-family: 'LeagueSpartan';
+    src: url('fonts/League_Spartan/static/LeagueSpartan-Regular.ttf') format('truetype');
 	font-weight: normal;
     font-style: normal;
 }
@@ -74,14 +74,17 @@ html {
 }
 
 html *:not(.fas) {
-	font-family: 'LeagueSpartan_Light', 'Open Sans', helvetica, 'helvetica neue', arial, sans-serif;
+	font-family: 'LeagueSpartan', 'Open Sans', helvetica, 'helvetica neue', arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
 html #page h1,h2,h3,h4,h5,h6,.srpw-title {
 	font-family: 'Open Sans Condensed', 'Open Sans', helvetica, 'helvetica neue', arial, sans-serif !important;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+html #page #primary section :is(h1, h2, h3, h4, h5, h6, p) {
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
 .yotu-video h3 {
@@ -435,11 +438,6 @@ html #site-description b {
 
 .master .content h4 {
 	margin: 0;
-	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
-}
-
-.master .content p {
-	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
 }
 
 #primary #main .category-description {

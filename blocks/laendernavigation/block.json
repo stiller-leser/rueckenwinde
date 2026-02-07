@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/laendernavigation",
+  "title": "Laendernavigation",
+  "category": "widgets",
+  "icon": "leftright",
+  "description": "Navigation im CPT Land: links zur Übersicht, rechts zum nächsten Eintrag.",
+  "keywords": ["laender", "navigation", "land"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "overviewLabel": {
+      "type": "string",
+      "default": ">> ZUR UEBERSICHT"
+    },
+    "overviewUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./index.php"
+}

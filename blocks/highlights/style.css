@@ -12,8 +12,6 @@
 
 /* Heading */
 .highlights-hero-heading {
-    font-size: 2rem;
-    font-weight: 700;
     color: #000;
     margin: 0 0 1.5rem 0;
     text-transform: uppercase;
@@ -22,7 +20,6 @@
 
 /* Images Row */
 .highlights-hero-images {
-    margin-bottom: 1.5rem;
     width: 100%;
 }
 
@@ -34,7 +31,6 @@
 
 /* Image Wrapper */
 .highlights-hero-image-wrapper {
-    border: 2px solid #000;
     height: 250px;
     overflow: hidden;
     position: relative;
@@ -67,8 +63,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 700;
     color: #999;
 }
 
@@ -79,22 +73,20 @@
     right: 0;
     margin: 0;
     padding: 0.5rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.7);
-    text-align: left;
+    color: black;
+    text-align: center;
 }
 
 /* Link */
 .highlights-hero-link,
 .highlights-hero-link-placeholder {
     display: inline-block;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #d32f2f;
     text-decoration: none;
     margin-top: 1rem;
+}
+
+.highlights-hero-link-wrapper {
+    text-align: center;
 }
 
 .highlights-hero-link:hover {
@@ -108,10 +100,6 @@
 
 /* Responsive */
 @media (max-width: 640px) {
-    .highlights-hero-heading {
-        font-size: 1.5rem;
-    }
-
     .highlights-hero-image-wrapper {
         height: 200px;
     }

@@ -5,6 +5,16 @@
 .wp-block-rueckenwinde-vanlife-stats {
     margin: 0;
     padding: 0;
+    background: linear-gradient(180deg, rgba(248, 247, 244, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.wp-block-rueckenwinde-vanlife-stats .vanlife-stats {
+    padding: 0.5rem 0;
 }
 
 .vanlife-stats {

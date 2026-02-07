@@ -24,28 +24,28 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'vanlife-stat
         <div class="cell col-6 col-md-3 vanlife-stat">
             <div class="stat-content">
                 <span class="stat-label">Distanz:</span>
-                <span class="stat-value"><?php echo esc_html($distance); ?></span>
+                <span class="stat-value"><?php echo nl2br(wp_kses_post($distance)); ?></span>
             </div>
         </div>
         
         <div class="cell col-6 col-md-3 vanlife-stat">
             <div class="stat-content stat-separator-left">
                 <span class="stat-label">Tage:</span>
-                <span class="stat-value"><?php echo esc_html($days); ?></span>
+                <span class="stat-value"><?php echo nl2br(wp_kses_post($days)); ?></span>
             </div>
         </div>
         
         <div class="cell col-6 col-md-3 vanlife-stat">
             <div class="stat-content stat-separator-left">
                 <span class="stat-label">Vanlife-Faktor:</span>
-                <span class="stat-value"><?php echo esc_html($difficulty); ?></span>
+                <span class="stat-value"><?php echo nl2br(wp_kses_post($difficulty)); ?></span>
             </div>
         </div>
         
         <div class="cell col-6 col-md-3 vanlife-stat">
             <div class="stat-content stat-separator-left">
                 <span class="stat-label">Budget:</span>
-                <span class="stat-value"><?php echo esc_html($budget); ?></span>
+                <span class="stat-value"><?php echo nl2br(wp_kses_post($budget)); ?></span>
             </div>
         </div>
     </div>

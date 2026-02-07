@@ -23,7 +23,7 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'country-hero
     <div class="country-hero-container">
         <?php if (!empty($title)) : ?>
             <p class="country-hero-title">
-                <?php echo $title; ?>
+                <?php echo nl2br(wp_kses_post($title)); ?>
             </p>
         <?php endif; ?>
 

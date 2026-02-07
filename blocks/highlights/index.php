@@ -7,7 +7,7 @@
  * @var WP_Block $block      Block instance.
  */
 
-$heading = isset($attributes['heading']) ? $attributes['heading'] : 'UNSERE HIGHLIGHTS';
+$heading = isset($attributes['heading']) ? wp_kses_post($attributes['heading']) : 'UNSERE HIGHLIGHTS';
 
 $image1_src = isset($attributes['image1Src']) ? $attributes['image1Src'] : '';
 $image1_alt = isset($attributes['image1Alt']) ? $attributes['image1Alt'] : 'Highlight 1';
@@ -19,11 +19,13 @@ $image3_src = isset($attributes['image3Src']) ? $attributes['image3Src'] : '';
 $image3_alt = isset($attributes['image3Alt']) ? $attributes['image3Alt'] : 'Highlight 3';
 
 $image1_url = isset($attributes['image1Url']) ? $attributes['image1Url'] : '';
-$image1_label = isset($attributes['image1Label']) ? $attributes['image1Label'] : '';
+$image1_label = isset($attributes['image1Label']) ? wp_kses_post($attributes['image1Label']) : '';
 $image2_url = isset($attributes['image2Url']) ? $attributes['image2Url'] : '';
-$image2_label = isset($attributes['image2Label']) ? $attributes['image2Label'] : '';
+$image2_label = isset($attributes['image2Label']) ? wp_kses_post($attributes['image2Label']) : '';
 $image3_url = isset($attributes['image3Url']) ? $attributes['image3Url'] : '';
-$image3_label = isset($attributes['image3Label']) ? $attributes['image3Label'] : '';
+$image3_label = isset($attributes['image3Label']) ? wp_kses_post($attributes['image3Label']) : '';
+$link_text = isset($attributes['linkText']) ? wp_kses_post($attributes['linkText']) : '>>WEITERLESEN [LINK]';
+$link_url = isset($attributes['linkUrl']) ? $attributes['linkUrl'] : '';
 
 $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-hero-' . uniqid();
 ?>
@@ -32,7 +34,7 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
     <div class="highlights-hero-container">
         
         <h3 class="highlights-hero-heading">
-            <?php echo esc_html($heading); ?>
+            <?php echo nl2br(wp_kses_post($heading)); ?>
         </h3>
 
         <div class="row highlights-hero-images grid-x">
@@ -49,7 +51,7 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
                              class="highlights-hero-image">
                         <?php if (!empty($image1_label)) : ?>
                             <span class="highlights-hero-image-label">
-                                <?php echo esc_html($image1_label); ?>
+                                <?php echo nl2br(wp_kses_post($image1_label)); ?>
                             </span>
                         <?php endif; ?>
                         <?php if (!empty($image1_url)) : ?>
@@ -75,7 +77,7 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
                              class="highlights-hero-image">
                         <?php if (!empty($image2_label)) : ?>
                             <span class="highlights-hero-image-label">
-                                <?php echo esc_html($image2_label); ?>
+                                <?php echo nl2br(wp_kses_post($image2_label)); ?>
                             </span>
                         <?php endif; ?>
                         <?php if (!empty($image2_url)) : ?>
@@ -101,7 +103,7 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
                              class="highlights-hero-image">
                         <?php if (!empty($image3_label)) : ?>
                             <span class="highlights-hero-image-label">
-                                <?php echo esc_html($image3_label); ?>
+                                <?php echo nl2br(wp_kses_post($image3_label)); ?>
                             </span>
                         <?php endif; ?>
                         <?php if (!empty($image3_url)) : ?>
@@ -116,6 +118,14 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'highlights-h
             </div>
 
         </div>
+
+        <?php if (!empty($link_url)) : ?>
+            <div class="highlights-hero-link-wrapper">
+                <a href="<?php echo esc_url($link_url); ?>" class="highlights-hero-link">
+                    <?php echo nl2br(wp_kses_post($link_text)); ?>
+                </a>
+            </div>
+        <?php endif; ?>
 
     </div>
 </div>

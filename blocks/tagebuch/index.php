@@ -25,21 +25,21 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'tagebuch-' .
     <div class="row tagebuch-grid grid-x">
         <div class="cell small-12 large-6 tagebuch-text">
             <?php if (!empty($heading)) : ?>
-                <h3 class="tagebuch-heading"><?php echo $heading; ?></h3>
+                <h3 class="tagebuch-heading"><?php echo nl2br(wp_kses_post($heading)); ?></h3>
             <?php endif; ?>
 
             <?php if (!empty($body)) : ?>
                 <div class="tagebuch-body">
-                    <?php echo $body; ?>
+                    <?php echo nl2br(wp_kses_post($body)); ?>
                 </div>
             <?php endif; ?>
 
             <?php if (!empty($link_label)) : ?>
                 <div class="tagebuch-link">
                     <?php if (!empty($link_url)) : ?>
-                        <a href="<?php echo esc_url($link_url); ?>"><?php echo $link_label; ?></a>
+                        <a href="<?php echo esc_url($link_url); ?>"><?php echo nl2br(wp_kses_post($link_label)); ?></a>
                     <?php else : ?>
-                        <span><?php echo $link_label; ?></span>
+                        <span><?php echo nl2br(wp_kses_post($link_label)); ?></span>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
