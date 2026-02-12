@@ -23,7 +23,7 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'tagebuch-' .
 
 <div id="<?php echo esc_attr($block_id); ?>" class="wp-block-rueckenwinde-tagebuch">
     <div class="row tagebuch-grid grid-x">
-        <div class="cell small-12 large-6 tagebuch-text">
+        <div class="cell small-12 large-10 tagebuch-text">
             <?php if (!empty($heading)) : ?>
                 <h3 class="tagebuch-heading"><?php echo nl2br(wp_kses_post($heading)); ?></h3>
             <?php endif; ?>
@@ -45,7 +45,7 @@ $block_id = isset($attributes['anchor']) ? $attributes['anchor'] : 'tagebuch-' .
             <?php endif; ?>
         </div>
 
-        <div class="cell small-12 large-6 tagebuch-image">
+        <div class="cell small-12 large-2 tagebuch-image">
             <?php if (!empty($image_src)) : ?>
                 <img src="<?php echo esc_url($image_src); ?>" alt="<?php echo esc_attr($image_alt); ?>">
             <?php else : ?>

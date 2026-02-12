@@ -78,6 +78,10 @@
         "type": "object"
       }
     },
+    "highlightsPerRow": {
+      "type": "number",
+      "default": 3
+    },
     "linkText": {
       "type": "string",
       "default": ">>WEITERLESEN [LINK]"

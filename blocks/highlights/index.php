@@ -25,6 +25,8 @@ $image2_label = isset($attributes['image2Label']) ? wp_kses_post($attributes['im
 $image3_url = isset($attributes['image3Url']) ? $attributes['image3Url'] : '';
 $image3_label = isset($attributes['image3Label']) ? wp_kses_post($attributes['image3Label']) : '';
 $images = isset($attributes['images']) ? $attributes['images'] : null;
+$highlights_per_row = isset($attributes['highlightsPerRow']) ? (int) $attributes['highlightsPerRow'] : 3;
+$highlights_per_row = max(1, min(6, $highlights_per_row));
 $link_text = isset($attributes['linkText']) ? wp_kses_post($attributes['linkText']) : '>>WEITERLESEN [LINK]';
 $link_url = isset($attributes['linkUrl']) ? $attributes['linkUrl'] : '';
 
@@ -44,7 +46,7 @@ $resolved_images = is_array($images) && !empty($images) ? $images : array(
             <?php echo nl2br(wp_kses_post($heading)); ?>
         </h3>
 
-        <div class="row highlights-hero-images grid-x">
+        <div class="row highlights-hero-images grid-x" style="--highlights-per-row: <?php echo esc_attr($highlights_per_row); ?>;">
             <?php foreach ($resolved_images as $image) : ?>
                 <?php
                 $src = isset($image['src']) ? $image['src'] : '';
@@ -52,7 +54,7 @@ $resolved_images = is_array($images) && !empty($images) ? $images : array(
                 $url = isset($image['url']) ? $image['url'] : '';
                 $label = isset($image['label']) ? $image['label'] : '';
                 ?>
-                <div class="cell large-4 columns">
+                <div class="cell columns">
                     <div class="highlights-hero-image-wrapper">
                         <?php if (!empty($src)) : ?>
                             <?php if (!empty($url)) : ?>

@@ -625,6 +625,10 @@ html #site-description b {
 	object-fit: cover;
 }
 
+figure.is-type-video .wp-block-embed__wrapper {
+	text-align: center;
+}
+
 .comments-area .edit-link .comment-edit-link {
 	position: relative;
 	top: 0;

@@ -15,7 +15,6 @@
     font-weight: 700;
     color: #000;
     margin: 0 0 1.5rem 0;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
@@ -97,9 +96,8 @@
 }
 
 .route-hero-list li {
-    line-height: 1.8;
+    line-height: 1.5;
     color: #000;
-    margin-bottom: 0.5rem;
 }
 
 /* Link */
