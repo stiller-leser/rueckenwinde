@@ -5,7 +5,7 @@
 (function (wp) {
     const { registerBlockType } = wp.blocks;
     const { InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps, RichText } = wp.blockEditor;
-    const { PanelBody, TextControl, Button, Disabled } = wp.components;
+    const { PanelBody, TextControl, Button, Disabled, RangeControl } = wp.components;
     const { __ } = wp.i18n;
     const { ServerSideRender } = wp.serverSideRender;
     const el = wp.element.createElement;
@@ -80,6 +80,10 @@
                     { src: '', alt: 'Highlight 3', url: '', label: '' }
                 ]
             },
+            highlightsPerRow: {
+                type: 'number',
+                default: 3
+            },
             linkText: {
                 type: 'string',
                 default: '>>WEITERLESEN [LINK]'
@@ -98,6 +102,7 @@
                 image2Src, image2Alt, image2Url, image2Label,
                 image3Src, image3Alt, image3Url, image3Label,
                 images,
+                highlightsPerRow,
                 linkText, linkUrl
             } = attributes;
             const blockProps = useBlockProps();
@@ -205,6 +210,19 @@
                         })
                     ),
                     // Bilder
+                    el(
+                        PanelBody,
+                        { title: __('Layout', 'rueckenwinde'), initialOpen: false },
+                        el(RangeControl, {
+                            label: __('Highlights pro Reihe', 'rueckenwinde'),
+                            value: highlightsPerRow || 3,
+                            min: 1,
+                            max: 6,
+                            onChange: function (value) {
+                                setAttributes({ highlightsPerRow: value || 3 });
+                            }
+                        })
+                    ),
                     el(
                         PanelBody,
                         { title: __('Bilder', 'rueckenwinde'), initialOpen: true },

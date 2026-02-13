@@ -43,10 +43,6 @@ function rueckenwinde_style() {
                 color: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_color' )); ?>;
             }
 
-            .credits {
-                font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_credits' )); ?>;
-            }
-
             #secondary .widget h4,
             #secondary .srpw-title {
                 font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_sidebar' )); ?> !important;
@@ -62,20 +58,12 @@ function rueckenwinde_style() {
             .route-hero-info :is(li,a),
             .highlights-hero-link,
             .tagebuch-body,
-            .tagebuch-link {
-                font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_article_p' )); ?>;
-            }
-
-            .footer-menu li a {
-                font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_footer_menu' )); ?>;
-            }
-
-            body {
-                font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_body' )); ?>;
-            }
-
+            .tagebuch-link,
+            .laendernavigation a,
+            .credits,
+            .footer-menu li a,
             #about p {
-                font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_about_p' )); ?>;
+                font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_article_p' )); ?>;
             }
 
             html #page h1,
@@ -98,7 +86,8 @@ function rueckenwinde_style() {
             html #page h4,
             #secondary .widget .widgettitle,
             .master .content h4,
-            .highlights-hero-image-label {
+            .highlights-hero-image-label,
+            html #page .yotu-videos .yotu-video .yotu-video-title {
                 font-size: <?php echo esc_attr(get_theme_mod( 'rueckenwinde_font_size_h4' )); ?>;
             }
 
@@ -351,23 +340,6 @@ function rueckenwinde_add_font_sizes( $wp_customize ) {
         )
     );
 
-    // Credits font size
-    $wp_customize->add_setting(
-        'rueckenwinde_font_size_credits',
-        array(
-            'default' => '12px',
-        )
-    );
-    $wp_customize->add_control(
-        'rueckenwinde_font_size_credits',
-        array(
-            'label'      => __( 'Credits Schriftgröße', 'rueckenwinde' ),
-            'section'    => 'rueckenwinde_font_sizes',
-            'type'       => 'text',
-            'settings'   => 'rueckenwinde_font_size_credits'
-        )
-    );
-
     // Sidebar font size
     $wp_customize->add_setting(
         'rueckenwinde_font_size_sidebar',
@@ -399,57 +371,6 @@ function rueckenwinde_add_font_sizes( $wp_customize ) {
             'section'    => 'rueckenwinde_font_sizes',
             'type'       => 'text',
             'settings'   => 'rueckenwinde_font_size_article_p'
-        )
-    );
-
-    // Footer menu font size
-    $wp_customize->add_setting(
-        'rueckenwinde_font_size_footer_menu',
-        array(
-            'default' => '13px',
-        )
-    );
-    $wp_customize->add_control(
-        'rueckenwinde_font_size_footer_menu',
-        array(
-            'label'      => __( 'Footer-Menü Schriftgröße', 'rueckenwinde' ),
-            'section'    => 'rueckenwinde_font_sizes',
-            'type'       => 'text',
-            'settings'   => 'rueckenwinde_font_size_footer_menu'
-        )
-    );
-
-    // Body font size
-    $wp_customize->add_setting(
-        'rueckenwinde_font_size_body',
-        array(
-            'default' => '0.8rem',
-        )
-    );
-    $wp_customize->add_control(
-        'rueckenwinde_font_size_body',
-        array(
-            'label'      => __( 'Body Schriftgröße', 'rueckenwinde' ),
-            'section'    => 'rueckenwinde_font_sizes',
-            'type'       => 'text',
-            'settings'   => 'rueckenwinde_font_size_body'
-        )
-    );
-
-    // About p font size
-    $wp_customize->add_setting(
-        'rueckenwinde_font_size_about_p',
-        array(
-            'default' => '1.2em',
-        )
-    );
-    $wp_customize->add_control(
-        'rueckenwinde_font_size_about_p',
-        array(
-            'label'      => __( 'About-Text Schriftgröße', 'rueckenwinde' ),
-            'section'    => 'rueckenwinde_font_sizes',
-            'type'       => 'text',
-            'settings'   => 'rueckenwinde_font_size_about_p'
         )
     );
 

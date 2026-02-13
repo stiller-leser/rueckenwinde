@@ -14,22 +14,29 @@
 .highlights-hero-heading {
     color: #000;
     margin: 0 0 1.5rem 0;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 /* Images Row */
 .highlights-hero-images {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .highlights-hero-images .columns {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     margin-bottom: 1rem;
+    width: calc(100% / var(--highlights-per-row, 3));
+    max-width: calc(100% / var(--highlights-per-row, 3));
 }
 
 /* Image Wrapper */
+.highlights-hero-image-wrapper:hover {
+    transform: rotate(4deg);
+}
+
 .highlights-hero-image-wrapper {
     height: 100%;
     overflow: hidden;
@@ -100,6 +107,11 @@
 
 /* Responsive */
 @media (max-width: 640px) {
+    .highlights-hero-images .columns {
+        width: 100%;
+        max-width: 100%;
+    }
+
     .highlights-hero-image-wrapper {
         height: 200px;
     }

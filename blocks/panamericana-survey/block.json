@@ -1,0 +1,88 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/panamericana-survey",
+  "title": "Panamericana Survey",
+  "category": "widgets",
+  "icon": "forms",
+  "description": "16 Fragen Survey für Besucher: Ist die Panamericana die richtige Reise?",
+  "keywords": [
+    "panamericana",
+    "survey",
+    "quiz",
+    "fragen"
+  ],
+  "version": "1.0.1",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Ist die Panamericana das Richtige für dich?"
+    },
+    "intro": {
+      "type": "string",
+      "default": "Beantworte die 16 Fragen mit Ja oder Nein."
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "Kannst du gut damit umgehen, nicht zu wissen, was morgen passiert?",
+        "Reizt dich der Weg mehr als das Ziel?",
+        "Kommst du mit langen Phasen von Ruhe, Weite und wenig Input klar?",
+        "Bist du bereit, Pläne spontan über Bord zu werfen?",
+        "Kannst du mehrere Tage auf engem Raum leben?",
+        "Ist Freistehen für dich wichtiger als Komfort?",
+        "Stört es dich nicht, wenn Infrastruktur fehlt (Duschen, Toiletten, WLAN)?",
+        "Bist du bereit, dein Fahrzeug selbst zu pflegen und kleine Probleme zu lösen?",
+        "Machst du auch lange Fahrten, ohne dass jeden Tag etwas \"passiert\"?",
+        "Kommst du mit schlechten Straßen, Wind und Wetter klar?",
+        "Fährst du lieber langsam als möglichst effizient?",
+        "Hast du Geduld mit Bürokratie, Grenzen und Regeln?",
+        "Kannst du akzeptieren, dass Dinge in anderen Ländern anders laufen?",
+        "Ist Improvisation für dich kein Stress, sondern Teil des Abenteuers?",
+        "Kannst du mit finanzieller Unsicherheit umgehen (Wechselkurse, Preise)?",
+        "Bist du bereit, dein Sicherheitsgefühl ständig neu anzupassen?"
+      ]
+    },
+    "yesLabel": {
+      "type": "string",
+      "default": "Ja"
+    },
+    "noLabel": {
+      "type": "string",
+      "default": "Nein"
+    },
+    "submitLabel": {
+      "type": "string",
+      "default": "Ergebnis anzeigen"
+    },
+    "incompleteMessage": {
+      "type": "string",
+      "default": "Bitte beantworte zuerst alle 16 Fragen."
+    },
+    "resultMostlyYes": {
+      "type": "string",
+      "default": "Die Panamericana ist ein Fit für dich."
+    },
+    "resultHalf": {
+      "type": "string",
+      "default": "Die Panamericana könnte für dich funktionieren."
+    },
+    "resultMostlyNo": {
+      "type": "string",
+      "default": "Die Panamericana ist wahrscheinlich nicht das richtige Abenteuer für dich."
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js"
+}

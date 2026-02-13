@@ -1,0 +1,75 @@
+.vanlife-comparison-block-editor {
+    font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.vanlife-editor-note {
+    margin: 0 0 0.75rem;
+    padding: 0.6rem 0.75rem;
+    background: #fff9dd;
+    border-left: 3px solid #ffc400;
+}
+
+.vanlife-editor-collapsed {
+    border: 1px solid #e4e4e4;
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #fff;
+}
+
+.vanlife-editor-collapsed h3 {
+    margin: 0 0 0.35rem;
+}
+
+.vanlife-editor-collapsed p {
+    margin: 0;
+}
+
+.vanlife-editor-collapsed-meta {
+    margin-top: 0.45rem;
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+.vanlife-editor-country-card {
+    border: 1px solid #e4e4e4;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 14px;
+    background: #fff;
+}
+
+.vanlife-editor-category-row {
+    border: 1px solid #efefef;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
+    background: #fafafa;
+}
+
+.vanlife-editor-country-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 12px;
+}
+
+.vanlife-editor-badge {
+    font-size: 12px;
+    border-radius: 999px;
+    padding: 4px 8px;
+}
+
+.vanlife-editor-badge.is-high {
+    background: #eaf8ea;
+    color: #1e7a27;
+}
+
+.vanlife-editor-badge.is-moderate {
+    background: #fff8e1;
+    color: #8a6a00;
+}
+
+.vanlife-editor-badge.is-low {
+    background: #ffe9e9;
+    color: #9e2a2a;
+}

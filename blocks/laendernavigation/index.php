@@ -29,9 +29,9 @@ $show_left = ($is_first && $has_overview) || $has_prev;
 $show_right = $has_next;
 
 $right_post = $has_next ? $next_post : null;
-$right_prefix = 'WEITER: ';
+$right_prefix = '➡️ ';
 $left_post = $has_prev ? $prev_post : null;
-$left_prefix = 'ZURUECK: ';
+$left_prefix = '⬅️ ';
 ?>
 
 <?php if ($show_left || $show_right) : ?>

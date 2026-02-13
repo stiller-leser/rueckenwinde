@@ -1,0 +1,185 @@
+.wp-block-rueckenwinde-vanlife-country-comparison {
+    --vanlife-accent: #ffc400;
+    font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 2rem 0;
+}
+
+.vanlife-comparison-header {
+    margin-bottom: 1rem;
+}
+
+.vanlife-comparison-heading {
+    margin: 0 0 0.25rem;
+}
+
+.vanlife-comparison-intro {
+    margin: 0;
+}
+
+.vanlife-toggle-countries {
+    margin-top: 0.75rem;
+    border: 1px solid var(--vanlife-accent);
+    background: #fff8dc;
+    color: #000;
+    border-radius: 10px;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.vanlife-toggle-countries:hover {
+    background: #ffeeba;
+}
+
+.vanlife-comparison-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.vanlife-comparison-filters label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.vanlife-comparison-filters select {
+    min-width: 160px;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    padding: 0.45rem 0.6rem;
+}
+
+.vanlife-comparison-scroll {
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+}
+
+.vanlife-comparison-table {
+    min-width: 980px;
+}
+
+.vanlife-comparison-row {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.2fr) repeat(5, minmax(140px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.vanlife-comparison-row.is-head .vanlife-comparison-col {
+    font-weight: 700;
+    background: #fff9dd;
+    border-color: var(--vanlife-accent);
+}
+
+.vanlife-comparison-col {
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    background: #fff;
+    padding: 0.7rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.country-name {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.vanlife-cell {
+    position: relative;
+}
+
+.vanlife-cell-trigger {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+}
+
+.vanlife-rating-icons {
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.vanlife-rating-label {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.82rem;
+}
+
+.vanlife-cell.is-high {
+    background: #7fbd86;
+    border-color: #1f5f28;
+    color: #000;
+}
+
+.vanlife-cell.is-moderate {
+    background: #e5c768;
+    border-color: #8b6f1f;
+    color: #000;
+}
+
+.vanlife-cell.is-low {
+    background: #d77b7b;
+    border-color: #7f2222;
+    color: #000;
+}
+
+.vanlife-cell.is-high .vanlife-rating-icons {
+    animation: vanlife-pulse 1.8s ease-in-out infinite;
+}
+
+.vanlife-cell-tooltip {
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: calc(100% + 6px);
+    z-index: 5;
+    background: #1b1b1b;
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.vanlife-cell:hover .vanlife-cell-tooltip,
+.vanlife-cell:focus-within .vanlife-cell-tooltip,
+.vanlife-cell.is-open .vanlife-cell-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vanlife-country-row[hidden],
+.vanlife-comparison-col[hidden] {
+    display: none;
+}
+
+@keyframes vanlife-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 900px) {
+    .vanlife-comparison-table {
+        min-width: 860px;
+    }
+}

@@ -1,0 +1,490 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/climate-travel-time-slider",
+  "title": "Climate & Travel Time Slider",
+  "category": "design",
+  "icon": "location-alt",
+  "description": "Interactive Panamericana month and road-condition planning tool.",
+  "keywords": [
+    "climate",
+    "travel",
+    "panamericana",
+    "vanlife",
+    "slider"
+  ],
+  "version": "1.0.1",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Climate & Travel Time Slider"
+    },
+    "intro": {
+      "type": "string",
+      "default": "Pick travel months and countries to compare road-focused travel conditions across the Panamericana."
+    },
+    "accentColor": {
+      "type": "string",
+      "default": "#FFC400"
+    },
+    "mapImageUrl": {
+      "type": "string",
+      "default": "https://upload.wikimedia.org/wikipedia/commons/2/21/Americas_satellite_map.jpg"
+    },
+    "countriesData": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "id": "canada",
+          "name": "Canada",
+          "summary": "Long winter season with snow and ice on many routes.",
+          "tip": "Prioritize summer windows for mountain roads and camps.",
+          "vanlife": "High in summer, low in winter",
+          "ratings": [
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "x": 27,
+          "y": 16
+        },
+        {
+          "id": "usa",
+          "name": "USA",
+          "summary": "Huge climate spread from snow belts to deserts.",
+          "tip": "Match route with season; avoid winter mountain crossings.",
+          "vanlife": "High with route planning",
+          "ratings": [
+            0,
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "x": 27,
+          "y": 24
+        },
+        {
+          "id": "mexico",
+          "name": "Mexico",
+          "summary": "Dry season generally better for road reliability.",
+          "tip": "In rainy months, allow extra buffer for mountain roads.",
+          "vanlife": "High",
+          "ratings": [
+            2,
+            2,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 24,
+          "y": 33
+        },
+        {
+          "id": "belize",
+          "name": "Belize",
+          "summary": "Wet season can reduce comfort and traction.",
+          "tip": "Dry months are easier for slower overland travel.",
+          "vanlife": "Moderate",
+          "ratings": [
+            2,
+            2,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 25,
+          "y": 40
+        },
+        {
+          "id": "guatemala",
+          "name": "Guatemala",
+          "summary": "Mountain terrain plus rain can slow travel strongly.",
+          "tip": "Use daylight driving and conservative daily distances.",
+          "vanlife": "Moderate",
+          "ratings": [
+            2,
+            2,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 24,
+          "y": 41
+        },
+        {
+          "id": "elsalvador",
+          "name": "El Salvador",
+          "summary": "Short distances, weather still impacts road comfort.",
+          "tip": "Dry months are simplest for quick overland crossings.",
+          "vanlife": "Moderate",
+          "ratings": [
+            2,
+            2,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 23,
+          "y": 42.5
+        },
+        {
+          "id": "honduras",
+          "name": "Honduras",
+          "summary": "Rain and road quality changes can affect pace.",
+          "tip": "Plan shorter legs in rainy periods.",
+          "vanlife": "Moderate",
+          "ratings": [
+            2,
+            2,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 25.5,
+          "y": 41.5
+        },
+        {
+          "id": "nicaragua",
+          "name": "Nicaragua",
+          "summary": "Dry months are typically easiest for road travel.",
+          "tip": "In wet months, expect slower timing and more detours.",
+          "vanlife": "High in dry season",
+          "ratings": [
+            2,
+            2,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 25.5,
+          "y": 44
+        },
+        {
+          "id": "costarica",
+          "name": "Costa Rica",
+          "summary": "Rainy season can heavily impact driving comfort.",
+          "tip": "Best flow often in drier months with stable roads.",
+          "vanlife": "Moderate",
+          "ratings": [
+            2,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 25.5,
+          "y": 46.5
+        },
+        {
+          "id": "panama",
+          "name": "Panama",
+          "summary": "Strong wet season; route pacing matters.",
+          "tip": "Prioritize dry months for smoother transfers.",
+          "vanlife": "Moderate",
+          "ratings": [
+            2,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 27,
+          "y": 48.5
+        },
+        {
+          "id": "colombia",
+          "name": "Colombia",
+          "summary": "Conditions vary by altitude and region.",
+          "tip": "Combine weather check with route-specific road intel.",
+          "vanlife": "Moderate to high",
+          "ratings": [
+            2,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "x": 30,
+          "y": 53
+        },
+        {
+          "id": "ecuador",
+          "name": "Ecuador",
+          "summary": "Mountain weather windows influence travel speed.",
+          "tip": "Keep flexible timing for highland rain and fog.",
+          "vanlife": "Moderate",
+          "ratings": [
+            2,
+            2,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            2,
+            2
+          ],
+          "x": 29,
+          "y": 58
+        },
+        {
+          "id": "peru",
+          "name": "Peru",
+          "summary": "Andean roads are sensitive to rain and landslides.",
+          "tip": "Dry periods are best for mountain and canyon sections.",
+          "vanlife": "High in dry season",
+          "ratings": [
+            2,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 31,
+          "y": 65
+        },
+        {
+          "id": "bolivia",
+          "name": "Bolivia",
+          "summary": "Altitude and rough roads require stable windows.",
+          "tip": "Aim for drier months and avoid extreme wet stretches.",
+          "vanlife": "Moderate",
+          "ratings": [
+            2,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            2
+          ],
+          "x": 35,
+          "y": 70
+        },
+        {
+          "id": "paraguay",
+          "name": "Paraguay",
+          "summary": "Summer heat can be intense for long driving days.",
+          "tip": "Shoulder seasons are often easier for vanlife rhythm.",
+          "vanlife": "Moderate to high",
+          "ratings": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          "x": 37,
+          "y": 76
+        },
+        {
+          "id": "brasil",
+          "name": "Brasil",
+          "summary": "Large regional contrasts in rain and road stress.",
+          "tip": "Select regional windows, not one national assumption.",
+          "vanlife": "Moderate",
+          "ratings": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "x": 41,
+          "y": 66
+        },
+        {
+          "id": "chile",
+          "name": "Chile",
+          "summary": "North-south span means very different driving seasons.",
+          "tip": "Use summer for southern routes and high passes.",
+          "vanlife": "High with timing",
+          "ratings": [
+            0,
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "x": 27,
+          "y": 75
+        },
+        {
+          "id": "argentina",
+          "name": "Argentina",
+          "summary": "Patagonia wind and seasonal extremes affect comfort.",
+          "tip": "Shoulder months can balance weather and road access.",
+          "vanlife": "High with route planning",
+          "ratings": [
+            0,
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "x": 32,
+          "y": 82
+        },
+        {
+          "id": "uruguay",
+          "name": "Uruguay",
+          "summary": "Stable roads but wetter and cooler winter periods.",
+          "tip": "Spring and autumn usually offer easiest driving rhythm.",
+          "vanlife": "High",
+          "ratings": [
+            0,
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "x": 36,
+          "y": 84
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js"
+}

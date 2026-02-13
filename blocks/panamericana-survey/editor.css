@@ -1,0 +1,34 @@
+.panamericana-survey-editor-note {
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+}
+
+.panamericana-survey-editor-preview-placeholder {
+    border: 1px dashed #bbb;
+    border-radius: 8px;
+    padding: 0.8rem;
+    background: #fafafa;
+}
+
+.panamericana-survey-inline-editor {
+    margin-bottom: 1rem;
+}
+
+.panamericana-survey-inline-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.panamericana-survey-inline-card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+
+@media (max-width: 782px) {
+    .panamericana-survey-inline-grid {
+        grid-template-columns: 1fr;
+    }
+}

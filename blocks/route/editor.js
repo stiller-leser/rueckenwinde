@@ -96,6 +96,19 @@
                 setAttributes({ listItems: nextItems });
             };
 
+            const moveListItem = function (index, direction) {
+                const targetIndex = index + direction;
+                if (targetIndex < 0 || targetIndex >= currentListItems.length) {
+                    return;
+                }
+
+                const nextItems = currentListItems.slice();
+                const temp = nextItems[index];
+                nextItems[index] = nextItems[targetIndex];
+                nextItems[targetIndex] = temp;
+                setAttributes({ listItems: nextItems });
+            };
+
             return el(
                 'div',
                 blockProps,
@@ -218,6 +231,24 @@
                                         },
                                         style: { marginTop: '6px' }
                                     }, __('Entfernen', 'rueckenwinde'))
+                                    ,
+                                    el('div', { style: { marginTop: '6px' } },
+                                        el(Button, {
+                                            variant: 'secondary',
+                                            disabled: index === 0,
+                                            onClick: function () {
+                                                moveListItem(index, -1);
+                                            },
+                                            style: { marginRight: '6px' }
+                                        }, __('Nach oben', 'rueckenwinde')),
+                                        el(Button, {
+                                            variant: 'secondary',
+                                            disabled: index === (currentListItems.length - 1),
+                                            onClick: function () {
+                                                moveListItem(index, 1);
+                                            }
+                                        }, __('Nach unten', 'rueckenwinde'))
+                                    )
                                 );
                             })
                         ),

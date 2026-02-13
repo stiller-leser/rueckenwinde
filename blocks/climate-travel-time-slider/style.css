@@ -1,0 +1,257 @@
+.wp-block-rueckenwinde-climate-travel-time-slider {
+    --climate-accent: #ffc400;
+    --climate-ideal: #6fb07b;
+    --climate-moderate: #d6b556;
+    --climate-poor: #cb7070;
+    font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 2rem 0;
+}
+
+.climate-slider-header {
+    margin-bottom: 1rem;
+}
+
+.climate-slider-heading {
+    margin: 0 0 0.35rem;
+}
+
+.climate-slider-intro {
+    margin: 0;
+}
+
+.climate-slider-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1rem;
+}
+
+.climate-slider-map-panel,
+.climate-slider-controls {
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    padding: 0.9rem;
+}
+
+.climate-slider-map {
+    position: relative;
+    min-height: 560px;
+    border-radius: 12px;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255, 196, 0, 0.18), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(111, 176, 123, 0.15), transparent 35%),
+        linear-gradient(180deg, rgba(249, 251, 255, 0.84) 0%, rgba(241, 246, 255, 0.88) 100%),
+        var(--climate-map-image, url("https://upload.wikimedia.org/wikipedia/commons/2/21/Americas_satellite_map.jpg"));
+    background-size: auto, auto, auto, 100% 100%;
+    background-position: center, center, center, center;
+    background-repeat: no-repeat;
+    border: 1px solid #dfe8f6;
+    overflow: hidden;
+}
+
+.climate-slider-map::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 6%;
+    width: 2px;
+    height: 84%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgba(60, 87, 130, 0.25), rgba(60, 87, 130, 0.08));
+    pointer-events: none;
+}
+
+.climate-country-node {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 0;
+    background: transparent;
+    color: #111;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 0;
+}
+
+.climate-country-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 999px;
+    border: 2px solid #333;
+    background: #ddd;
+    transition: background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.climate-country-name {
+    font-size: 12px;
+    line-height: 1.2;
+    background: rgba(255, 255, 255, 0.86);
+    padding: 1px 6px;
+    border-radius: 999px;
+}
+
+.climate-country-node[data-country-id="nicaragua"],
+.climate-country-node[data-country-id="guatemala"],
+.climate-country-node[data-country-id="elsalvador"] {
+    flex-direction: row-reverse;
+}
+
+.climate-country-node.is-selected .climate-country-dot {
+    outline: 3px solid var(--climate-accent);
+}
+
+.climate-country-node.is-ideal .climate-country-dot {
+    background: var(--climate-ideal);
+    border-color: #234c2b;
+}
+
+.climate-country-node.is-moderate .climate-country-dot {
+    background: var(--climate-moderate);
+    border-color: #6a5515;
+}
+
+.climate-country-node.is-poor .climate-country-dot {
+    background: var(--climate-poor);
+    border-color: #6d2222;
+}
+
+.climate-country-node.is-muted {
+    opacity: 0.35;
+}
+
+.climate-slider-legend {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 0.7rem;
+}
+
+.legend-item {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid #cfcfcf;
+}
+
+.legend-item.is-ideal { background: var(--climate-ideal); color: #000; }
+.legend-item.is-moderate { background: var(--climate-moderate); color: #000; }
+.legend-item.is-poor { background: var(--climate-poor); color: #000; }
+
+.climate-slider-tooltip {
+    position: absolute;
+    z-index: 30;
+    max-width: 280px;
+    background: #161616;
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.65rem 0.75rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    line-height: 1.35;
+    pointer-events: none;
+}
+
+.climate-control-group + .climate-control-group {
+    margin-top: 0.9rem;
+}
+
+.climate-control-group h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.98rem;
+}
+
+.wp-block-rueckenwinde-climate-travel-time-slider .climate-month-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(110px, 1fr)) !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: stretch !important;
+    justify-items: stretch !important;
+}
+
+.wp-block-rueckenwinde-climate-travel-time-slider .climate-month-btn {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    float: none !important;
+    clear: none !important;
+    display: flex !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 2;
+    border: 1px solid #d6d6d6 !important;
+    background: #fff !important;
+    border-radius: 10px !important;
+    min-height: 44px !important;
+    padding: 0.55rem 0.45rem !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    font-size: 0.86rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow: visible !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+}
+
+.wp-block-rueckenwinde-climate-travel-time-slider .climate-month-btn.is-active {
+    border-color: #b88c00;
+    background: var(--climate-accent);
+    color: #000;
+    font-weight: 700;
+}
+
+.climate-country-list {
+    max-height: 360px;
+    overflow: auto;
+    padding-right: 4px;
+}
+
+.climate-country-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    border: 1px solid #ececec;
+    border-radius: 9px;
+    padding: 0.45rem 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.country-item-name {
+    font-size: 0.92rem;
+}
+
+.country-item-state {
+    font-size: 12px;
+    border-radius: 999px;
+    padding: 2px 8px;
+    border: 1px solid transparent;
+}
+
+.country-item-state.is-ideal { background: var(--climate-ideal); color: #000; border-color: #2e5d38; }
+.country-item-state.is-moderate { background: var(--climate-moderate); color: #000; border-color: #7b6218; }
+.country-item-state.is-poor { background: var(--climate-poor); color: #000; border-color: #7c2828; }
+
+@media (max-width: 980px) {
+    .climate-slider-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .climate-slider-map {
+        min-height: 440px;
+    }
+
+    .wp-block-rueckenwinde-climate-travel-time-slider .climate-month-grid {
+        grid-template-columns: repeat(2, minmax(110px, 1fr)) !important;
+    }
+}

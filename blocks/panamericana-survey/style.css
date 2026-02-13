@@ -1,0 +1,140 @@
+.wp-block-rueckenwinde-panamericana-survey {
+    margin: 2rem 0;
+}
+
+.panamericana-survey-container {
+    width: 100%;
+}
+
+.panamericana-survey-heading {
+    margin: 0 0 0.5rem;
+}
+
+.panamericana-survey-intro {
+    margin: 0 0 1.5rem;
+}
+
+.panamericana-survey-grid {
+    display: block;
+}
+
+.panamericana-survey-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    background: #fff;
+    max-width: 760px;
+    animation: survey-card-in 220ms ease-out;
+}
+
+.panamericana-survey-card[hidden] {
+    display: none;
+}
+
+.panamericana-survey-progress {
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+}
+
+.panamericana-survey-question-number {
+    font-size: 0.8rem;
+    margin: 0 0 0.4rem;
+    opacity: 0.7;
+}
+
+.panamericana-survey-question {
+    margin: 0 0 0.75rem;
+    line-height: 1.4;
+}
+
+.panamericana-survey-options {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.panamericana-survey-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.panamericana-survey-actions {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.panamericana-survey-prev,
+.panamericana-survey-next,
+.panamericana-survey-submit {
+    border: 1px solid #000;
+    background: #fff;
+    color: #000;
+    padding: 0.65rem 1.1rem;
+    cursor: pointer;
+}
+
+.panamericana-survey-prev:hover,
+.panamericana-survey-next:hover,
+.panamericana-survey-submit:hover {
+    background: #000;
+    color: #fff;
+}
+
+.panamericana-survey-prev:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.panamericana-survey-prev[hidden],
+.panamericana-survey-next[hidden],
+.panamericana-survey-submit[hidden] {
+    display: none;
+}
+
+.panamericana-survey-result {
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+.panamericana-survey-result-title {
+    margin: 0 0 0.3rem;
+    font-weight: 700;
+}
+
+.panamericana-survey-result-text {
+    margin: 0;
+}
+
+.panamericana-survey-result.is-mostly-yes {
+    background: #eef9ef;
+    border-color: #86b78a;
+}
+
+.panamericana-survey-result.is-half {
+    background: #fff8e6;
+    border-color: #d8b86c;
+}
+
+.panamericana-survey-result.is-mostly-no,
+.panamericana-survey-result.is-incomplete {
+    background: #fff0f0;
+    border-color: #d09090;
+}
+
+@keyframes survey-card-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

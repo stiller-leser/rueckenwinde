@@ -1,0 +1,371 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/vanlife-country-comparison",
+  "title": "Vanlife-Ländervergleich",
+  "category": "design",
+  "icon": "chart-bar",
+  "description": "Interaktiver Vergleich von Panamericana-Ländern für Vanlife-Kategorien.",
+  "keywords": [
+    "vanlife",
+    "vergleich",
+    "panamericana",
+    "länder"
+  ],
+  "version": "1.0.4",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Vanlife-Ländervergleich"
+    },
+    "intro": {
+      "type": "string",
+      "default": "Vergleiche Panamericana-Länder nach Freistehen, Kosten, Sicherheit, Straßen und Bürokratie."
+    },
+    "accentColor": {
+      "type": "string",
+      "default": "#FFC400"
+    },
+    "countries": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "name": "Uruguay",
+          "ratings": {
+            "freeCamping": "high",
+            "costs": "moderate",
+            "safety": "high",
+            "roads": "high",
+            "bureaucracy": "high"
+          },
+          "tips": {
+            "freeCamping": "Einfache Übernachtungsplätze gibt es oft an der Küste und in kleinen Orten.",
+            "costs": "Sprit und Lebensmittel liegen meist im mittleren Bereich.",
+            "safety": "Meist ruhige Stimmung, in Städten trotzdem normal vorsichtig sein.",
+            "roads": "Die Hauptstrecken sind zuverlässig und vanfreundlich.",
+            "bureaucracy": "Grenz- und Papierkram ist in der Regel unkompliziert."
+          }
+        },
+        {
+          "name": "Argentinien",
+          "ratings": {
+            "freeCamping": "high",
+            "costs": "moderate",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Viel Platz bietet viele gute Übernachtungsmöglichkeiten.",
+            "costs": "Preise können stark schwanken, Budget regelmäßig anpassen.",
+            "safety": "In vielen Regionen entspannt, in Großstädten besonders aufmerksam.",
+            "roads": "Sehr gute Fernstraßen, in abgelegenen Gebieten teils rau.",
+            "bureaucracy": "An Grenzen sind Verzögerungen möglich."
+          }
+        },
+        {
+          "name": "Chile",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "low",
+            "safety": "high",
+            "roads": "high",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Freistehen geht, ist aber häufig strenger geregelt.",
+            "costs": "Häufig eines der teureren Länder auf der Route.",
+            "safety": "Wirkt oft strukturiert und gut planbar für Overlander.",
+            "roads": "Auf den Hauptachsen ist die Straßenqualität sehr gut.",
+            "bureaucracy": "Kontrollen, z. B. bei Lebensmitteln, können streng sein."
+          }
+        },
+        {
+          "name": "Peru",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "high",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Viele ruhige Plätze, in Orten besser kurz nachfragen.",
+            "costs": "Alltag und Essen sind oft budgetfreundlich.",
+            "safety": "Die Lage unterscheidet sich stark je nach Region.",
+            "roads": "Bergstrecken sind langsam und fahrerisch anspruchsvoll.",
+            "bureaucracy": "Üblicher Grenzablauf mit Dokumentenkontrollen."
+          }
+        },
+        {
+          "name": "Bolivien",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "high",
+            "safety": "moderate",
+            "roads": "low",
+            "bureaucracy": "low"
+          },
+          "tips": {
+            "freeCamping": "Abgelegene Gegenden bieten viele flexible Stopps.",
+            "costs": "Meist günstig für ein kleines Reisebudget.",
+            "safety": "Höhe und Isolation erfordern gute Vorbereitung.",
+            "roads": "Von okay bis sehr schlecht ist alles dabei.",
+            "bureaucracy": "Grenzen und Genehmigungen brauchen oft Geduld."
+          }
+        },
+        {
+          "name": "Brasilien",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "moderate",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Besser mit Apps und lokalen Empfehlungen arbeiten.",
+            "costs": "Kosten variieren je nach Region und Saison.",
+            "safety": "Regionale Unterschiede sind groß, Route bewusst wählen.",
+            "roads": "Hauptstraßen sind oft gut, abgelegen teils wechselhaft.",
+            "bureaucracy": "Üblicher Papierkram, je nach Grenze unterschiedlich."
+          }
+        },
+        {
+          "name": "Ecuador",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "high",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Mix aus Freistehen und privaten Alternativen.",
+            "costs": "Für Langzeitreisen oft gut kalkulierbar.",
+            "safety": "Vor Grenzübertritten regionale Infos prüfen.",
+            "roads": "Berge, Wetter und Verkehr verlängern Etappen.",
+            "bureaucracy": "Normaler Aufwand bei Ein- und Ausreise."
+          }
+        },
+        {
+          "name": "Kolumbien",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "high",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "low"
+          },
+          "tips": {
+            "freeCamping": "Möglichst bewährte Spots und Apps nutzen.",
+            "costs": "Gutes Preis-Leistungs-Verhältnis im Alltag.",
+            "safety": "Route bewusst wählen, Nachtfahrten vermeiden.",
+            "roads": "Viele kurvige Bergstraßen verlangsamen die Reise.",
+            "bureaucracy": "Grenz- und Fahrzeugprozess kann Zeit kosten."
+          }
+        },
+        {
+          "name": "Paraguay",
+          "ratings": {
+            "freeCamping": "high",
+            "costs": "high",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Wenig Verkehr und viel Raum machen Stopps einfacher.",
+            "costs": "Sprit und Alltag sind oft günstig.",
+            "safety": "Mit normaler Vorsicht gut machbar.",
+            "roads": "Abseits der Hauptachsen teils wechselhafte Qualität.",
+            "bureaucracy": "Meist machbar, Dokumente sauber bereithalten."
+          }
+        },
+        {
+          "name": "Panama",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "moderate",
+            "safety": "moderate",
+            "roads": "high",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Mit bekannten Plätzen an Küste und Inland planen.",
+            "costs": "In touristischen Regionen steigen Kosten schnell.",
+            "safety": "Häufig stabil, lokale Hotspots meiden.",
+            "roads": "Die Panamericana ist auf langen Abschnitten gut.",
+            "bureaucracy": "Logistik und Grenzthemen brauchen oft extra Zeit."
+          }
+        },
+        {
+          "name": "Costa Rica",
+          "ratings": {
+            "freeCamping": "low",
+            "costs": "low",
+            "safety": "high",
+            "roads": "high",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Freistehen ist begrenzt, bezahlte Plätze sind üblich.",
+            "costs": "Eher eines der teureren Länder in Mittelamerika.",
+            "safety": "Für Reisende oft angenehm und gut strukturiert.",
+            "roads": "Hauptstrecken sind okay, Wetter kann Bedingungen ändern.",
+            "bureaucracy": "Grenzprozess ist standardisiert, aber teils langsam."
+          }
+        },
+        {
+          "name": "Honduras",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "high",
+            "safety": "low",
+            "roads": "moderate",
+            "bureaucracy": "low"
+          },
+          "tips": {
+            "freeCamping": "Lieber sichere, empfohlene Übernachtungsorte nutzen.",
+            "costs": "Alltag und Sprit sind oft günstig.",
+            "safety": "Routenwahl und Übernachtungsort sind entscheidend.",
+            "roads": "Qualität variiert stark je nach Region.",
+            "bureaucracy": "Grenzablauf kann zäh sein und Zeit kosten."
+          }
+        },
+        {
+          "name": "Nicaragua",
+          "ratings": {
+            "freeCamping": "high",
+            "costs": "high",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Viele Naturregionen erlauben flexible Etappen.",
+            "costs": "Gut geeignet für kleinere Tagesbudgets.",
+            "safety": "Vor Ort aktuelle Lageinfos einholen.",
+            "roads": "Auf typischen Routen meist gut fahrbar.",
+            "bureaucracy": "Üblicher Papierkram und Kontrollen an Grenzen."
+          }
+        },
+        {
+          "name": "Guatemala",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "high",
+            "safety": "moderate",
+            "roads": "low",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Kombination aus privaten Plätzen und einzelnen Freistehspots.",
+            "costs": "Häufig budgetfreundlich im Alltag.",
+            "safety": "Lokale Empfehlungen für Route und Parken sind wichtig.",
+            "roads": "Berge und Verkehr machen Etappen oft langsam.",
+            "bureaucracy": "Grenzformalitäten mit guter Dokumentenordnung machbar."
+          }
+        },
+        {
+          "name": "El Salvador",
+          "ratings": {
+            "freeCamping": "low",
+            "costs": "moderate",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Freie Plätze sind begrenzt, sichere Alternativen nutzen.",
+            "costs": "Kosten liegen oft im Mittelfeld.",
+            "safety": "In vielen Regionen besser, trotzdem vorausschauend planen.",
+            "roads": "Kurze Distanzen, aber lokal dichter Verkehr.",
+            "bureaucracy": "Grenzschritte sind meist überschaubar."
+          }
+        },
+        {
+          "name": "Belize",
+          "ratings": {
+            "freeCamping": "low",
+            "costs": "low",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Wirklich freie Spots sind selten, Campingplätze sind üblich.",
+            "costs": "Oft teurer als Nachbarländer.",
+            "safety": "Mit guter Platzwahl meist gut machbar.",
+            "roads": "Hauptrouten okay, abgelegene Zufahrten langsamer.",
+            "bureaucracy": "Normale Grenz- und Fahrzeugkontrollen einplanen."
+          }
+        },
+        {
+          "name": "Mexiko",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "high",
+            "safety": "moderate",
+            "roads": "moderate",
+            "bureaucracy": "moderate"
+          },
+          "tips": {
+            "freeCamping": "Viele Möglichkeiten mit Apps und Community-Tipps.",
+            "costs": "In vielen Regionen gutes Preis-Leistungs-Verhältnis.",
+            "safety": "Reisestil und Routenwahl beeinflussen viel.",
+            "roads": "Von sehr guten Mautstraßen bis zu rauen Nebenrouten.",
+            "bureaucracy": "Import- und Permit-Regeln genau beachten."
+          }
+        },
+        {
+          "name": "USA",
+          "ratings": {
+            "freeCamping": "low",
+            "costs": "low",
+            "safety": "high",
+            "roads": "high",
+            "bureaucracy": "high"
+          },
+          "tips": {
+            "freeCamping": "In vielen Regionen eingeschränkt, öffentliche Flächen gezielt nutzen.",
+            "costs": "Sprit, Stellplätze und Services sind oft teuer.",
+            "safety": "Klare Regeln und gute Infrastruktur auf vielen Strecken.",
+            "roads": "Sehr gutes Straßennetz für lange Etappen.",
+            "bureaucracy": "Abläufe sind klar, Regeln werden konsequent geprüft."
+          }
+        },
+        {
+          "name": "Kanada",
+          "ratings": {
+            "freeCamping": "moderate",
+            "costs": "low",
+            "safety": "high",
+            "roads": "high",
+            "bureaucracy": "high"
+          },
+          "tips": {
+            "freeCamping": "Je nach Provinz gibt es gute Frei- und Naturstellplätze.",
+            "costs": "Sprit, Reparaturen und Camping können teuer sein.",
+            "safety": "Sehr geeignet für ruhiges, planbares Overlanding.",
+            "roads": "Hauptstrecken sind meist in sehr gutem Zustand.",
+            "bureaucracy": "Regeln sind klar, Grenzkontrollen sind streng."
+          }
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js"
+}

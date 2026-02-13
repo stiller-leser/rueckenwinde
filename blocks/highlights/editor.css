@@ -7,6 +7,8 @@
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .wp-block-rueckenwinde-highlights-hero-editor .row::before,
@@ -20,19 +22,18 @@
 }
 
 .wp-block-rueckenwinde-highlights-hero-editor .columns {
-    float: left;
+    float: none;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-}
-
-.wp-block-rueckenwinde-highlights-hero-editor .large-4 {
-    width: 33.33333%;
+    width: calc(100% / var(--highlights-per-row, 3));
+    max-width: calc(100% / var(--highlights-per-row, 3));
 }
 
 /* Mobile */
 @media (max-width: 640px) {
     .wp-block-rueckenwinde-highlights-hero-editor .columns {
         width: 100%;
+        max-width: 100%;
         float: none;
     }
 }
