@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/grenz-checker",
+  "title": "Grenz-Checker",
+  "category": "widgets",
+  "icon": "location-alt",
+  "description": "Border-Checker und Routen-Akkordeon fuer Panamericana-Grenzen.",
+  "keywords": [
+    "grenze",
+    "border",
+    "panamericana",
+    "vanlife",
+    "reiseplanung"
+  ],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "checkerTitle": {
+      "type": "string",
+      "default": "Grenzanforderungen auf einen Blick"
+    },
+    "routeTitle": {
+      "type": "string",
+      "default": "Grenzen auf unserer Route"
+    },
+    "bordersData": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "id": "mexiko-guatemala-la-mesilla",
+          "herkunftsland": "Mexiko",
+          "zielland": "Guatemala",
+          "grenzname": "La Mesilla",
+          "flaggeHerkunft": "🇲🇽",
+          "flaggeZiel": "🇬🇹",
+          "nationalitaet": "Deutschland",
+          "fahrzeugtyp": "Camper",
+          "visum": "Nein",
+          "aufenthaltsdauer": "90",
+          "verlaengerungMoeglich": "Ja",
+          "tip": "Ja",
+          "tipGueltigkeit": "90",
+          "tipKostenUsd": "20",
+          "dokumente": ["Reisepass", "Fahrzeugschein", "Fuehrerschein"],
+          "versicherung": "Pflicht",
+          "versicherungPflicht": "Ja",
+          "versicherungAbschluss": ["An der Grenze", "Online"],
+          "durchschnittDauer": "1-3",
+          "wartezeitVariabel": "Ja",
+          "erfahrungsbericht": "Die Abwicklung war freundlich, aber mit Wartezeit am Mittag.",
+          "besonderheiten": ["Kopien vorher anfertigen", "Bargeld in kleiner Stueckelung"]
+        },
+        {
+          "id": "guatemala-honduras-agua-caliente",
+          "herkunftsland": "Guatemala",
+          "zielland": "Honduras",
+          "grenzname": "Agua Caliente",
+          "flaggeHerkunft": "🇬🇹",
+          "flaggeZiel": "🇭🇳",
+          "nationalitaet": "Deutschland",
+          "fahrzeugtyp": "Camper",
+          "visum": "Nein",
+          "aufenthaltsdauer": "90",
+          "verlaengerungMoeglich": "Nein",
+          "tip": "Ja",
+          "tipGueltigkeit": "90",
+          "tipKostenUsd": "35",
+          "dokumente": ["Reisepass", "Fahrzeugschein", "Fuehrerschein"],
+          "versicherung": "Pflicht",
+          "versicherungPflicht": "Ja",
+          "versicherungAbschluss": ["An der Grenze"],
+          "durchschnittDauer": "2-4",
+          "wartezeitVariabel": "Ja",
+          "erfahrungsbericht": "Mehrere Schalter, aber insgesamt gut organisiert.",
+          "besonderheiten": ["Frueh ankommen", "Stifte und Kopien mitnehmen"]
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js"
+}

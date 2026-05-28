@@ -1,0 +1,80 @@
+.wp-block-rueckenwinde-email-lead-pdf {
+    margin: 1.4rem 0;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__card {
+    border: 1px solid #d9e2d9;
+    border-radius: 10px;
+    background: #f7faf7;
+    padding: 1rem;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__title {
+    margin: 0 0 0.4rem;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__description {
+    margin: 0 0 0.8rem;
+    line-height: 1.5;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__notice {
+    margin: 0 0 0.8rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 7px;
+    font-size: 0.95rem;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__notice.is-success {
+    background: #e8f7e8;
+    color: #1f5f24;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__notice.is-error {
+    background: #fdeaea;
+    color: #8a1d1d;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__form {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__email {
+    width: 100%;
+    border: 1px solid #becbbb;
+    border-radius: 8px;
+    padding: 0.62rem 0.72rem;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__consent {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    font-size: 0.92rem;
+    line-height: 1.4;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__button {
+    justify-self: start;
+    border: 0;
+    border-radius: 999px;
+    background: #2f7d32;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.62rem 0.95rem;
+    cursor: pointer;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.wp-block-rueckenwinde-email-lead-pdf .email-lead-pdf__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}

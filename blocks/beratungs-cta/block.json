@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/beratungs-cta",
+  "title": "Beratungs-CTA",
+  "category": "widgets",
+  "icon": "megaphone",
+  "description": "CTA-Widget fuer die Beratungsleistung von rueckenwind.de.",
+  "keywords": ["cta", "beratung", "route", "termin"],
+  "version": "1.1.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "default": ""
+    },
+    "bulletTime": {
+      "type": "string",
+      "default": ""
+    },
+    "bulletSafety": {
+      "type": "string",
+      "default": ""
+    },
+    "bulletContacts": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "profileImageUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./index.php"
+}

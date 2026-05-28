@@ -1,0 +1,151 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/grenz-einreise-checker",
+  "title": "Grenz- & Einreise-Checker",
+  "category": "widgets",
+  "icon": "location-alt",
+  "description": "Responsive Checker für Einreise- und Grenzanforderungen entlang der Route.",
+  "keywords": [
+    "grenze",
+    "einreise",
+    "panamericana",
+    "route",
+    "vanlife"
+  ],
+  "version": "1.0.6",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "checkerTitle": {
+      "type": "string",
+      "default": "Grenz- & Einreise-Checker"
+    },
+    "routeTitle": {
+      "type": "string",
+      "default": "Grenzen auf unserer Route"
+    },
+    "countryRules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "id": "rule-guatemala",
+          "land": "Guatemala",
+          "nationalitaet": "Deutschland",
+          "fahrzeugtyp": "Camper",
+          "visum": "Nein",
+          "visumTage": "90",
+          "aufenthaltsdauer": "90",
+          "tip": "Ja",
+          "versicherung": "Pflicht",
+          "kosten": "ca. 20 USD"
+        },
+        {
+          "id": "rule-honduras",
+          "land": "Honduras",
+          "nationalitaet": "Deutschland",
+          "fahrzeugtyp": "Camper",
+          "visum": "Nein",
+          "visumTage": "90",
+          "aufenthaltsdauer": "90",
+          "tip": "Ja",
+          "versicherung": "Pflicht",
+          "kosten": "ca. 35 USD"
+        }
+      ]
+    },
+    "bordersData": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "id": "mexiko-guatemala-la-mesilla",
+          "herkunftsland": "Mexiko",
+          "zielland": "Guatemala",
+          "grenzname": "La Mesilla",
+          "flaggeHerkunft": "🇲🇽",
+          "flaggeZiel": "🇬🇹",
+          "nationalitaet": "Deutschland",
+          "fahrzeugtyp": "Camper",
+          "visum": "Nein",
+          "visumTage": "90",
+          "aufenthaltsdauer": "90",
+          "tip": "Ja",
+          "versicherung": "Pflicht",
+          "kosten": "ca. 20 USD",
+          "einreisePerson": [
+            "Visum: Nein",
+            "Aufenthaltsdauer: 90 Tage"
+          ],
+          "fahrzeugZoll": [
+            "Temporäre Fahrzeugeinfuhr (TIP): Ja",
+            "Dokumente: Reisepass, Fahrzeugschein, Führerschein"
+          ],
+          "versicherungDetails": [
+            "Pflicht: Ja",
+            "Abschluss: An der Grenze oder online"
+          ],
+          "ablaufDauer": [
+            "Durchschnittliche Dauer: 1-3 Stunden",
+            "Wartezeit variabel: Ja"
+          ],
+          "erfahrungsbericht": "Freundlicher Ablauf, mittags mehr Wartezeit.",
+          "besonderheiten": [
+            "Bargeld in kleiner Stückelung mitnehmen",
+            "Kopien vorab vorbereiten"
+          ]
+        },
+        {
+          "id": "guatemala-honduras-agua-caliente",
+          "herkunftsland": "Guatemala",
+          "zielland": "Honduras",
+          "grenzname": "Agua Caliente",
+          "flaggeHerkunft": "🇬🇹",
+          "flaggeZiel": "🇭🇳",
+          "nationalitaet": "Deutschland",
+          "fahrzeugtyp": "Camper",
+          "visum": "Nein",
+          "visumTage": "90",
+          "aufenthaltsdauer": "90",
+          "tip": "Ja",
+          "versicherung": "Pflicht",
+          "kosten": "ca. 35 USD",
+          "einreisePerson": [
+            "Visum: Nein",
+            "Aufenthaltsdauer: 90 Tage"
+          ],
+          "fahrzeugZoll": [
+            "Temporäre Fahrzeugeinfuhr (TIP): Ja",
+            "Mehrere Schalter einplanen"
+          ],
+          "versicherungDetails": [
+            "Pflicht: Ja",
+            "Abschluss: An der Grenze"
+          ],
+          "ablaufDauer": [
+            "Durchschnittliche Dauer: 2-4 Stunden",
+            "Wartezeit variabel: Ja"
+          ],
+          "erfahrungsbericht": "Gut organisiert, aber mit Laufwegen zwischen Schaltern.",
+          "besonderheiten": [
+            "Früh starten",
+            "Öffnungszeiten vorab prüfen"
+          ]
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js"
+}

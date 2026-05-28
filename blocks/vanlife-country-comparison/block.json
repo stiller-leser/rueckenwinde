@@ -12,7 +12,7 @@
     "panamericana",
     "länder"
   ],
-  "version": "1.0.4",
+  "version": "1.0.7",
   "textdomain": "rueckenwinde",
   "supports": {
     "html": false,
@@ -31,6 +31,34 @@
     "accentColor": {
       "type": "string",
       "default": "#FFC400"
+    },
+    "categoryLabels": {
+      "type": "object",
+      "default": {
+        "freeCamping": "Freistehen",
+        "costs": "Kosten",
+        "safety": "Sicherheit",
+        "roads": "Straßen",
+        "bureaucracy": "Bürokratie"
+      }
+    },
+    "categoryIcons": {
+      "type": "object",
+      "default": {
+        "freeCamping": "🏕",
+        "costs": "💰",
+        "safety": "🛡",
+        "roads": "🛣",
+        "bureaucracy": "📄"
+      }
+    },
+    "ratingLabels": {
+      "type": "object",
+      "default": {
+        "high": "Sehr geeignet",
+        "moderate": "Mittel",
+        "low": "Wenig geeignet"
+      }
     },
     "countries": {
       "type": "array",

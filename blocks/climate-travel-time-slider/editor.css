@@ -30,6 +30,14 @@
     background: #fff9dd;
 }
 
+.climate-editor-inline-settings {
+    margin: 0.7rem 0 0.9rem;
+    padding: 0.8rem;
+    border: 1px solid #e4e4e4;
+    border-radius: 10px;
+    background: #fff;
+}
+
 .climate-editor-month-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -74,15 +82,14 @@
     border: 1px solid #dfe8f6;
     border-radius: 12px;
     overflow: hidden;
-    background-color: #eef3fb;
-    background:
-        radial-gradient(circle at 15% 15%, rgba(255, 196, 0, 0.18), transparent 35%),
-        radial-gradient(circle at 80% 20%, rgba(111, 176, 123, 0.15), transparent 35%),
-        linear-gradient(180deg, rgba(249, 251, 255, 0.84) 0%, rgba(241, 246, 255, 0.88) 100%),
-        var(--climate-map-image, url("https://upload.wikimedia.org/wikipedia/commons/2/21/Americas_satellite_map.jpg"));
-    background-size: auto, auto, auto, 100% 100%;
-    background-position: center, center, center, center;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background: linear-gradient(180deg, rgba(249, 251, 255, 0.95) 0%, rgba(241, 246, 255, 0.95) 100%);
+}
+
+.climate-slider-editor .climate-editor-map .leaflet-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: #d7e6f3;
 }
 
 @media (max-width: 782px) {
@@ -95,50 +102,41 @@
     }
 }
 
-.climate-editor-dot {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    border: 0;
+.climate-editor-leaflet-dot {
     background: transparent;
-    padding: 0;
-    cursor: grab;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+    border: none;
 }
 
-.climate-editor-dot:active {
-    cursor: grabbing;
-}
-
-.climate-editor-dot-core {
-    width: 12px;
-    height: 12px;
+.climate-editor-leaflet-dot-core {
+    display: block;
+    width: 16px;
+    height: 16px;
     border-radius: 999px;
     border: 2px solid #111;
     background: #fff;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 }
 
-.climate-editor-dot-label {
+.climate-editor-leaflet-dot-label {
+    position: absolute;
+    left: 50%;
+    top: -8px;
+    transform: translate(-50%, -100%);
     font-size: 11px;
     line-height: 1;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.96);
     border-radius: 999px;
-    padding: 1px 6px;
+    padding: 2px 7px;
+    border: 1px solid #d9d9d9;
+    white-space: nowrap;
     display: none;
 }
 
-.climate-editor-dot[data-country-id="nicaragua"],
-.climate-editor-dot[data-country-id="guatemala"],
-.climate-editor-dot[data-country-id="elsalvador"] {
-    flex-direction: row-reverse;
-}
-
-.climate-editor-dot.is-active .climate-editor-dot-core {
+.climate-editor-leaflet-dot.is-active .climate-editor-leaflet-dot-core {
     background: #ffc400;
     box-shadow: 0 0 0 3px rgba(255, 196, 0, 0.45);
 }
 
-.climate-editor-dot.is-active .climate-editor-dot-label {
+.climate-editor-leaflet-dot.is-active .climate-editor-leaflet-dot-label {
     display: inline-block;
 }

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/pannen-log",
+  "title": "Interaktives Pannen-Log",
+  "category": "widgets",
+  "icon": "warning",
+  "description": "Filterbares Pannen-Log mit Problem/Solution-Karten fuer rueckenwind.de",
+  "keywords": ["panne", "log", "filter", "vanlife", "rueckenwind"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Interaktives Pannen-Log"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Unsere Stolpersteine auf der Panamericana: Problem, Loesung und Stress-Level auf einen Blick."
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "category": "Technik",
+          "title": "Anlasser streikt im Regen",
+          "ort": "San Cristobal de las Casas, Mexiko",
+          "problem": "Der Motor sprang nach einer Nacht im Dauerregen nicht mehr an.",
+          "solution": "Kontakte gereinigt, Starterrelais getauscht und Notstart-Kabel fest im Setup hinterlegt.",
+          "stress": 8
+        },
+        {
+          "category": "Grenze",
+          "title": "Falscher Schalter bei der Ausreise",
+          "ort": "Paso Canoas, Costa Rica/Panama",
+          "problem": "Wir haben zuerst den Fahrzeug- statt den Personenprozess gestartet und Zeit verloren.",
+          "solution": "Ablauf als Checkliste am Armaturenbrett, zuerst Migration, dann Zoll.",
+          "stress": 6
+        },
+        {
+          "category": "Gesundheit",
+          "title": "Magen-Darm auf 3.800 m",
+          "ort": "Cusco, Peru",
+          "problem": "Kombination aus Hoehenanpassung und ungewohntem Essen hat uns ausgebremst.",
+          "solution": "48h Pause, Elektrolyte, leichter Kostplan und langsamere Etappen.",
+          "stress": 7
+        },
+        {
+          "category": "Buerokratie",
+          "title": "Versicherungspolice nicht akzeptiert",
+          "ort": "Mendoza, Argentinien",
+          "problem": "Die digitale Police wurde ohne spanische Uebersetzung nicht anerkannt.",
+          "solution": "Bilingualen Nachweis organisiert und als Offline-PDF plus Ausdruck abgelegt.",
+          "stress": 5
+        },
+        {
+          "category": "Technik",
+          "title": "Solarregler ueberhitzt",
+          "ort": "Atacama, Chile",
+          "problem": "Bei extremer Hitze ging die Ladeleistung massiv runter.",
+          "solution": "Regler versetzt, Luftspalt vergroessert und passiven Kuehlkoerper nachgeruestet.",
+          "stress": 7
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./index.php"
+}

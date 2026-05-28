@@ -1,0 +1,175 @@
+.wp-block-rueckenwinde-panamericana-country-essentials {
+    --pce-bg: #f5f5dc;
+    --pce-card: #ffffff;
+    --pce-text: #2b1d16;
+    --pce-muted: #6a584f;
+    --pce-accent: #b3571c;
+    --pce-line: rgba(43, 29, 22, 0.15);
+    margin: 2rem 0;
+    padding: 1.1rem;
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.45) 0%, transparent 35%),
+        linear-gradient(150deg, var(--pce-bg), #eee8c8);
+    color: var(--pce-text);
+}
+
+.wp-block-rueckenwinde-panamericana-country-essentials,
+.wp-block-rueckenwinde-panamericana-country-essentials * {
+    font-family: inherit;
+}
+
+.pce-header {
+    margin-bottom: 0.9rem;
+}
+
+.pce-title {
+    margin: 0 0 0.2rem;
+}
+
+.pce-subtitle {
+    margin: 0;
+    color: var(--pce-muted);
+}
+
+.pce-selector-wrap {
+    margin-bottom: 1rem;
+}
+
+.pce-selector {
+    display: flex;
+    gap: 0.45rem;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+}
+
+.pce-country-btn {
+    border: 1px solid var(--pce-line);
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--pce-text);
+    border-radius: 999px;
+    padding: 0.42rem 0.78rem;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    font: inherit;
+    white-space: nowrap;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.pce-country-btn:hover,
+.pce-country-btn:focus-visible,
+.pce-country-btn.is-active {
+    transform: scale(1.02);
+    border-color: rgba(179, 87, 28, 0.45);
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.pce-flag {
+    font-size: 1rem;
+}
+
+.pce-select-label {
+    display: none;
+}
+
+.pce-select {
+    display: none;
+    width: 100%;
+    margin-top: 0.5rem;
+    min-height: 40px;
+    border: 1px solid var(--pce-line);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--pce-text);
+    padding: 0.45rem 0.6rem;
+    font: inherit;
+}
+
+.pce-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+}
+
+.pce-card {
+    background: var(--pce-card);
+    border-radius: 12px;
+    border: 1px solid var(--pce-line);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    padding: 0.85rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pce-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+.pce-card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.4rem;
+}
+
+.pce-card-icon {
+    font-size: 1.02rem;
+}
+
+.pce-card-title {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.pce-card-text {
+    margin: 0;
+    line-height: 1.45;
+    font-size: 0.95rem;
+}
+
+.pce-card-tip {
+    margin: 0.55rem 0 0;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(179, 87, 28, 0.1);
+    color: #6e3110;
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+.pce-grid.is-transitioning .pce-card {
+    opacity: 0;
+    transform: translateY(14px);
+}
+
+.pce-grid.is-visible .pce-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+@media (min-width: 720px) {
+    .pce-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1060px) {
+    .pce-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .pce-selector {
+        display: none;
+    }
+
+    .pce-select,
+    .pce-select-label {
+        display: block;
+    }
+}

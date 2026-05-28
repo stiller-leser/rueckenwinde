@@ -1,0 +1,292 @@
+.wp-block-rueckenwinde-fahrzeug-fitness-check {
+    --ffc-bg-a: #fff7e5;
+    --ffc-bg-b: #f4e5d0;
+    --ffc-card: rgba(255, 255, 255, 0.88);
+    --ffc-line: rgba(136, 0, 0, 0.2);
+    --ffc-text: #2e1712;
+    --ffc-muted: #6d3b30;
+    --ffc-primary: #fab021;
+    --ffc-primary-strong: #7a1300;
+    --ffc-shadow: 0 16px 36px rgba(136, 0, 0, 0.12);
+    margin: 2rem 0;
+    color: var(--ffc-text);
+}
+
+.wp-block-rueckenwinde-fahrzeug-fitness-check *,
+.wp-block-rueckenwinde-fahrzeug-fitness-check *::before,
+.wp-block-rueckenwinde-fahrzeug-fitness-check *::after {
+    box-sizing: border-box;
+}
+
+.ffc-card {
+    border: 1px solid var(--ffc-line);
+    border-radius: 18px;
+    padding: 0.9rem;
+    background:
+        radial-gradient(circle at 18% 10%, #fff0c4 0%, transparent 34%),
+        radial-gradient(circle at 80% 20%, #ffe3bc 0%, transparent 42%),
+        linear-gradient(145deg, var(--ffc-bg-a), var(--ffc-bg-b));
+    box-shadow: var(--ffc-shadow);
+}
+
+.ffc-result-card {
+    margin-top: 0.9rem;
+}
+
+.ffc-title {
+    margin: 0 0 0.6rem;
+}
+
+.ffc-intro {
+    margin: 0 0 0.8rem;
+    font-size: 0.94rem;
+    color: var(--ffc-muted);
+}
+
+.ffc-preset-toggle {
+    width: 100%;
+    border: 1px solid var(--ffc-line);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--ffc-text);
+    text-align: left;
+    padding: 0.7rem 0.75rem;
+    cursor: pointer;
+    display: grid;
+    gap: 0.2rem;
+    margin-bottom: 0.55rem;
+}
+
+.ffc-preset-toggle strong {
+    font-size: 0.95rem;
+}
+
+.ffc-preset-toggle span {
+    font-size: 0.84rem;
+    color: var(--ffc-muted);
+}
+
+.ffc-preset-toggle.is-active {
+    border-color: rgba(38, 131, 77, 0.5);
+    background: #ecf9f0;
+}
+
+.ffc-preset-badge {
+    display: inline-flex;
+    margin: 0 0 0.4rem;
+    border: 1px solid #8bc8a2;
+    background: #e9f8ef;
+    color: #1d5a38;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.22rem 0.58rem;
+}
+
+.ffc-preset-disclaimer {
+    margin: 0 0 0.75rem;
+    font-size: 0.75rem;
+    color: #6d4b42;
+}
+
+.ffc-input-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+}
+
+.ffc-field {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.ffc-field span {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.ffc-field select {
+    width: 100%;
+    border: 1px solid var(--ffc-line);
+    border-radius: 10px;
+    min-height: 40px;
+    padding: 0.45rem 2rem 0.45rem 0.6rem;
+    background: #fff;
+    color: var(--ffc-text);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23222' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.65rem center;
+    background-size: 12px 8px;
+}
+
+.ffc-field select:disabled {
+    opacity: 0.74;
+    cursor: not-allowed;
+}
+
+.ffc-evaluate {
+    margin-top: 0.6rem;
+    width: 100%;
+    border: 1px solid var(--ffc-primary);
+    border-radius: 10px;
+    min-height: 42px;
+    padding: 0.55rem 0.8rem;
+    background: linear-gradient(150deg, rgba(250, 176, 33, 0.3), rgba(136, 0, 0, 0.08));
+    color: var(--ffc-primary-strong);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.ffc-accordion {
+    display: grid;
+    gap: 0.55rem;
+    width: 100%;
+}
+
+.ffc-accordion-item {
+    border: 1px solid var(--ffc-line);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--ffc-card);
+}
+
+.ffc-accordion-trigger {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    padding: 0.7rem 0.75rem;
+    display: grid;
+    gap: 0.3rem;
+}
+
+.ffc-accordion-trigger::before {
+    content: "▶";
+    font-size: 0.7rem;
+    margin-right: 0.4rem;
+}
+
+.ffc-accordion-item.is-open .ffc-accordion-trigger::before {
+    content: "▼";
+}
+
+.ffc-trigger-label {
+    line-height: 1.35;
+    color: black;
+    font-weight: 400;
+}
+
+.ffc-trigger-status,
+.ffc-panel-status,
+.ffc-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    padding: 0.22rem 0.56rem;
+    font-size: 0.79rem;
+    font-weight: 700;
+}
+
+.ffc-status-neutral {
+    background: #f1f1f1;
+    border-color: #d0d0d0;
+    color: #4c4c4c;
+}
+
+.ffc-status-green {
+    background: #e9f8ef;
+    border-color: #9fd8b4;
+    color: #1f5d37;
+}
+
+.ffc-status-yellow {
+    background: #fff5df;
+    border-color: #e3c778;
+    color: #6e4d00;
+}
+
+.ffc-status-red {
+    background: #ffeaea;
+    border-color: #e2a8a8;
+    color: #6b1717;
+}
+
+.ffc-accordion-panel {
+    border-top: 1px solid var(--ffc-line);
+    padding: 0.75rem;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.ffc-profile-list,
+.ffc-result-hints {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.28rem;
+}
+
+.ffc-profile-list li,
+.ffc-result-hints li {
+    font-size: 0.9rem;
+}
+
+.ffc-panel-result-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.55rem;
+    border-top: 1px dashed rgba(136, 0, 0, 0.18);
+    padding-top: 0.5rem;
+}
+
+.ffc-country-measurements {
+    border: 1px dashed rgba(136, 0, 0, 0.24);
+    border-radius: 10px;
+    padding: 0.55rem 0.6rem;
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.ffc-country-measurements h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.88rem;
+}
+
+.ffc-measure-list {
+    margin: 0;
+    padding-left: 1.05rem;
+    display: grid;
+    gap: 0.25rem;
+}
+
+.ffc-measure-list li {
+    font-size: 0.86rem;
+}
+
+.ffc-preset-exception {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px dashed rgba(136, 0, 0, 0.32);
+    border-radius: 10px;
+    padding: 0.45rem 0.55rem;
+    background: rgba(255, 255, 255, 0.66);
+    font-size: 0.86rem;
+}
+
+@media (min-width: 760px) {
+    .ffc-input-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ffc-evaluate {
+        max-width: 300px;
+    }
+}

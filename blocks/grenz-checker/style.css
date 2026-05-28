@@ -1,0 +1,228 @@
+.wp-block-rueckenwinde-grenz-checker {
+    --gc-bg-1: #fff7e5;
+    --gc-bg-2: #f6e6d2;
+    --gc-card: rgba(255, 255, 255, 0.86);
+    --gc-text: #2e1712;
+    --gc-muted: #6e3b30;
+    --gc-primary: #fab021;
+    --gc-primary-strong: #880000;
+    --gc-line: rgba(136, 0, 0, 0.2);
+    --gc-shadow: 0 18px 40px rgba(136, 0, 0, 0.12);
+    color: var(--gc-text);
+    margin: 2rem 0;
+}
+
+.grenz-checker-top,
+.grenz-route-section {
+    background:
+        radial-gradient(circle at 15% 10%, #fff0c4 0%, transparent 35%),
+        radial-gradient(circle at 80% 20%, #ffe2b3 0%, transparent 42%),
+        linear-gradient(145deg, var(--gc-bg-1), var(--gc-bg-2));
+    border: 1px solid var(--gc-line);
+    border-radius: 18px;
+    padding: 0.9rem;
+    box-shadow: var(--gc-shadow);
+}
+
+.grenz-route-section {
+    margin-top: 1rem;
+}
+
+.grenz-checker-title,
+.grenz-route-title {
+    margin: 0 0 0.7rem;
+}
+
+.grenz-checker-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+}
+
+.grenz-checker-field,
+.grenz-checker-vehicle {
+    display: grid;
+    gap: 0.3rem;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.grenz-checker-field span,
+.grenz-checker-vehicle legend {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.grenz-checker-field select {
+    width: 100%;
+    min-height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--gc-line);
+    padding: 0.45rem 0.6rem;
+    background: #fff;
+    color: var(--gc-text);
+}
+
+.grenz-checker-vehicle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.grenz-vehicle-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid var(--gc-line);
+    border-radius: 999px;
+    padding: 0.35rem 0.6rem;
+    background: #fff;
+}
+
+.grenz-checker-submit {
+    border: 1px solid var(--gc-primary);
+    background: linear-gradient(150deg, rgba(250, 176, 33, 0.3), rgba(136, 0, 0, 0.08));
+    color: var(--gc-primary-strong);
+    border-radius: 10px;
+    min-height: 42px;
+    padding: 0.55rem 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.grenz-checker-submit:hover {
+    border-color: rgba(136, 0, 0, 0.45);
+    box-shadow: 0 10px 20px rgba(136, 0, 0, 0.12);
+}
+
+.grenz-summary-card {
+    margin-top: 0.8rem;
+    border: 1px solid var(--gc-line);
+    border-radius: 10px;
+    padding: 0.7rem;
+    background: rgba(255, 255, 255, 0.7);
+    display: grid;
+    gap: 0.5rem;
+}
+
+.grenz-summary-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.7rem;
+    border-bottom: 1px dashed #d0d0d0;
+    padding-bottom: 0.3rem;
+}
+
+.grenz-summary-row:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.grenz-summary-label {
+    font-size: 0.88rem;
+    color: var(--gc-muted);
+}
+
+.grenz-summary-value {
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid transparent;
+}
+
+.grenz-summary-value.is-green {
+    color: #1f5d37;
+    background: #eaf9ef;
+    border-color: #9ad4af;
+}
+
+.grenz-summary-value.is-yellow {
+    color: #6a4a00;
+    background: #fff4dd;
+    border-color: #e7cb7f;
+}
+
+.grenz-summary-value.is-red {
+    color: #6c1414;
+    background: #ffe9e9;
+    border-color: #e3a6a6;
+}
+
+.grenz-accordion-list {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.grenz-accordion-item {
+    border: 1px solid var(--gc-line);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--gc-card);
+}
+
+.grenz-accordion-trigger {
+    width: 100%;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 0.65rem 0.75rem;
+    display: grid;
+    gap: 0.2rem;
+}
+
+.grenz-accordion-trigger::before {
+    content: "▶";
+    font-size: 0.72rem;
+    margin-right: 0.4rem;
+}
+
+.grenz-accordion-item.is-open .grenz-accordion-trigger::before {
+    content: "▼";
+}
+
+.grenz-trigger-main {
+    font-weight: 700;
+}
+
+.grenz-trigger-sub {
+    font-size: 0.86rem;
+    opacity: 0.86;
+}
+
+.grenz-accordion-panel {
+    border-top: 1px solid var(--gc-line);
+    padding: 0.7rem;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.grenz-detail-group h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.96rem;
+}
+
+.grenz-detail-group p,
+.grenz-detail-group ul {
+    margin: 0 0 0.2rem;
+    font-size: 0.9rem;
+}
+
+.grenz-detail-group ul {
+    padding-left: 1.1rem;
+}
+
+@media (min-width: 840px) {
+    .grenz-checker-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grenz-checker-submit {
+        grid-column: 1 / -1;
+        max-width: 320px;
+    }
+}

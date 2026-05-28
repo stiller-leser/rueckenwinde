@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/kostenrechner",
+  "title": "Panamericana Kostenrechner",
+  "category": "widgets",
+  "icon": "calculator",
+  "description": "Interaktiver Kosten-Schnellrechner fuer die Panamericana.",
+  "keywords": ["kosten", "rechner", "panamericana", "budget"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Panamericana Kosten-Schnellrechner"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Schnelle Monatskalkulation fuer eure Reiseplanung auf rueckenwind.de"
+    },
+    "costDriverLabel": {
+      "type": "string",
+      "default": "Groesster Kostentreiber"
+    },
+    "costDriverTexts": {
+      "type": "object",
+      "default": {
+        "lkw": "Treibstoff und Verschiffung",
+        "komfort": "Lebenshaltung und Unterkunft",
+        "shortDuration": "Verschiffung (kurze Reisedauer)",
+        "manyPeople": "Lebenshaltung fuer mehrere Personen",
+        "van": "Fahrzeugbetrieb und Wartung",
+        "default": "Laufende Reiseausgaben"
+      }
+    },
+    "styleCosts": {
+      "type": "object",
+      "default": {
+        "low": 400,
+        "mittel": 800,
+        "komfort": 1400
+      }
+    },
+    "vehicleMonthlyCosts": {
+      "type": "object",
+      "default": {
+        "klein": 300,
+        "van": 600,
+        "lkw": 1000
+      }
+    },
+    "shippingCosts": {
+      "type": "object",
+      "default": {
+        "klein": 2000,
+        "van": 3500,
+        "lkw": 6000
+      }
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./index.php"
+}

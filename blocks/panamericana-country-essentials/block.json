@@ -1,0 +1,94 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/panamericana-country-essentials",
+  "title": "Panamericana Country-Essentials",
+  "category": "widgets",
+  "icon": "location",
+  "description": "Interaktives Laender-Essentials Tool mit dynamischem CRUD fuer rueckenwind.de",
+  "keywords": ["panamericana", "laender", "essentials", "vanlife", "reise"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Panamericana Country-Essentials"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Waehle ein Land und erhalte sofort die wichtigsten Reise-Essentials."
+    },
+    "countries": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "name": "Mexiko",
+          "flagIcon": "🇲🇽",
+          "essentials": {
+            "insurance": "Kfz-Haftpflicht lokal abschliessen und Police offline speichern.",
+            "sim": "Telcel SIM mit grossem Datenpaket ist auf der Route meist die stabilste Wahl.",
+            "cash": "In kleineren Orten ausreichend Bargeld dabeihaben, Kartenzahlung ist nicht immer moeglich.",
+            "spareParts": "Basis-Ersatzteile in Grenznaehe schwerer zu bekommen, vorher aufstocken.",
+            "apps": "iOverlander, Maps.me und WhatsApp sind fuer Spot-Suche und lokale Kontakte essenziell."
+          },
+          "tips": {
+            "insurance": "Tipp: Kopie der Police im Handschuhfach und als PDF auf dem Handy.",
+            "sim": "Tipp: APN direkt am Schalter pruefen lassen.",
+            "cash": "Tipp: Kleine Scheine fuer Maut und Parkplaetze bereithalten.",
+            "spareParts": "Tipp: Verschleissteile schon vor Chiapas besorgen.",
+            "apps": "Tipp: Offline-Karten vor Bergregionen herunterladen."
+          }
+        },
+        {
+          "name": "Peru",
+          "flagIcon": "🇵🇪",
+          "essentials": {
+            "insurance": "SOAT fuer das Fahrzeug vorbereiten und Deckungszeitraum genau checken.",
+            "sim": "Claro und Movistar funktionieren gut, in Hoehenlagen aber mit Luecken.",
+            "cash": "Soles fuer Maerkte, Maut und kleinere Werkstaetten mitfuehren.",
+            "spareParts": "In grossen Staedten verfuegbar, in den Anden lieber Notfallbestand im Fahrzeug halten.",
+            "apps": "Windy, Maps.me und iOverlander helfen bei Wetter- und Routenentscheidungen."
+          },
+          "tips": {
+            "insurance": "Tipp: SOAT-Grenzdatum im Kalender markieren.",
+            "sim": "Tipp: Zweite SIM als Backup in entlegenen Regionen.",
+            "cash": "Tipp: Vor Wochenenden genug Soles abheben.",
+            "spareParts": "Tipp: Filter und Sicherungen als Set dabeihaben.",
+            "apps": "Tipp: Wetterkarten taeglich vor Passfahrten checken."
+          }
+        },
+        {
+          "name": "Chile",
+          "flagIcon": "🇨🇱",
+          "essentials": {
+            "insurance": "SOAPEX vor Einreise online abschliessen und Ausdruck mitfuehren.",
+            "sim": "Entel bietet entlang der Panamericana meist gute Netzabdeckung.",
+            "cash": "In abgelegenen Regionen trotz guter Kartenakzeptanz Bargeldreserve einplanen.",
+            "spareParts": "Suedlich von Santiago steigen Lieferzeiten, daher Verbrauchsteile frueh ordern.",
+            "apps": "iOverlander, Google Maps Offline und eine Tank-App sind sehr hilfreich."
+          },
+          "tips": {
+            "insurance": "Tipp: SOAPEX-Ausdruck bei jeder Kontrolle griffbereit halten.",
+            "sim": "Tipp: Datenpaket mit nationalem Roaming waehlen.",
+            "cash": "Tipp: Bargeld fuer Faehren und kleine Campings reservieren.",
+            "spareParts": "Tipp: Vor Patagonien Bremsen und Reifen checken.",
+            "apps": "Tipp: Tankstopps fuer lange Etappen vorab speichern."
+          }
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./index.php"
+}

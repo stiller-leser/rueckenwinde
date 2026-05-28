@@ -1,0 +1,181 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/verschiffungs-kostenrechner",
+  "title": "Verschiffungs-Kostenrechner",
+  "category": "widgets",
+  "icon": "calculator",
+  "description": "Interaktiver Verschiffungs-Kostenrechner fuer Panama <-> Kolumbien.",
+  "keywords": ["verschiffung", "kosten", "rechner", "panama", "kolumbien"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Interaktiver Verschiffungs-Kostenrechner"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Panama <-> Kolumbien: schnelle Schaetzung fuer eure Transportkosten"
+    },
+    "downloadButtonLabel": {
+      "type": "string",
+      "default": "Aktuelle Agenten-Liste herunterladen"
+    },
+    "agentListUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "currencyRateUsdToEur": {
+      "type": "number",
+      "default": 0.92
+    },
+    "handlingFees": {
+      "type": "object",
+      "default": {
+        "container": 650,
+        "flatRack": 950,
+        "roro": 500
+      }
+    },
+    "ratePerM3": {
+      "type": "object",
+      "default": {
+        "container": 110,
+        "flatRack": 145,
+        "roro": 80
+      }
+    },
+    "ratePerLengthMeter": {
+      "type": "object",
+      "default": {
+        "container": 230,
+        "flatRack": 300,
+        "roro": 170
+      }
+    },
+    "pricingModelByShippingType": {
+      "type": "object",
+      "default": {
+        "container": "volume",
+        "flatRack": "length",
+        "roro": "length"
+      }
+    },
+    "vehicleSurcharge": {
+      "type": "object",
+      "default": {
+        "motorrad": 0,
+        "van": 260,
+        "lkw": 640
+      }
+    },
+    "containerDimensions": {
+      "type": "object",
+      "default": {
+        "standard": {
+          "length": 12032,
+          "width": 2340,
+          "height": 2590
+        },
+        "highCube": {
+          "length": 12032,
+          "width": 2340,
+          "height": 2590
+        }
+      }
+    },
+    "containerTyreReductionCm": {
+      "type": "number",
+      "default": 12
+    },
+    "containerFixedFreightByRoute": {
+      "type": "object",
+      "default": {
+        "hamburgMontevideo": 4200,
+        "darienGap": 2200,
+        "hamburgHalifax": 3600
+      }
+    },
+    "routeFreightMultiplier": {
+      "type": "object",
+      "default": {
+        "hamburgMontevideo": 1.18,
+        "darienGap": 1,
+        "hamburgHalifax": 1.08
+      }
+    },
+    "routeHandlingSurcharge": {
+      "type": "object",
+      "default": {
+        "hamburgMontevideo": 120,
+        "darienGap": 0,
+        "hamburgHalifax": 80
+      }
+    },
+    "handlingFeesByRoute": {
+      "type": "object",
+      "default": {
+        "hamburgMontevideo": {
+          "container": 770,
+          "flatRack": 1070,
+          "roro": 620
+        },
+        "darienGap": {
+          "container": 650,
+          "flatRack": 950,
+          "roro": 500
+        },
+        "hamburgHalifax": {
+          "container": 730,
+          "flatRack": 1030,
+          "roro": 580
+        }
+      }
+    },
+    "ratePerM3ByRoute": {
+      "type": "object",
+      "default": {
+        "hamburgMontevideo": {
+          "flatRack": 171,
+          "roro": 94
+        },
+        "darienGap": {
+          "flatRack": 145,
+          "roro": 80
+        },
+        "hamburgHalifax": {
+          "flatRack": 156,
+          "roro": 86
+        }
+      }
+    },
+    "ratePerLengthMeterByRoute": {
+      "type": "object",
+      "default": {
+        "hamburgMontevideo": {
+          "flatRack": 354,
+          "roro": 200
+        },
+        "darienGap": {
+          "flatRack": 300,
+          "roro": 170
+        },
+        "hamburgHalifax": {
+          "flatRack": 324,
+          "roro": 184
+        }
+      }
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./index.php"
+}

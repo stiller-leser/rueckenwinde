@@ -1,0 +1,60 @@
+.wp-block-rueckenwinde-tagebuchseite.tagebuchseite-editor-root {
+    border: 1px dashed #c9c9c9;
+    padding: 0.9rem;
+    background: #fcfcfc;
+}
+
+.tagebuchseite-editor-addrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.tagebuchseite-editor-addlabel {
+    font-weight: 700;
+}
+
+.tagebuchseite-editor-section {
+    border: 1px solid #dedede;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.tagebuchseite-editor-section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 10px;
+}
+
+.tagebuchseite-editor-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.tagebuchseite-editor-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.tagebuchseite-editor-richtext {
+    min-height: 66px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px;
+    background: #fff;
+}
+
+.tagebuchseite-editor-thumb {
+    display: block;
+    max-width: 240px;
+    height: auto;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+}

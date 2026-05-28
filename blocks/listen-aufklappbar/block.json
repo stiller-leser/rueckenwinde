@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/listen-aufklappbar",
+  "title": "Listen aufklappbar",
+  "category": "widgets",
+  "icon": "list-view",
+  "description": "Aufklappbare Liste mit optionalem Bild und optionalem Link pro Punkt.",
+  "keywords": ["liste", "accordion", "aufklappbar", "link", "bild"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Listen aufklappbar"
+    },
+    "intro": {
+      "type": "string",
+      "default": ""
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "id": "punkt-1",
+          "title": "Listenpunkt 1",
+          "content": "Hier steht der aufklappbare Inhalt.",
+          "imageUrl": "",
+          "linkUrl": "",
+          "linkLabel": ""
+        },
+        {
+          "id": "punkt-2",
+          "title": "Listenpunkt 2",
+          "content": "Noch ein aufklappbarer Inhalt.",
+          "imageUrl": "",
+          "linkUrl": "",
+          "linkLabel": ""
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js"
+}

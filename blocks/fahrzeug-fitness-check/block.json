@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/fahrzeug-fitness-check",
+  "title": "Fahrzeug-Fitness-Check",
+  "category": "widgets",
+  "icon": "performance",
+  "description": "Prueft die Eignung eines Campers fuer die Panamericana nach Regionen.",
+  "keywords": [
+    "camper",
+    "panamericana",
+    "fahrzeug",
+    "eignung"
+  ],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js"
+}

@@ -1,0 +1,26 @@
+.listen-aufklappbar-editor {
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    background: #fff;
+    padding: 12px;
+}
+
+.listen-aufklappbar-editor-card {
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    padding: 0.75rem;
+    background: #fff;
+    margin-top: 0.75rem;
+}
+
+.listen-aufklappbar-editor-actions {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.listen-aufklappbar-editor-compact {
+    margin: 0;
+    font-size: 13px;
+}

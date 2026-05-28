@@ -1,0 +1,27 @@
+.grenz-checker-editor {
+    border: 1px solid #dedede;
+    border-radius: 12px;
+    padding: 12px;
+    background: #fff;
+}
+
+.grenz-editor-preview-note {
+    margin: 0.5rem 0 0.8rem;
+    padding: 0.55rem 0.65rem;
+    border-left: 3px solid #222;
+    background: #f8f8f8;
+}
+
+.grenz-editor-card {
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 0.75rem;
+    background: #fff;
+}
+
+.grenz-editor-actions {
+    margin-top: 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}

@@ -7,12 +7,26 @@
 
     const CATEGORY_KEYS = ['freeCamping', 'costs', 'safety', 'roads', 'bureaucracy'];
 
-    const CATEGORY_LABELS = {
+    const DEFAULT_CATEGORY_LABELS = {
         freeCamping: 'Freistehen',
         costs: 'Kosten',
         safety: 'Sicherheit',
         roads: 'Straßen',
         bureaucracy: 'Bürokratie'
+    };
+
+    const DEFAULT_CATEGORY_ICONS = {
+        freeCamping: '🏕',
+        costs: '💰',
+        safety: '🛡',
+        roads: '🛣',
+        bureaucracy: '📄'
+    };
+
+    const DEFAULT_RATING_LABELS = {
+        high: 'Sehr geeignet',
+        moderate: 'Mittel',
+        low: 'Wenig geeignet'
     };
 
     const DEFAULT_COUNTRIES = [
@@ -366,14 +380,42 @@
         });
     }
 
-    function ratingLabel(level) {
+    function normalizeCategoryLabels(raw) {
+        const source = raw && typeof raw === 'object' ? raw : {};
+        const normalized = {};
+        CATEGORY_KEYS.forEach(function (key) {
+            normalized[key] = typeof source[key] === 'string' && source[key] ? source[key] : DEFAULT_CATEGORY_LABELS[key];
+        });
+        return normalized;
+    }
+
+    function normalizeCategoryIcons(raw) {
+        const source = raw && typeof raw === 'object' ? raw : {};
+        const normalized = {};
+        CATEGORY_KEYS.forEach(function (key) {
+            normalized[key] = typeof source[key] === 'string' && source[key] ? source[key] : DEFAULT_CATEGORY_ICONS[key];
+        });
+        return normalized;
+    }
+
+    function normalizeRatingLabels(raw) {
+        const source = raw && typeof raw === 'object' ? raw : {};
+        return {
+            high: typeof source.high === 'string' && source.high ? source.high : DEFAULT_RATING_LABELS.high,
+            moderate: typeof source.moderate === 'string' && source.moderate ? source.moderate : DEFAULT_RATING_LABELS.moderate,
+            low: typeof source.low === 'string' && source.low ? source.low : DEFAULT_RATING_LABELS.low
+        };
+    }
+
+    function ratingLabel(level, labels) {
+        const safeLabels = normalizeRatingLabels(labels);
         if (level === 'high') {
-            return 'Sehr geeignet';
+            return safeLabels.high;
         }
         if (level === 'moderate') {
-            return 'Mittel';
+            return safeLabels.moderate;
         }
-        return 'Wenig geeignet';
+        return safeLabels.low;
     }
 
     registerBlockType('rueckenwinde/vanlife-country-comparison', {
@@ -385,6 +427,9 @@
             heading: { type: 'string', default: 'Vanlife-Ländervergleich' },
             intro: { type: 'string', default: 'Vergleiche Panamericana-Länder nach Freistehen, Kosten, Sicherheit, Straßen und Bürokratie.' },
             accentColor: { type: 'string', default: '#FFC400' },
+            categoryLabels: { type: 'object', default: DEFAULT_CATEGORY_LABELS },
+            categoryIcons: { type: 'object', default: DEFAULT_CATEGORY_ICONS },
+            ratingLabels: { type: 'object', default: DEFAULT_RATING_LABELS },
             countries: { type: 'array', default: DEFAULT_COUNTRIES }
         },
 
@@ -395,6 +440,9 @@
             });
 
             const countries = normalizeCountries(attributes.countries);
+            const categoryLabels = normalizeCategoryLabels(attributes.categoryLabels);
+            const categoryIcons = normalizeCategoryIcons(attributes.categoryIcons);
+            const labels = normalizeRatingLabels(attributes.ratingLabels);
 
             function updateCountry(index, updates) {
                 const next = countries.slice();
@@ -478,6 +526,97 @@
                                 setAttributes({ accentColor: value || '#FFC400' });
                             },
                             help: __('Hex-Farbe, z. B. #FFC400', 'rueckenwinde')
+                        }),
+                        el(TextControl, {
+                            label: __('Kategorie: Freistehen', 'rueckenwinde'),
+                            value: categoryLabels.freeCamping,
+                            onChange: function (value) {
+                                setAttributes({ categoryLabels: Object.assign({}, categoryLabels, { freeCamping: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Kategorie: Kosten', 'rueckenwinde'),
+                            value: categoryLabels.costs,
+                            onChange: function (value) {
+                                setAttributes({ categoryLabels: Object.assign({}, categoryLabels, { costs: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Kategorie: Sicherheit', 'rueckenwinde'),
+                            value: categoryLabels.safety,
+                            onChange: function (value) {
+                                setAttributes({ categoryLabels: Object.assign({}, categoryLabels, { safety: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Kategorie: Straßen', 'rueckenwinde'),
+                            value: categoryLabels.roads,
+                            onChange: function (value) {
+                                setAttributes({ categoryLabels: Object.assign({}, categoryLabels, { roads: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Kategorie: Bürokratie', 'rueckenwinde'),
+                            value: categoryLabels.bureaucracy,
+                            onChange: function (value) {
+                                setAttributes({ categoryLabels: Object.assign({}, categoryLabels, { bureaucracy: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Icon: Freistehen', 'rueckenwinde'),
+                            value: categoryIcons.freeCamping,
+                            onChange: function (value) {
+                                setAttributes({ categoryIcons: Object.assign({}, categoryIcons, { freeCamping: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Icon: Kosten', 'rueckenwinde'),
+                            value: categoryIcons.costs,
+                            onChange: function (value) {
+                                setAttributes({ categoryIcons: Object.assign({}, categoryIcons, { costs: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Icon: Sicherheit', 'rueckenwinde'),
+                            value: categoryIcons.safety,
+                            onChange: function (value) {
+                                setAttributes({ categoryIcons: Object.assign({}, categoryIcons, { safety: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Icon: Straßen', 'rueckenwinde'),
+                            value: categoryIcons.roads,
+                            onChange: function (value) {
+                                setAttributes({ categoryIcons: Object.assign({}, categoryIcons, { roads: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Icon: Bürokratie', 'rueckenwinde'),
+                            value: categoryIcons.bureaucracy,
+                            onChange: function (value) {
+                                setAttributes({ categoryIcons: Object.assign({}, categoryIcons, { bureaucracy: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Skala: Sehr geeignet', 'rueckenwinde'),
+                            value: labels.high,
+                            onChange: function (value) {
+                                setAttributes({ ratingLabels: Object.assign({}, labels, { high: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Skala: Mittel', 'rueckenwinde'),
+                            value: labels.moderate,
+                            onChange: function (value) {
+                                setAttributes({ ratingLabels: Object.assign({}, labels, { moderate: value }) });
+                            }
+                        }),
+                        el(TextControl, {
+                            label: __('Skala: Wenig geeignet', 'rueckenwinde'),
+                            value: labels.low,
+                            onChange: function (value) {
+                                setAttributes({ ratingLabels: Object.assign({}, labels, { low: value }) });
+                            }
                         })
                     )
                 ),
@@ -499,14 +638,14 @@
                             return el(
                                 'div',
                                 { key: key, className: 'vanlife-editor-category-row' },
-                                el('strong', null, CATEGORY_LABELS[key]),
+                                el('strong', null, categoryLabels[key]),
                                 el(SelectControl, {
                                     label: __('Bewertung', 'rueckenwinde'),
                                     value: country.ratings[key],
                                     options: [
-                                        { label: __('Sehr geeignet (Grün)', 'rueckenwinde'), value: 'high' },
-                                        { label: __('Mittel (Gelb)', 'rueckenwinde'), value: 'moderate' },
-                                        { label: __('Wenig geeignet (Rot)', 'rueckenwinde'), value: 'low' }
+                                        { label: labels.high + ' (Grün)', value: 'high' },
+                                        { label: labels.moderate + ' (Gelb)', value: 'moderate' },
+                                        { label: labels.low + ' (Rot)', value: 'low' }
                                     ],
                                     onChange: function (value) {
                                         updateRating(index, key, value);
@@ -526,7 +665,7 @@
                                 return el('span', {
                                     key: 'preview-' + key,
                                     className: 'vanlife-editor-badge is-' + country.ratings[key]
-                                }, CATEGORY_LABELS[key] + ': ' + ratingLabel(country.ratings[key]));
+                                }, categoryLabels[key] + ': ' + ratingLabel(country.ratings[key], labels));
                             })
                         ),
                         el(Button, {
@@ -564,6 +703,9 @@
 
             const heading = attributes.heading || 'Vanlife-Ländervergleich';
             const intro = attributes.intro || '';
+            const categoryLabels = normalizeCategoryLabels(attributes.categoryLabels);
+            const categoryIcons = normalizeCategoryIcons(attributes.categoryIcons);
+            const labels = normalizeRatingLabels(attributes.ratingLabels);
 
             return el(
                 'section',
@@ -588,7 +730,7 @@
                         el('select', { className: 'vanlife-filter-category' },
                             el('option', { value: 'all' }, 'Alle Kategorien'),
                             CATEGORY_KEYS.map(function (key) {
-                                return el('option', { key: 'category-option-' + key, value: key }, CATEGORY_LABELS[key]);
+                                return el('option', { key: 'category-option-' + key, value: key }, categoryLabels[key]);
                             })
                         )
                     )
@@ -597,11 +739,11 @@
                     el('div', { className: 'vanlife-comparison-table' },
                         el('div', { className: 'vanlife-comparison-row is-head' },
                             el('div', { className: 'vanlife-comparison-col country-col' }, 'Land'),
-                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'freeCamping' }, '🏕 Freistehen'),
-                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'costs' }, '💰 Kosten'),
-                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'safety' }, '🛡 Sicherheit'),
-                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'roads' }, '🛣 Straßen'),
-                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'bureaucracy' }, '📄 Bürokratie')
+                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'freeCamping' }, categoryIcons.freeCamping + ' ' + categoryLabels.freeCamping),
+                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'costs' }, categoryIcons.costs + ' ' + categoryLabels.costs),
+                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'safety' }, categoryIcons.safety + ' ' + categoryLabels.safety),
+                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'roads' }, categoryIcons.roads + ' ' + categoryLabels.roads),
+                            el('div', { className: 'vanlife-comparison-col category-col', 'data-category-col': 'bureaucracy' }, categoryIcons.bureaucracy + ' ' + categoryLabels.bureaucracy)
                         ),
                         countries.map(function (country, index) {
                             return el('div', {
@@ -623,12 +765,12 @@
                                         el('button', {
                                             type: 'button',
                                             className: 'vanlife-cell-trigger',
-                                            'aria-label': CATEGORY_LABELS[key] + ' - ' + ratingLabel(level)
+                                            'aria-label': categoryLabels[key] + ' - ' + ratingLabel(level, labels)
                                         },
                                             el('span', { className: 'vanlife-rating-icons' },
                                                 level === 'high' ? '+++': (level === 'moderate' ? '++-' : '+--')
                                             ),
-                                            el('span', { className: 'vanlife-rating-label' }, ratingLabel(level))
+                                            el('span', { className: 'vanlife-rating-label' }, ratingLabel(level, labels))
                                         ),
                                         el('span', { className: 'vanlife-cell-tooltip', role: 'tooltip' }, tip)
                                     );

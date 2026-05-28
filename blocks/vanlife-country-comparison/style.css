@@ -1,7 +1,11 @@
 .wp-block-rueckenwinde-vanlife-country-comparison {
-    --vanlife-accent: #ffc400;
-    font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --vanlife-accent: #fab021;
+    --vanlife-primary-strong: #880000;
+    --vanlife-text: #2e1712;
+    --vanlife-border: rgba(136, 0, 0, 0.2);
+    --vanlife-card: rgba(255, 255, 255, 0.86);
     margin: 2rem 0;
+    color: var(--vanlife-text);
 }
 
 .vanlife-comparison-header {
@@ -19,8 +23,8 @@
 .vanlife-toggle-countries {
     margin-top: 0.75rem;
     border: 1px solid var(--vanlife-accent);
-    background: #fff8dc;
-    color: #000;
+    background: linear-gradient(150deg, rgba(250, 176, 33, 0.3), rgba(136, 0, 0, 0.08));
+    color: var(--vanlife-primary-strong);
     border-radius: 10px;
     padding: 0.5rem 0.8rem;
     cursor: pointer;
@@ -28,7 +32,8 @@
 }
 
 .vanlife-toggle-countries:hover {
-    background: #ffeeba;
+    border-color: rgba(136, 0, 0, 0.45);
+    box-shadow: 0 10px 20px rgba(136, 0, 0, 0.12);
 }
 
 .vanlife-comparison-filters {
@@ -47,9 +52,11 @@
 
 .vanlife-comparison-filters select {
     min-width: 160px;
-    border: 1px solid #d8d8d8;
-    border-radius: 8px;
+    border: 1px solid var(--vanlife-border);
+    border-radius: 10px;
     padding: 0.45rem 0.6rem;
+    color: var(--vanlife-text);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .vanlife-comparison-scroll {
@@ -70,16 +77,16 @@
 
 .vanlife-comparison-row.is-head .vanlife-comparison-col {
     font-weight: 700;
-    background: #fff9dd;
+    background: linear-gradient(120deg, rgba(250, 176, 33, 0.28), rgba(136, 0, 0, 0.14));
     border-color: var(--vanlife-accent);
 }
 
 .vanlife-comparison-col {
-    border: 1px solid #e1e1e1;
-    border-radius: 12px;
-    background: #fff;
+    border: 1px solid var(--vanlife-border);
+    border-radius: 14px;
+    background: var(--vanlife-card);
     padding: 0.7rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 20px rgba(136, 0, 0, 0.1);
 }
 
 .country-name {

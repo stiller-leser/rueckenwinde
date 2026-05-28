@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/tagebuchseite",
+  "title": "Tagebuchseite",
+  "category": "widgets",
+  "icon": "edit-page",
+  "description": "Flexibler Tagebucheintrag mit Datum, Text, Fotos/GIFs und Highlights.",
+  "keywords": ["tagebuch", "eintrag", "highlight", "foto", "gif"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "entryDate": {
+      "type": "string",
+      "default": ""
+    },
+    "entryTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "sections": {
+      "type": "array",
+      "default": [
+        {
+          "id": "intro-1",
+          "type": "text",
+          "title": "",
+          "text": ""
+        },
+        {
+          "id": "highlight-day-1",
+          "type": "highlight_day",
+          "title": "Highlight des Tages",
+          "text": ""
+        },
+        {
+          "id": "photo-1",
+          "type": "photo",
+          "title": "",
+          "text": "",
+          "mediaUrl": "",
+          "mediaAlt": "",
+          "frameStyle": "tape",
+          "layout": "full",
+          "photoWidth": 100,
+          "frameHeight": 320,
+          "frameShiftX": 0,
+          "frameShiftY": 0,
+          "zoom": 100,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "id": "highlight-week-1",
+          "type": "highlight_week",
+          "title": "Highlight der Woche",
+          "text": ""
+        },
+        {
+          "id": "spot-week-1",
+          "type": "spot_week",
+          "title": "Stellplatz der Woche",
+          "text": ""
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./index.php"
+}

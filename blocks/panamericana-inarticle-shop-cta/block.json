@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/panamericana-inarticle-shop-cta",
+  "title": "Panamericana In-Article Shop CTA",
+  "category": "widgets",
+  "icon": "book-alt",
+  "description": "Dynamische Feature-Box fuer Panamericana-Artikel mit Laender-Erkennung.",
+  "keywords": ["panamericana", "cta", "guide", "shop"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": "🧭"
+    },
+    "headline": {
+      "type": "string",
+      "default": "Hinter den Kulissen: Die Fakten zu diesem Abschnitt"
+    },
+    "textTemplate": {
+      "type": "string",
+      "default": "Ich teile hier meine Reiseberichte, aber im kompletten Panamericana-Guide findest du alle GPS-Daten, Grenz-Hacks und Kostenaufstellungen fuer [Dynamic_Country_Name]."
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Hol dir den Guide (PDF)"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "fallbackCountry": {
+      "type": "string",
+      "default": "dieses Land"
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "render": "file:./index.php"
+}

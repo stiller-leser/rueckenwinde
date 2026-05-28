@@ -1,0 +1,143 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/interaktive-travel-map",
+  "title": "Interaktive Travel-Map",
+  "category": "widgets",
+  "icon": "location-alt",
+  "description": "Leaflet-basierte Panamericana Travel-Map mit Route, Laendern und Current-Location Marker.",
+  "keywords": ["leaflet", "travel", "map", "route", "panamericana"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Unsere Reiseroute live"
+    },
+    "height": {
+      "type": "number",
+      "default": 520
+    },
+    "initialCenterLat": {
+      "type": "number",
+      "default": -16.5
+    },
+    "initialCenterLng": {
+      "type": "number",
+      "default": -66.2
+    },
+    "initialZoom": {
+      "type": "number",
+      "default": 4
+    },
+    "brandColor": {
+      "type": "string",
+      "default": "#123a6f"
+    },
+    "routeWeight": {
+      "type": "number",
+      "default": 4
+    },
+    "routeOpacity": {
+      "type": "number",
+      "default": 0.95
+    },
+    "countryFillColor": {
+      "type": "string",
+      "default": "#123a6f"
+    },
+    "countryFillOpacity": {
+      "type": "number",
+      "default": 0.2
+    },
+    "countryStrokeColor": {
+      "type": "string",
+      "default": "#123a6f"
+    },
+    "countryStrokeWeight": {
+      "type": "number",
+      "default": 1
+    },
+    "currentLat": {
+      "type": "number",
+      "default": -41.1335
+    },
+    "currentLng": {
+      "type": "number",
+      "default": -71.3103
+    },
+    "currentLabel": {
+      "type": "string",
+      "default": "Aktueller Standort"
+    },
+    "mapTileUrl": {
+      "type": "string",
+      "default": "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+    },
+    "mapTileAttribution": {
+      "type": "string",
+      "default": "&copy; OpenStreetMap contributors &copy; CARTO"
+    },
+    "mapMaxZoom": {
+      "type": "number",
+      "default": 19
+    },
+    "enableFullscreen": {
+      "type": "boolean",
+      "default": true
+    },
+    "fullscreenLabel": {
+      "type": "string",
+      "default": "Full Screen"
+    },
+    "exitFullscreenLabel": {
+      "type": "string",
+      "default": "Exit Full Screen"
+    },
+    "routePoints": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        { "lat": 32.5149, "lng": -117.0382, "label": "Tijuana" },
+        { "lat": 19.4326, "lng": -99.1332, "label": "Mexico City" },
+        { "lat": 9.9281, "lng": -84.0907, "label": "San Jose" },
+        { "lat": 4.711, "lng": -74.0721, "label": "Bogota" },
+        { "lat": -12.0464, "lng": -77.0428, "label": "Lima" },
+        { "lat": -33.4489, "lng": -70.6693, "label": "Santiago" }
+      ]
+    },
+    "visitedCountries": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "name": "Mexiko",
+          "postUrl": "#",
+          "linkLabel": "Zum Blog-Beitrag",
+          "polygon": [
+            { "lat": 32.7186, "lng": -117.1278 },
+            { "lat": 25.8371, "lng": -97.4417 },
+            { "lat": 14.5388, "lng": -92.2721 },
+            { "lat": 16.145, "lng": -96.9531 },
+            { "lat": 24.3257, "lng": -110.3013 },
+            { "lat": 32.7186, "lng": -117.1278 }
+          ]
+        }
+      ]
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./index.php"
+}

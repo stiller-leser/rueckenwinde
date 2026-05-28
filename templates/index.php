@@ -26,7 +26,7 @@ get_rueckenwinde_header('frontpage');
 	</div>
 	<div id="about">
 		<?php
-			$page = get_page_by_path( 'ueber-uns' );
+			$page = get_page_by_path( 'ueber-uns-kurz' );
 		?>
 		<h1><?php echo get_the_title( $page ); ?></h1>
 		<div id="about-content">

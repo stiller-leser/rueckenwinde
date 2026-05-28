@@ -1,5 +1,5 @@
 (function () {
-    const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const MONTHS = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
     const POSITION_MIGRATION = {
         canada: { old: [47, 8], next: [27, 16] },
         usa: { old: [47, 15], next: [27, 24] },
@@ -20,6 +20,18 @@
         chile: { old: [46, 74], next: [27, 75] },
         argentina: { old: [52, 82], next: [32, 82] },
         uruguay: { old: [58, 84], next: [36, 84] }
+    };
+
+    const LEAFLET_ASSETS = {
+        css: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
+        js: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
+    };
+
+    const AMERICAS_BOUNDS = {
+        northLat: 83,
+        southLat: -57,
+        westLng: -179,
+        eastLng: -26
     };
 
     function parseCountries(blockEl) {
@@ -72,9 +84,119 @@
             return 'Ideal';
         }
         if (state === 'moderate') {
-            return 'Moderate';
+            return 'Mittel';
         }
-        return 'Not recommended';
+        return 'Nicht empfohlen';
+    }
+
+    function countryToLatLng(country) {
+        const x = typeof country.x === 'number' ? country.x : 50;
+        const y = typeof country.y === 'number' ? country.y : 50;
+        const latSpan = AMERICAS_BOUNDS.northLat - AMERICAS_BOUNDS.southLat;
+        const lngSpan = AMERICAS_BOUNDS.eastLng - AMERICAS_BOUNDS.westLng;
+
+        return [
+            AMERICAS_BOUNDS.northLat - (y / 100) * latSpan,
+            AMERICAS_BOUNDS.westLng + (x / 100) * lngSpan
+        ];
+    }
+
+    function escapeHtml(value) {
+        return String(value || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function normalizePopupLink(value) {
+        const raw = typeof value === 'string' ? value.trim() : '';
+        if (!raw) {
+            return '';
+        }
+        return raw;
+    }
+
+    function popupHtml(country, state, selectedMonths) {
+        const monthText = Array.from(selectedMonths).sort(function (a, b) {
+            return a - b;
+        }).map(function (idx) {
+            return MONTHS[idx];
+        }).join(', ');
+        const link = normalizePopupLink(country.link);
+        const linkRow = link
+            ? '<div class="climate-popup-row"><a class="climate-popup-link" href="' + escapeHtml(link) + '" target="_blank" rel="noopener noreferrer">Mehr Infos</a></div>'
+            : '';
+
+        return (
+            '<div class="climate-popup">' +
+                '<div class="climate-popup-title">' + country.name + '</div>' +
+                '<div class="climate-popup-row"><strong>Monate:</strong> ' + monthText + '</div>' +
+                '<div class="climate-popup-row"><strong>Strassenzustand:</strong> ' + ratingLabel(state) + '</div>' +
+                '<div class="climate-popup-row"><strong>Strassenuebersicht:</strong> ' + country.summary + '</div>' +
+                '<div class="climate-popup-row"><strong>Reisetipp:</strong> ' + country.tip + '</div>' +
+                '<div class="climate-popup-row"><strong>Vanlife:</strong> ' + country.vanlife + '</div>' +
+                linkRow +
+            '</div>'
+        );
+    }
+
+    function markerIcon(state, selected) {
+        const selectedClass = selected ? 'is-selected' : 'is-muted';
+        const html = '<span class="climate-leaflet-dot is-' + state + ' ' + selectedClass + '"></span>';
+
+        return window.L.divIcon({
+            className: 'climate-leaflet-marker',
+            html: html,
+            iconSize: [20, 20],
+            iconAnchor: [10, 10],
+            popupAnchor: [0, -14]
+        });
+    }
+
+    let leafletPromise;
+
+    function loadLeaflet() {
+        if (window.L && typeof window.L.map === 'function') {
+            return Promise.resolve(window.L);
+        }
+
+        if (leafletPromise) {
+            return leafletPromise;
+        }
+
+        leafletPromise = new Promise(function (resolve, reject) {
+            const existingCss = document.querySelector('link[data-leaflet="climate-slider"]');
+            if (!existingCss) {
+                const css = document.createElement('link');
+                css.rel = 'stylesheet';
+                css.href = LEAFLET_ASSETS.css;
+                css.setAttribute('data-leaflet', 'climate-slider');
+                document.head.appendChild(css);
+            }
+
+            const existingScript = document.querySelector('script[data-leaflet="climate-slider"]');
+            if (existingScript) {
+                existingScript.addEventListener('load', function () {
+                    resolve(window.L);
+                });
+                existingScript.addEventListener('error', reject);
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = LEAFLET_ASSETS.js;
+            script.defer = true;
+            script.setAttribute('data-leaflet', 'climate-slider');
+            script.onload = function () {
+                resolve(window.L);
+            };
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+
+        return leafletPromise;
     }
 
     function initBlock(blockEl, blockIndex) {
@@ -83,19 +205,47 @@
             return;
         }
 
-        const map = blockEl.querySelector('.climate-slider-map');
-        const tooltip = blockEl.querySelector('.climate-slider-tooltip');
+        const mapEl = blockEl.querySelector('.climate-slider-map');
         let monthButtons = [];
         let monthGrid = blockEl.querySelector('.climate-month-grid');
         const controlsPanel = blockEl.querySelector('.climate-slider-controls');
         const countryCheckboxes = Array.prototype.slice.call(blockEl.querySelectorAll('.climate-country-checkbox'));
         const countryRows = Array.prototype.slice.call(blockEl.querySelectorAll('.climate-country-item'));
-        const countryNodes = Array.prototype.slice.call(blockEl.querySelectorAll('.climate-country-node'));
+        const headingEl = blockEl.querySelector('.climate-slider-heading');
+        const introEl = blockEl.querySelector('.climate-slider-intro');
+        const controlTitles = blockEl.querySelectorAll('.climate-control-group h4');
+        const legacyLegend = blockEl.querySelector('.climate-slider-legend');
+        let monthSelectionTitle = controlTitles[0] && controlTitles[0].textContent
+            ? controlTitles[0].textContent.trim()
+            : 'Monat(e) wählen';
 
         const countriesById = {};
         countries.forEach(function (country) {
             countriesById[country.id] = country;
         });
+        if (legacyLegend) {
+            legacyLegend.remove();
+        }
+
+        if (headingEl && headingEl.textContent.trim() === 'Climate & Travel Time Slider') {
+            headingEl.textContent = 'Klima- & Reisezeit-Slider';
+        }
+        if (introEl && introEl.textContent.trim() === 'Pick travel months and countries to compare road-focused travel conditions across the Panamericana.') {
+            introEl.textContent = 'Wähle Reisemonate und Länder, um straßenbezogene Reisebedingungen entlang der Panamericana zu vergleichen.';
+        }
+        if (controlTitles[0]) {
+            if (controlTitles[0].textContent.trim() === 'Select month(s)' || controlTitles[0].textContent.trim() === 'Monat(e) waehlen') {
+                controlTitles[0].textContent = 'Monat(e) wählen';
+            }
+        }
+        if (controlTitles[1]) {
+            if (controlTitles[1].textContent.trim() === 'Select countries' || controlTitles[1].textContent.trim() === 'Laender waehlen') {
+                controlTitles[1].textContent = 'Länder wählen';
+            }
+        }
+        if (controlTitles[0] && controlTitles[0].textContent) {
+            monthSelectionTitle = controlTitles[0].textContent.trim() || 'Monat(e) wählen';
+        }
 
         const selectedMonths = new Set([new Date().getMonth()]);
         const defaultCountry = countries.find(function (country) {
@@ -103,6 +253,9 @@
         }) || countries[0];
         const selectedCountries = new Set(defaultCountry ? [defaultCountry.id] : []);
         const storageKey = 'climate-slider-state::' + window.location.pathname + '::' + (blockEl.id || String(blockIndex));
+
+        let leafletMap = null;
+        const markersById = {};
 
         function saveState() {
             const payload = {
@@ -165,7 +318,7 @@
                 monthGroup = document.createElement('div');
                 monthGroup.className = 'climate-control-group';
                 const title = document.createElement('h4');
-                title.textContent = 'Select month(s)';
+                title.textContent = monthSelectionTitle;
                 monthGroup.appendChild(title);
                 controlsPanel.insertBefore(monthGroup, controlsPanel.firstChild);
             }
@@ -199,17 +352,16 @@
                     evt.preventDefault();
                     const monthIndex = parseInt(btn.getAttribute('data-month-index'), 10);
                     if (selectedMonths.has(monthIndex)) {
-                    if (selectedMonths.size === 1) {
-                        return;
+                        if (selectedMonths.size === 1) {
+                            return;
+                        }
+                        selectedMonths.delete(monthIndex);
+                    } else {
+                        selectedMonths.add(monthIndex);
                     }
-                    selectedMonths.delete(monthIndex);
-                } else {
-                    selectedMonths.add(monthIndex);
-                }
-                saveState();
-                updateUI();
-                hideTooltip();
-            });
+                    saveState();
+                    updateUI();
+                });
 
                 grid.appendChild(btn);
                 return btn;
@@ -260,31 +412,27 @@
             return sum / count;
         }
 
-        function setTooltip(country, state, x, y) {
-            if (!tooltip) {
-                return;
-            }
+        function syncMarkers() {
+            Object.keys(markersById).forEach(function (id) {
+                const marker = markersById[id];
+                const country = countriesById[id];
+                if (!marker || !country) {
+                    return;
+                }
 
-            const monthText = Array.from(selectedMonths).sort().map(function (idx) {
-                return MONTHS[idx];
-            }).join(', ');
+                const score = avgScore(country);
+                const state = ratingState(score);
+                const selected = selectedCountries.has(id);
 
-            tooltip.innerHTML =
-                '<strong>' + country.name + '</strong><br>' +
-                'Months: ' + monthText + '<br>' +
-                'Road condition: <strong>' + ratingLabel(state) + '</strong><br>' +
-                country.summary + '<br>' +
-                'Tip: ' + country.tip + '<br>' +
-                'Vanlife: ' + country.vanlife;
-            tooltip.hidden = false;
-            tooltip.style.left = x + 'px';
-            tooltip.style.top = y + 'px';
-        }
+                marker.setIcon(markerIcon(state, selected));
+                marker.setPopupContent(popupHtml(country, state, selectedMonths));
 
-        function hideTooltip() {
-            if (tooltip) {
-                tooltip.hidden = true;
-            }
+                if (selected) {
+                    marker.openPopup();
+                } else {
+                    marker.closePopup();
+                }
+            });
         }
 
         function updateUI() {
@@ -319,26 +467,69 @@
                 }
             });
 
-            countryNodes.forEach(function (node) {
-                const id = node.getAttribute('data-country-id');
-                const country = countriesById[id];
-                if (!country) {
-                    return;
-                }
+            syncMarkers();
+        }
 
+        function initLeaflet() {
+            if (!mapEl || !window.L || typeof window.L.map !== 'function') {
+                return;
+            }
+
+            blockEl.classList.add('is-leaflet-ready');
+            leafletMap = window.L.map(mapEl, {
+                zoomControl: true,
+                minZoom: 2,
+                maxZoom: 7,
+                worldCopyJump: false,
+                scrollWheelZoom: false,
+                dragging: true
+            });
+
+            window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(leafletMap);
+
+            leafletMap.fitBounds([
+                [AMERICAS_BOUNDS.southLat, AMERICAS_BOUNDS.westLng],
+                [AMERICAS_BOUNDS.northLat, AMERICAS_BOUNDS.eastLng]
+            ], { padding: [24, 24] });
+
+            countries.forEach(function (country) {
+                const id = country.id;
+                const latLng = countryToLatLng(country);
                 const score = avgScore(country);
                 const state = ratingState(score);
                 const selected = selectedCountries.has(id);
 
-                node.classList.remove('is-ideal', 'is-moderate', 'is-poor', 'is-selected', 'is-muted');
-                node.classList.add('is-' + state);
+                const marker = window.L.marker(latLng, {
+                    icon: markerIcon(state, selected),
+                    title: country.name
+                }).addTo(leafletMap);
 
-                if (selected) {
-                    node.classList.add('is-selected');
-                } else {
-                    node.classList.add('is-muted');
-                }
+                marker.bindPopup(popupHtml(country, state, selectedMonths), {
+                    autoClose: false,
+                    closeOnClick: false,
+                    offset: [0, -12]
+                });
+
+                marker.on('click', function () {
+                    if (selectedCountries.has(id)) {
+                        selectedCountries.delete(id);
+                    } else {
+                        selectedCountries.add(id);
+                    }
+                    saveState();
+                    updateUI();
+                });
+
+                markersById[id] = marker;
             });
+
+            setTimeout(function () {
+                leafletMap.invalidateSize();
+                syncMarkers();
+            }, 0);
         }
 
         buildMonthButtons();
@@ -353,71 +544,18 @@
                 }
                 saveState();
                 updateUI();
-                hideTooltip();
             });
-        });
-
-        countryNodes.forEach(function (node) {
-            function openFromNode() {
-                const id = node.getAttribute('data-country-id');
-                const country = countriesById[id];
-                if (!country || !map) {
-                    return;
-                }
-
-                if (selectedCountries.has(id)) {
-                    selectedCountries.delete(id);
-                } else {
-                    selectedCountries.add(id);
-                }
-
-                saveState();
-                const rect = map.getBoundingClientRect();
-                const nodeRect = node.getBoundingClientRect();
-                const score = avgScore(country);
-                const state = ratingState(score);
-                updateUI();
-                setTooltip(country, state, nodeRect.left - rect.left + 12, nodeRect.top - rect.top - 12);
-            }
-
-            node.addEventListener('click', function (evt) {
-                evt.preventDefault();
-                openFromNode();
-            });
-
-            node.addEventListener('mouseenter', function () {
-                const id = node.getAttribute('data-country-id');
-                const country = countriesById[id];
-                if (!country || !map) {
-                    return;
-                }
-
-                const rect = map.getBoundingClientRect();
-                const nodeRect = node.getBoundingClientRect();
-                const score = avgScore(country);
-                const state = ratingState(score);
-                setTooltip(country, state, nodeRect.left - rect.left + 12, nodeRect.top - rect.top - 12);
-            });
-
-            node.addEventListener('mouseleave', hideTooltip);
-            node.addEventListener('blur', hideTooltip);
-        });
-
-        blockEl.addEventListener('mouseleave', hideTooltip);
-
-        // Keep DOM node positions synced with migrated coordinates.
-        countryNodes.forEach(function (node) {
-            const id = node.getAttribute('data-country-id');
-            const country = countriesById[id];
-            if (!country) {
-                return;
-            }
-            node.style.left = country.x + '%';
-            node.style.top = country.y + '%';
         });
 
         restoreState();
         updateUI();
+
+        loadLeaflet().then(function () {
+            initLeaflet();
+            updateUI();
+        }).catch(function () {
+            // Keep controls usable even when Leaflet fails to load.
+        });
     }
 
     document.addEventListener('DOMContentLoaded', function () {

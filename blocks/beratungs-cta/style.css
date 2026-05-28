@@ -1,0 +1,98 @@
+.wp-block-rueckenwinde-beratungs-cta {
+    margin: 1.5rem 0 0;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-card {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 1rem;
+    align-items: start;
+    background: #ffffff;
+    border-left: 5px solid #8fbc8f;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-card:hover {
+    transform: translateY(-3px);
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-profile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-profile img,
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-profile-placeholder {
+    width: 90px;
+    height: 90px;
+    border-radius: 999px;
+    border: 2px solid rgba(143, 188, 143, 0.55);
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-profile img {
+    object-fit: cover;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-profile-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #456045;
+    background: #f2f8f2;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-headline {
+    margin: 0 0 0.45rem;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-text {
+    margin: 0 0 0.75rem;
+    line-height: 1.55;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-benefit {
+    display: flex;
+    gap: 0.3rem;
+    align-items: flex-start;
+    font-size: 0.88rem;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-benefit .icon {
+    line-height: 1;
+}
+
+.wp-block-rueckenwinde-beratungs-cta .beratungs-cta-button {
+    display: inline-block;
+    padding: 0.62rem 0.95rem;
+    border-radius: 999px;
+    background: #2f7d32;
+    color: #fff !important;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+@media (max-width: 780px) {
+    .wp-block-rueckenwinde-beratungs-cta .beratungs-cta-card {
+        grid-template-columns: 1fr;
+    }
+
+    .wp-block-rueckenwinde-beratungs-cta .beratungs-cta-profile {
+        justify-content: flex-start;
+    }
+
+    .wp-block-rueckenwinde-beratungs-cta .beratungs-cta-benefits {
+        grid-template-columns: 1fr;
+    }
+}

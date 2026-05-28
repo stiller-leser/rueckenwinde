@@ -1,0 +1,26 @@
+.fahrzeug-fitness-check-editor {
+    border: 1px dashed #c9c9c9;
+    border-radius: 10px;
+    padding: 0.9rem;
+    background: #fafafa;
+}
+
+.fahrzeug-fitness-check-editor h3 {
+    margin-top: 0;
+    margin-bottom: 0.45rem;
+}
+
+.fahrzeug-fitness-check-editor p {
+    margin: 0 0 0.55rem;
+}
+
+.fahrzeug-fitness-check-editor ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.fahrzeug-fitness-check-editor .grenz-editor-card {
+    margin-top: 0.9rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #ddd;
+}

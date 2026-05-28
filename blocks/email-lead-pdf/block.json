@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rueckenwinde/email-lead-pdf",
+  "title": "E-Mail Lead + PDF (Double Opt-In)",
+  "category": "widgets",
+  "icon": "email-alt",
+  "description": "Sammelt E-Mail-Kontakte mit Einwilligung und Double Opt-In, versendet danach ein PDF.",
+  "keywords": ["email", "newsletter", "lead", "pdf", "double opt in"],
+  "version": "1.0.0",
+  "textdomain": "rueckenwinde",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": false
+  },
+  "attributes": {
+    "title": { "type": "string", "default": "Hol dir den Guide als PDF" },
+    "description": { "type": "string", "default": "Trag dich ein, bestaetige deine E-Mail (Double Opt-In) und erhalte sofort den Download-Link." },
+    "emailPlaceholder": { "type": "string", "default": "deine@email.de" },
+    "consentText": { "type": "string", "default": "Ich moechte das PDF erhalten und bin einverstanden, weitere E-Mails zu Panamericana-Updates zu bekommen. Ich kann mich jederzeit abmelden." },
+    "submitLabel": { "type": "string", "default": "PDF anfordern" },
+    "pdfUrl": { "type": "string", "default": "" },
+    "pdfLabel": { "type": "string", "default": "Jetzt PDF herunterladen" },
+    "confirmSubject": { "type": "string", "default": "Bitte bestaetige deine Anmeldung" },
+    "confirmBody": { "type": "string", "default": "Danke fuer dein Interesse. Bitte bestaetige deine Anmeldung ueber diesen Link:\n\n{{confirm_url}}\n\nDanach senden wir dir dein PDF." },
+    "deliverySubject": { "type": "string", "default": "Hier ist dein PDF" },
+    "deliveryBody": { "type": "string", "default": "Super, deine Anmeldung ist bestaetigt. Hier ist dein PDF:\n\n{{pdf_url}}\n\nViel Erfolg bei deiner Planung!" },
+    "checkEmailMessage": { "type": "string", "default": "Fast geschafft: Bitte pruefe dein Postfach und bestaetige deine E-Mail." },
+    "confirmedMessage": { "type": "string", "default": "Danke! Deine E-Mail ist bestaetigt. Das PDF wurde dir zugesendet." },
+    "alreadyConfirmedMessage": { "type": "string", "default": "Diese E-Mail ist bereits bestaetigt. Wir haben dir den PDF-Link erneut geschickt." },
+    "errorMessage": { "type": "string", "default": "Bitte gib eine gueltige E-Mail ein und stimme der Einwilligung zu." }
+  },
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./index.php"
+}

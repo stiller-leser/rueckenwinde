@@ -1,0 +1,228 @@
+.wp-block-rueckenwinde-tagebuchseite {
+    margin: 1.5rem 0;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-paper {
+    background-color: #f9f0e4;
+    background-image:
+        linear-gradient(to right, transparent 0, transparent 2.2rem, rgba(202, 88, 88, 0.2) 2.2rem, rgba(202, 88, 88, 0.2) 2.28rem, transparent 2.28rem),
+        linear-gradient(to bottom, rgba(86, 123, 160, 0.12) 1px, transparent 1px),
+        radial-gradient(circle at 85% 12%, rgba(0, 0, 0, 0.04), transparent 35%);
+    background-size: 100% 100%, 100% 32px, 100% 100%;
+    border-radius: 10px;
+    padding: 2rem 1.4rem 2rem 3.4rem;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-header {
+    margin-bottom: 1.2rem;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-date {
+    margin: 0;
+    font-weight: 700;
+    color: #4a5b6d;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-title {
+    margin: 0.3rem 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-content {
+    display: grid;
+    gap: 0.95rem;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section {
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section-title {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section-text {
+    line-height: 1.55;
+    font-size: 1rem;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame {
+    position: relative;
+    background: #fff;
+    border: 1px solid #d7d7d7;
+    padding: 0.45rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: block;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame.is-tape::before,
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame.is-tape::after {
+    content: '';
+    position: absolute;
+    width: 66px;
+    height: 18px;
+    background: rgba(248, 238, 160, 0.65);
+    border: 1px solid rgba(210, 196, 120, 0.7);
+    transform: rotate(-5deg);
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame.is-tape::before {
+    top: -10px;
+    left: 14px;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame.is-tape::after {
+    top: -10px;
+    right: 14px;
+    transform: rotate(6deg);
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame.is-corners {
+    border: 1px dashed #b1b1b1;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame.is-corners::before,
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame.is-corners::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #c5a77d;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame.is-corners::before {
+    top: -7px;
+    left: -7px;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-frame.is-corners::after {
+    right: -7px;
+    bottom: -7px;
+    border-left: 0;
+    border-top: 0;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section-caption {
+    margin-top: 0.5rem;
+    color: #4f4f4f;
+    line-height: 1.55;
+    font-size: 1rem;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-photo-placeholder {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7a7a7a;
+    font-weight: 700;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-badge-label {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    text-decoration: underline;
+    font-weight: 700;
+    color: inherit;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--highlight {
+    border-top: 1px dashed rgba(95, 110, 126, 0.5);
+    border-bottom: 1px dashed rgba(95, 110, 126, 0.5);
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 6px;
+    padding: 0.7rem 0.75rem;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo .tagebuchseite-photo-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-left .tagebuchseite-photo-layout,
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-right .tagebuchseite-photo-layout {
+    grid-template-columns: minmax(140px, var(--ts-photo-width, 48%)) 1fr;
+    align-items: start;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-inline_left .tagebuchseite-photo-layout,
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-inline_right .tagebuchseite-photo-layout {
+    display: block;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-inline_left .tagebuchseite-photo-frame {
+    float: left;
+    width: var(--ts-photo-width, 42%);
+    margin: 0.2rem 0.8rem 0.4rem 0;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-inline_right .tagebuchseite-photo-frame {
+    float: right;
+    width: var(--ts-photo-width, 42%);
+    margin: 0.2rem 0 0.4rem 0.8rem;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-right .tagebuchseite-photo-frame {
+    order: 2;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-right .tagebuchseite-section-caption {
+    order: 1;
+    margin-top: 0;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-left .tagebuchseite-section-caption {
+    margin-top: 0;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-inline_left .tagebuchseite-section-caption,
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-inline_right .tagebuchseite-section-caption {
+    margin-top: 0;
+}
+
+.wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo .tagebuchseite-photo-layout::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+@media (max-width: 900px) {
+    .wp-block-rueckenwinde-tagebuchseite .tagebuchseite-paper {
+        padding: 1.2rem 1rem 1.2rem 2.5rem;
+    }
+
+    .wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-left .tagebuchseite-photo-layout,
+    .wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-right .tagebuchseite-photo-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-inline_left .tagebuchseite-photo-frame,
+    .wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-inline_right .tagebuchseite-photo-frame {
+        float: none;
+        width: 100%;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-right .tagebuchseite-photo-frame,
+    .wp-block-rueckenwinde-tagebuchseite .tagebuchseite-section--photo.layout-right .tagebuchseite-section-caption {
+        order: unset;
+    }
+}
