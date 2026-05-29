@@ -1,15 +1,8 @@
-/* @font-face {
-    font-family: 'Nerkoone';
-    src: url('fonts/nerkoone/NerkoOne-Regular.ttf') format('truetype');
-	font-weight: normal;
-    font-style: normal;
- } */
-
 @font-face {
-    font-family: 'LeagueSpartan';
-    src: url('fonts/League_Spartan/static/LeagueSpartan-Regular.ttf') format('truetype');
+	font-family: 'LeagueSpartan';
+	src: url('fonts/League_Spartan/static/LeagueSpartan-Regular.ttf') format('truetype');
 	font-weight: normal;
-    font-style: normal;
+	font-style: normal;
 }
 
 /* Colors */
@@ -52,19 +45,19 @@
 }
 
 #gdpr-comments-checkbox + label {
-    color: #5d5d5d;
+	color: #5d5d5d;
 }
 
 input[type="search"],
 input[type="submit"] {
-    color: rgb(51, 51, 51) !important;
+	color: rgb(51, 51, 51) !important;
 }
 
 .comments-area .comment-awaiting-moderation {
-    color: rgb(249, 223, 169);
+	color: rgb(249, 223, 169);
 }
 
-html { 
+html {
 	line-height: 1.15; /* 1 */
 	-webkit-text-size-adjust: 100%; /* 2 */
 	min-height: 100vh;
@@ -91,14 +84,14 @@ html #page #primary section :is(h1, h2, h3, h4, h5, h6, p) {
 	text-shadow: none;
 }
 
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+	display: none;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 body {
@@ -170,7 +163,7 @@ html body .grid-container {
 
 body.home .navigation-wrapper,
 body.category .navigation-wrapper,
-body.post-type-archive
+body.post-type-archive,
 body.single .navigation-wrapper {
 	background: transparent !important;
 	top: 0;
@@ -195,13 +188,13 @@ body.archive .navigation-wrapper {
 }
 
 .navigation-wrapper #masthead {
-  position: relative;
-  text-align: center;
-  background-image: url("https://www.rueckenwin.de/wp-content/uploads/2023/11/klein-RueckenwindeBlackAndWhite.png");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 17%;
-  height: 100%;
+	position: relative;
+	text-align: center;
+	background-image: url("https://www.rueckenwin.de/wp-content/uploads/2023/11/klein-RueckenwindeBlackAndWhite.png");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: 17%;
+	height: 100%;
 }
 
 
@@ -220,9 +213,6 @@ body.archive .navigation-wrapper {
 
 .site-branding {
 	text-align: left;
-}
-
-.site-branding {
 	z-index: 4;
 }
 
@@ -240,7 +230,7 @@ body.archive .navigation-wrapper {
 	background: white;
 	width: auto;
 	text-align: left;
-  	padding-left: 15px;
+	padding-left: 15px;
 }
 
 #site-navigation {
@@ -252,7 +242,7 @@ body.archive .navigation-wrapper {
 #site-navigation .menu-item,
 .main-navigation .page_item {
 	float: none;
-  display: inline-flex;
+	display: inline-flex;
 }
 
 #site-navigation .menu .page_item a,
@@ -291,14 +281,14 @@ body.archive .navigation-wrapper {
 
 /* Responsive Header für rueckenwin.de frontpage */
 .home .content-wrap {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.22%; /* 768 / 1366 = 56.22% */
-    background-size: cover !important; /* Überschreibt inline-style */
-    background-position: center center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    min-height: 250px;
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.22%; /* 768 / 1366 = 56.22% */
+	background-size: cover !important; /* Überschreibt inline-style */
+	background-position: center center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	min-height: 250px;
 }
 
 
@@ -315,7 +305,7 @@ body.archive .navigation-wrapper {
 #header-wrap {
 	background-position: center;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,.5);
-}  
+}
 
 .bottom-header-wrapper {
 	position: relative;
@@ -324,8 +314,8 @@ body.archive .navigation-wrapper {
 
 .content-wrap .header-widget-area {
 	position: absolute;
-  	right: 2%;
-  	top: 6%;
+	right: 2%;
+	top: 6%;
 	z-index: 4;
 }
 
@@ -346,7 +336,7 @@ body.single .bottom-header-wrapper {
 }
 
 #page {
- 	margin-top: 0px;
+	margin-top: 0;
 }
 
 .single #page {
@@ -368,8 +358,8 @@ html #site-description b {
 }
 
 #about {
-	margin: 0px 0px 0px 0;
-	padding: 10px 0 30px 0;
+	margin: 0;
+	padding: 10px 0 30px;
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
 }
@@ -391,7 +381,7 @@ html #site-description b {
 	border-radius: 20px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,.5) !important;
 	transform: rotate(8deg) translateX(-50%);
-  margin-left: 50%;
+	margin-left: 50%;
 }
 
 #about #post {
@@ -409,8 +399,8 @@ html #site-description b {
 	position: relative;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,.5) !important;
 	background-size: cover;
-  height: 200px;
-  background-position: center;
+	height: 300px;
+	background-position: center;
 	border-radius: 20px 20px 0 0;
 }
 
@@ -423,12 +413,23 @@ html #site-description b {
 	height: 100%;
 	text-align: center;
 	position: absolute;
-  	top: 50%;
-  	transform: translate(0, -50%);
+	top: 50%;
+	transform: translate(0, -50%);
 }
 
 .master .content h4 {
 	margin: 0;
+}
+
+.master .content button {
+	position: relative;
+	color: black;
+	background-color: white;
+	border: none;
+	border-radius: 8px;
+	padding: 12px 24px;
+	font-size: 16px;
+	cursor: pointer;
 }
 
 #primary #main .category-description {
@@ -440,8 +441,8 @@ html #site-description b {
 
 .category-description img {
 	width: 20vw;
-  float: left;
-  margin: 0 20px 0px 0;
+	float: left;
+	margin: 0 20px 0 0;
 	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75) !important;
 }
 
@@ -473,8 +474,8 @@ html #site-description b {
 }
 
 .footer-container {
-    clear: both;
-    text-align: center;
+	clear: both;
+	text-align: center;
 }
 
 .astm-search-menu {
@@ -486,7 +487,7 @@ html #site-description b {
 }
 
 .footer-menu li:first-child a {
-	margin-left: 0px;
+	margin-left: 0;
 }
 
 /* Sidebar */
@@ -529,7 +530,7 @@ html #site-description b {
 
 .index-widget-area:nth-child(2n) {
 	transform: translateY(-70px);
-  	padding: 10px 10px;
+	padding: 10px;
 }
 
 .index-widget-area .srpw-block,
@@ -557,7 +558,7 @@ html #site-description b {
 
 .index-widget-area .srpw-content {
 	/*Height of the image plus 10*/
-	padding: 170px 10px 30px 10px;
+	padding: 170px 10px 30px;
 	position: relative;
 }
 
@@ -595,7 +596,7 @@ html #site-description b {
 }
 
 .index-footer-widget-area .yotu-column-4 li {
-  width: 24.2506%;
+	width: 24.2506%;
 }
 
 .index-footer-widget-area .yotu-pagination:first-child {
@@ -614,6 +615,9 @@ html #site-description b {
 
 .post-thumbnail img {
 	object-fit: cover;
+	width: 100%;
+	height: auto;
+	max-height: 300px;
 }
 
 figure.is-type-video .wp-block-embed__wrapper {
@@ -626,8 +630,8 @@ figure.is-type-video .wp-block-embed__wrapper {
 }
 
 .comments-area .comment-content {
-    padding-left: 0px;
-    margin-bottom: 0px;
+	padding-left: 0;
+	margin-bottom: 0;
 }
 
 .comments-area #cancel-comment-reply-link {
@@ -635,7 +639,7 @@ figure.is-type-video .wp-block-embed__wrapper {
 }
 
 .comments-area .comment-awaiting-moderation {
-    margin-left: 20px;
+	margin-left: 20px;
 }
 
 .blog main article .img-prison,
@@ -698,17 +702,11 @@ figure.is-type-video .wp-block-embed__wrapper {
 }
 
 .blog.related-posts main {
-    width: 100%;
+	width: 100%;
 }
 
 .comments-title {
-    margin-top: 0px;
-}
-
-.post-thumbnail img {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
+	margin-top: 0;
 }
 
 nf-field .submit-container input[type="button"] {
@@ -732,15 +730,15 @@ nf-field .submit-container input[type="button"] {
 
 /* Responsive Anpassungen */
 @media screen and (max-width: 1199px) and (min-width: 768px) {
-    .home .content-wrap {
-        padding-bottom: 60%;
-    }
+	.home .content-wrap {
+		padding-bottom: 60%;
+	}
 }
 
 @media screen and (max-width: 1376px) {
 
 	.home #page {
-		margin-top: 0px;
+		margin-top: 0;
 	}
 
 	.is-form-style {
@@ -751,74 +749,74 @@ nf-field .submit-container input[type="button"] {
 /* Desktop: Zweite Ebene nebeneinander als Mega-Menü, dritte Ebene ausgeklappt */
 @media screen and (min-width: 1025px) {
 	#primary-menu > .menu-item-has-children {
-		position: relative ;
+		position: relative;
 	}
 
 	#primary-menu > .menu-item-has-children > .sub-menu {
-		display: none ;
-		position: absolute ;
-		top: 100% ;
-		background: #ffffff ;
-		box-shadow: rgba(136, 165, 191, 0.48) 0px 2px 16px 0px, rgba(0, 0, 0, 0.8) 0px 6px 16px 0px ;
-		padding: 20px ;
-		z-index: 99999 ;
+		display: none;
+		position: absolute;
+		top: 100%;
+		background: #ffffff;
+		box-shadow: rgba(136, 165, 191, 0.48) 0px 2px 16px 0px, rgba(0, 0, 0, 0.8) 0px 6px 16px 0px;
+		padding: 20px;
+		z-index: 99999;
 	}
 
 	#primary-menu > .menu-item-has-children:hover > .sub-menu {
-		display: flex ;
-		flex-direction: row ;
-		justify-content: space-around ;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
 	}
 
 	#primary-menu > .menu-item-has-children > .sub-menu > .menu-item {
-		display: flex ;
-		flex-direction: column ;
-		width: auto ;
-		float: none ;
-		flex: 1 1 auto ;
-		padding: 0 10px ;
+		display: flex;
+		flex-direction: column;
+		width: auto;
+		float: none;
+		flex: 1 1 auto;
+		padding: 0 10px;
 	}
 
 	#primary-menu > .menu-item-has-children > .sub-menu > .menu-item > a {
-		display: block ;
-		font-weight: bold ;
-		color: #222 ;
-		white-space: nowrap ;
-		line-height: 1.4 ;
+		display: block;
+		font-weight: bold;
+		color: #222;
+		white-space: nowrap;
+		line-height: 1.4;
 	}
 
 	#primary-menu > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu {
-		display: block ;
-		position: static ;
-		background: transparent ;
-		box-shadow: none ;
-		padding: 0 ;
-		margin: 0 ;
-		min-width: auto ;
-		width: auto ;
+		display: block;
+		position: static;
+		background: transparent;
+		box-shadow: none;
+		padding: 0;
+		margin: 0;
+		min-width: auto;
+		width: auto;
 	}
 
 	#primary-menu > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item {
-		display: block ;
-		padding: 3px 0 ;
+		display: block;
+		padding: 3px 0;
 	}
 
 	#primary-menu > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item > a {
-		display: block ;
-		padding: 4px 0 ;
-		color: #555 ;
-		font-size: 14px ;
-		white-space: nowrap ;
-		line-height: 1.4 ;
-		text-shadow: none ;
+		display: block;
+		padding: 4px 0;
+		color: #555;
+		font-size: 14px;
+		white-space: nowrap;
+		line-height: 1.4;
+		text-shadow: none;
 	}
 
 	#primary-menu > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item > a:hover {
-		color: #000 ;
+		color: #000;
 	}
 
 	#primary-menu > .menu-item-has-children > .sub-menu .sub-menu .sub-menu {
-		display: none ;
+		display: none;
 	}
 }
 
@@ -839,14 +837,14 @@ nf-field .submit-container input[type="button"] {
 		top: 0;
 	}
 
-	.content-wrap .header-widget-area .sxc-follow-buttons .sxc-follow-button{ 
+	.content-wrap .header-widget-area .sxc-follow-buttons .sxc-follow-button{
 		display: none !important;
 	}
 
 	button.iot-menu-left-open {
 		display: block;
 		position: absolute;
-    	left: 9px;
+		left: 9px;
 	}
 
 	.blog main article:not(:first-child):nth-child(2n+1),
@@ -865,7 +863,7 @@ nf-field .submit-container input[type="button"] {
 	.index-widget-area .srpw-li {
 		float: none;
 		width: 100%;
-		margin-right: 0;	
+		margin-right: 0;
 	}
 }
 
@@ -885,17 +883,9 @@ nf-field .submit-container input[type="button"] {
 	}
 }
 
-@media screen and ( max-width: 767px ) and ( orientation: landscape ) {
-
-}
-
-@media screen and ( max-width: 767px ) and ( orientation: portrait ) {
-	
-}
-
 @media screen and ( max-width: 767px ) {
 	html body .grid-container {
-  		max-width: 75rem;
+		max-width: 75rem;
 	}
 
 	#header-wrap {
@@ -915,26 +905,26 @@ nf-field .submit-container input[type="button"] {
 	}
 
 	.home .content-wrap {
-        padding-bottom: 56%;
-    }
+		padding-bottom: 56%;
+	}
 	
 	.bottom-header-wrapper {
 		background-size: 36%;
 	}
 
 	#primary {
-    	padding: 0px 15px;
-  	}
+		padding: 0 15px;
+	}
 
 	html #site-description b {
 		display: block;
-  		line-height: 10px;
+		line-height: 10px;
 	}
 
 	.home #page .site-content.grid-x {
 		margin: 0;
 		width: 100%;
-		margin-top: 0px;
+		margin-top: 0;
 	}
 
 	#about #picture {
@@ -963,9 +953,9 @@ nf-field .submit-container input[type="button"] {
 		max-width: 70rem;
 	}
 
-  	#primary {
-    	padding: 0px 15px;
-  	}
+	#primary {
+		padding: 0 15px;
+	}
 }
 
 @media screen and ( max-width: 575px ) {
@@ -979,11 +969,11 @@ nf-field .submit-container input[type="button"] {
 
 	.bottom-header-wrapper {
 		background-size: 60%;
-	}	
+	}
 }
 
 @media screen and (max-width: 480px) {
-    .home .content-wrap {
-        padding-bottom: 50%;
-    }
+	.home .content-wrap {
+		padding-bottom: 50%;
+	}
 }
